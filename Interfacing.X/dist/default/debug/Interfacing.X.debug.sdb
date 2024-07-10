@@ -1,0 +1,178 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4620 ]
+[d frameptr 4065 ]
+"40 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
+[e E2818 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"77
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"173
+[e E2832 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+"10 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+[e E2832 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+[e E2822 . `uc
+GPIO_PIN0 0
+GPIO_PIN1 1
+GPIO_PIN2 2
+GPIO_PIN3 3
+GPIO_PIN4 4
+GPIO_PIN5 5
+GPIO_PIN6 6
+GPIO_PIN7 7
+]
+[e E2818 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"35
+[v _main main `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"21 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
+[v _gpio_pin_direction_init gpio_pin_direction_init `(uc  1 e 1 0 ]
+"77
+[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+"149
+[v _gpio_pin_Initialization gpio_pin_Initialization `(uc  1 e 1 0 ]
+[s S39 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"10 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+[v _led_1 led_1 `S39  1 e 1 0 ]
+"18
+[v _led_2 led_2 `S39  1 e 1 0 ]
+"26
+[v _led_3 led_3 `S39  1 e 1 0 ]
+"34
+[v _ret ret `uc  1 e 1 0 ]
+"52 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+"189
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"360
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"535
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"677
+[v _PORTE PORTE `VEuc  1 e 1 @3972 ]
+"880
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"992
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1104
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"1216
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"1328
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"1380
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1602
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"1824
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2046
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2268
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"11 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
+[v _tris_registers tris_registers `[5]*.39VEuc  1 e 10 0 ]
+"12
+[v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
+"13
+[v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
+"35 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+[v _main main `(i  1 e 2 0 ]
+{
+"54
+} 0
+"149 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
+[v _gpio_pin_Initialization gpio_pin_Initialization `(uc  1 e 1 0 ]
+{
+"151
+[v gpio_pin_Initialization@ret ret `uc  1 a 1 9 ]
+[s S39 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"149
+[v gpio_pin_Initialization@_pin_config _pin_config `*.30CS39  1 p 1 7 ]
+"163
+} 0
+"77
+[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+{
+"79
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 6 ]
+[s S39 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"77
+[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS39  1 p 1 0 ]
+[v gpio_pin_write_logic@logic logic `E2814  1 p 1 1 ]
+"100
+} 0
+"21
+[v _gpio_pin_direction_init gpio_pin_direction_init `(uc  1 e 1 0 ]
+{
+"23
+[v gpio_pin_direction_init@ret ret `uc  1 a 1 5 ]
+[s S39 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"21
+[v gpio_pin_direction_init@_pin_config _pin_config `*.30CS39  1 p 1 0 ]
+"44
+} 0
