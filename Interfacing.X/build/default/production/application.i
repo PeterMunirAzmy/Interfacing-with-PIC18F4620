@@ -4794,9 +4794,6 @@ typedef struct
 STD_ReturnType ecu_button_init(button_config *_button_config);
 STD_ReturnType ecu_button_read_state(button_config *_button_config ,button_status *_button_status);
 # 13 "./application.h" 2
-# 24 "./application.h"
-void application_initializ(void);
-# 8 "application.c" 2
 
 # 1 "./ECU_layer/relay/relay.h" 1
 # 19 "./ECU_layer/relay/relay.h"
@@ -4818,10 +4815,68 @@ STD_ReturnType ecu_relay_initializ(const relay_config *_relay_config);
 STD_ReturnType ecu_relay_turn_on(const relay_config *_relay_config);
 STD_ReturnType ecu_relay_turn_off(const relay_config *_relay_config);
 STD_ReturnType ecu_relay_toggle(const relay_config *_relay_config);
-# 9 "application.c" 2
-# 22 "application.c"
-relay_config relay_1 = {.relay_port = PORTD_INDEX, .relay_pin = GPIO_PIN0, .relay_status = GPIO_LOW};
+# 14 "./application.h" 2
 
+# 1 "./ECU_layer/dc_motor/dc_motor.h" 1
+# 19 "./ECU_layer/dc_motor/dc_motor.h"
+typedef enum
+{
+    DC_MOTOR_STATE_OFF = 0,
+    DC_MOTOR_STATE_ON
+}dc_motor_status_t;
+
+typedef struct
+{
+    uint8 dc_motor_port : 4;
+    uint8 dc_motor_pin : 3;
+    uint8 dc_motor_status : 1;
+}dc_motor_pin_config;
+
+typedef struct
+{
+    dc_motor_pin_config dc_motor[2];
+}dc_motor_config;
+
+
+STD_ReturnType ecu_dc_motor_initializ(const dc_motor_config *_dc_motor_config);
+STD_ReturnType ecu_dc_motor_move_right(const dc_motor_config *_dc_motor_config);
+STD_ReturnType ecu_dc_motor_move_left(const dc_motor_config *_dc_motor_config);
+STD_ReturnType ecu_dc_motor_stop(const dc_motor_config *_dc_motor_config);
+# 15 "./application.h" 2
+
+# 1 "./ECU_layer/7-seg/7-seg.h" 1
+# 19 "./ECU_layer/7-seg/7-seg.h"
+typedef enum
+{
+    seg_pin0,
+    seg_pin1,
+    seg_pin2,
+    seg_pin3
+
+}seg_pins;
+
+typedef struct
+{
+    pin_config _seg_pin[4];
+}seg_config;
+
+
+STD_ReturnType seg_initialization(const seg_config *_seg_config);
+STD_ReturnType seg_write_number(const seg_config *_seg_config , uint8 number);
+# 16 "./application.h" 2
+# 27 "./application.h"
+void application_initializ(void);
+# 8 "application.c" 2
+
+
+
+seg_config seg1 =
+{
+    ._seg_pin[seg_pin0].port = PORTC_INDEX, ._seg_pin[seg_pin0].pin = GPIO_PIN0, ._seg_pin[seg_pin0].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin0].logic = GPIO_LOW,
+    ._seg_pin[seg_pin1].port = PORTC_INDEX, ._seg_pin[seg_pin1].pin = GPIO_PIN1, ._seg_pin[seg_pin1].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin1].logic = GPIO_LOW,
+    ._seg_pin[seg_pin2].port = PORTC_INDEX, ._seg_pin[seg_pin2].pin = GPIO_PIN2, ._seg_pin[seg_pin2].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin2].logic = GPIO_LOW,
+    ._seg_pin[seg_pin3].port = PORTC_INDEX, ._seg_pin[seg_pin3].pin = GPIO_PIN3, ._seg_pin[seg_pin3].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin3].logic = GPIO_LOW,
+};
 STD_ReturnType ret = (STD_ReturnType)0x00;
 
 int main()
@@ -4830,11 +4885,7 @@ int main()
 
     while(1)
     {
-# 53 "application.c"
-        ret = ecu_relay_turn_on(&relay_1);
-
-
-
+        ret = seg_write_number(&seg1 , 5);
     }
 
 
@@ -4843,6 +4894,6 @@ int main()
 
 void application_initializ(void)
 {
-# 75 "application.c"
-    ret = ecu_relay_initializ(&relay_1);
+    ret = seg_initialization(&seg1);
+
 }

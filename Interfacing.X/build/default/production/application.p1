@@ -1,26 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"26 ./ECU_layer/relay/relay.h
-[; ;./ECU_layer/relay/relay.h: 26: {
-[s S275 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S275 . relay_port relay_pin relay_status ]
-"22 application.c
-[; ;application.c: 22: relay_config relay_1 = {.relay_port = PORTD_INDEX, .relay_pin = GPIO_PIN0, .relay_status = GPIO_LOW};
+"81 ./ECU_layer/7-seg/../../MCAL_layer/GPIO/gpio.h
+[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S272 . port pin direction logic ]
+"29 ./ECU_layer/7-seg/7-seg.h
+[; ;./ECU_layer/7-seg/7-seg.h: 29: {
+[s S278 `S272 -> 4 `i ]
+[n S278 . _seg_pin ]
+"11 application.c
+[; ;application.c: 11: seg_config seg1 =
 [c E2832 0 1 2 3 4 .. ]
 [n E2832 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E2822 0 1 2 3 4 5 6 7 .. ]
 [n E2822 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
+[c E2818 0 1 .. ]
+[n E2818 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [c E2814 0 1 .. ]
 [n E2814 . GPIO_LOW GPIO_HIGH  ]
 [p mainexit ]
-"24 ./application.h
-[; ;./application.h: 24: void application_initializ(void);
+"27 ./application.h
+[; ;./application.h: 27: void application_initializ(void);
 [v _application_initializ `(v ~T0 @X0 0 ef ]
-"34 ./ECU_layer/relay/relay.h
-[; ;./ECU_layer/relay/relay.h: 34: STD_ReturnType ecu_relay_turn_on(const relay_config *_relay_config);
-[v _ecu_relay_turn_on `(uc ~T0 @X0 0 ef1`*CS275 ]
-"33
-[; ;./ECU_layer/relay/relay.h: 33: STD_ReturnType ecu_relay_initializ(const relay_config *_relay_config);
-[v _ecu_relay_initializ `(uc ~T0 @X0 0 ef1`*CS275 ]
+"35 ./ECU_layer/7-seg/7-seg.h
+[; ;./ECU_layer/7-seg/7-seg.h: 35: STD_ReturnType seg_write_number(const seg_config *_seg_config , uint8 number);
+[v _seg_write_number `(uc ~T0 @X0 0 ef2`*CS278`uc ]
+"34
+[; ;./ECU_layer/7-seg/7-seg.h: 34: STD_ReturnType seg_initialization(const seg_config *_seg_config);
+[v _seg_initialization `(uc ~T0 @X0 0 ef1`*CS278 ]
 "54 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -432,71 +437,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"22 application.c
-[; ;application.c: 22: relay_config relay_1 = {.relay_port = PORTD_INDEX, .relay_pin = GPIO_PIN0, .relay_status = GPIO_LOW};
-[v _relay_1 `S275 ~T0 @X0 1 e ]
-[i _relay_1
+"11 application.c
+[; ;application.c: 11: seg_config seg1 =
+[v _seg1 `S278 ~T0 @X0 1 e ]
+[i _seg1
 :U ..
 :U ..
--> . `E2832 3 `uc
+:U ..
+:U ..
+-> . `E2832 2 `uc
 -> . `E2822 0 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 1 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 2 `uc
+-> . `E2818 0 `uc
+-> . `E2814 0 `uc
+..
+:U ..
+-> . `E2832 2 `uc
+-> . `E2822 3 `uc
+-> . `E2818 0 `uc
 -> . `E2814 0 `uc
 ..
 ..
+..
+..
 ]
-"24
-[; ;application.c: 24: STD_ReturnType ret = (STD_ReturnType)0x00;
+"18
+[; ;application.c: 18: STD_ReturnType ret = (STD_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
 [i _ret
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"26
-[; ;application.c: 26: int main()
+"20
+[; ;application.c: 20: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"27
-[; ;application.c: 27: {
+"21
+[; ;application.c: 21: {
 {
 [e :U _main ]
 [f ]
-"28
-[; ;application.c: 28:     application_initializ();
+"22
+[; ;application.c: 22:     application_initializ();
 [e ( _application_initializ ..  ]
-"30
-[; ;application.c: 30:     while(1)
-[e :U 278 ]
-"31
-[; ;application.c: 31:     {
+"24
+[; ;application.c: 24:     while(1)
+[e :U 281 ]
+"25
+[; ;application.c: 25:     {
 {
-"53
-[; ;application.c: 53:         ret = ecu_relay_turn_on(&relay_1);
-[e = _ret ( _ecu_relay_turn_on (1 -> &U _relay_1 `*CS275 ]
-"57
-[; ;application.c: 57:     }
+"26
+[; ;application.c: 26:         ret = seg_write_number(&seg1 , 5);
+[e = _ret ( _seg_write_number (2 , -> &U _seg1 `*CS278 -> -> 5 `i `uc ]
+"27
+[; ;application.c: 27:     }
 }
-[e :U 277 ]
-[e $U 278  ]
-[e :U 279 ]
-"60
-[; ;application.c: 60:     return (0);
+[e :U 280 ]
+[e $U 281  ]
+[e :U 282 ]
+"30
+[; ;application.c: 30:     return (0);
 [e ) -> 0 `i ]
-[e $UE 276  ]
-"61
-[; ;application.c: 61: }
-[e :UE 276 ]
+[e $UE 279  ]
+"31
+[; ;application.c: 31: }
+[e :UE 279 ]
 }
-"63
-[; ;application.c: 63: void application_initializ(void)
+"33
+[; ;application.c: 33: void application_initializ(void)
 [v _application_initializ `(v ~T0 @X0 1 ef ]
-"64
-[; ;application.c: 64: {
+"34
+[; ;application.c: 34: {
 {
 [e :U _application_initializ ]
 [f ]
-"75
-[; ;application.c: 75:     ret = ecu_relay_initializ(&relay_1);
-[e = _ret ( _ecu_relay_initializ (1 -> &U _relay_1 `*CS275 ]
-"76
-[; ;application.c: 76: }
-[e :UE 280 ]
+"35
+[; ;application.c: 35:     ret = seg_initialization(&seg1);
+[e = _ret ( _seg_initialization (1 -> &U _seg1 `*CS278 ]
+"37
+[; ;application.c: 37: }
+[e :UE 283 ]
 }

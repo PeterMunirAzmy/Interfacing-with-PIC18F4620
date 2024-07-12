@@ -11,6 +11,9 @@
 /*Section : Includes*/
 #include "ECU_layer/led/ecu_led.h"
 #include "ECU_layer/button/button.h"
+#include "ECU_layer/relay/relay.h"
+#include "ECU_layer/dc_motor/dc_motor.h"
+#include "ECU_layer/7-seg/7-seg.h"
 
 
 

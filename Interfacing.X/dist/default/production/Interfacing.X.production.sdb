@@ -17,12 +17,32 @@ BUTTON_ACTIVE_HIGHT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
+"26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/dc_motor/dc_motor.c
+[e E2818 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"81
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "21 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/led/ecu_led.c
 [e E2818 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "52
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"27 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/relay/relay.c
+[e E2818 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"64
 [e E2814 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
@@ -45,7 +65,7 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"22 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"11 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [e E2832 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -63,23 +83,29 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-[e E2814 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"27 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/relay/relay.c
 [e E2818 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
-"64
 [e E2814 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
+[e E2874 . `uc
+seg_pin0 0
+seg_pin1 1
+seg_pin2 2
+seg_pin3 3
+]
+"51
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"20 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [v _main main `(i  1 e 2 0 ]
-"63
+"33
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -105,10 +131,10 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"16 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/relay/relay.c
-[v _ecu_relay_initializ ecu_relay_initializ `(uc  1 e 1 0 ]
-"46
-[v _ecu_relay_turn_on ecu_relay_turn_on `(uc  1 e 1 0 ]
+"15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
+[v _seg_initialization seg_initialization `(uc  1 e 1 0 ]
+"40
+[v _seg_write_number seg_write_number `(uc  1 e 1 0 ]
 "21 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
 [v _gpio_pin_direction_init gpio_pin_direction_init `(uc  1 e 1 0 ]
 "76
@@ -119,13 +145,15 @@ GPIO_HIGH 1
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
 "148
 [v _gpio_pin_Initialization gpio_pin_Initialization `(uc  1 e 1 0 ]
-[s S270 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
 ]
-"22 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
-[v _relay_1 relay_1 `S270  1 e 1 0 ]
-"24
+"11 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+[s S484 . 4 `[4]S24 1 _seg_pin 4 0 ]
+[v _seg1 seg1 `S484  1 e 4 0 ]
+"18
 [v _ret ret `uc  1 e 1 0 ]
 "52 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -163,59 +191,46 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "13
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"20 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"61
+"31
 } 0
-"46 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/relay/relay.c
-[v _ecu_relay_turn_on ecu_relay_turn_on `(uc  1 e 1 0 ]
+"40 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
+[v _seg_write_number seg_write_number `(uc  1 e 1 0 ]
 {
+"42
+[v seg_write_number@ret ret `uc  1 a 1 10 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"56
-[v ecu_relay_turn_on@relay_init relay_init `S24  1 a 1 11 ]
-"48
-[v ecu_relay_turn_on@ret ret `uc  1 a 1 10 ]
-[s S270 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"46
-[v ecu_relay_turn_on@_relay_config _relay_config `*.30CS270  1 p 1 8 ]
-"55
-[v ecu_relay_turn_on@F2899 F2899 `S24  1 s 1 F2899 ]
-"69
+"40
+[s S484 . 4 `[4]S24 1 _seg_pin 4 0 ]
+[v seg_write_number@_seg_config _seg_config `*.30CS484  1 p 1 8 ]
+[v seg_write_number@number number `uc  1 p 1 9 ]
+"57
 } 0
-"63 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"33 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
 {
-"76
+"37
 } 0
-"16 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/relay/relay.c
-[v _ecu_relay_initializ ecu_relay_initializ `(uc  1 e 1 0 ]
+"15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
+[v _seg_initialization seg_initialization `(uc  1 e 1 0 ]
 {
+"17
+[v seg_initialization@ret ret `uc  1 a 1 12 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"27
-[v ecu_relay_initializ@relay_init relay_init `S24  1 a 1 14 ]
-"18
-[v ecu_relay_initializ@ret ret `uc  1 a 1 13 ]
-[s S270 . 1 `uc 1 relay_port 1 0 :4:0 
-`uc 1 relay_pin 1 0 :3:4 
-`uc 1 relay_status 1 0 :1:7 
-]
-"16
-[v ecu_relay_initializ@_relay_config _relay_config `*.30CS270  1 p 1 11 ]
-"26
-[v ecu_relay_initializ@F2894 F2894 `S24  1 s 1 F2894 ]
-"39
+"15
+[s S484 . 4 `[4]S24 1 _seg_pin 4 0 ]
+[v seg_initialization@_seg_config _seg_config `*.30CS484  1 p 1 11 ]
+"32
 } 0
 "148 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
 [v _gpio_pin_Initialization gpio_pin_Initialization `(uc  1 e 1 0 ]

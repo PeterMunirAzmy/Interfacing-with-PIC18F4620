@@ -1,29 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"77 ./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h
-[; ;./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h: 77: {
-[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S272 . port pin direction logic ]
-"10 application.c
-[; ;application.c: 10: pin_config led_1 =
+"26 ./ECU_layer/relay/relay.h
+[; ;./ECU_layer/relay/relay.h: 26: {
+[s S275 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S275 . relay_port relay_pin relay_status ]
+"22 application.c
+[; ;application.c: 22: relay_config relay_1 = {.relay_port = PORTD_INDEX, .relay_pin = GPIO_PIN0, .relay_status = GPIO_LOW};
 [c E2832 0 1 2 3 4 .. ]
 [n E2832 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E2822 0 1 2 3 4 5 6 7 .. ]
 [n E2822 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
-[c E2818 0 1 .. ]
-[n E2818 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [c E2814 0 1 .. ]
 [n E2814 . GPIO_LOW GPIO_HIGH  ]
 [p mainexit ]
-"91 ./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h
-[; ;./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h: 91: STD_ReturnType gpio_pin_Initialization(const pin_config *_pin_config);
-[v _gpio_pin_Initialization `(uc ~T0 @X0 0 ef1`*CS272 ]
-[v F2784 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
-[v __delay `JF2784 ~T0 @X0 0 e ]
-[p i __delay ]
-"88 ./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h
-[; ;./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h: 88: STD_ReturnType gpio_pin_write_logic(const pin_config *_pin_config, logic_t logic);
-[v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS272`E2814 ]
+"24 ./application.h
+[; ;./application.h: 24: void application_initializ(void);
+[v _application_initializ `(v ~T0 @X0 0 ef ]
+"34 ./ECU_layer/relay/relay.h
+[; ;./ECU_layer/relay/relay.h: 34: STD_ReturnType ecu_relay_turn_on(const relay_config *_relay_config);
+[v _ecu_relay_turn_on `(uc ~T0 @X0 0 ef1`*CS275 ]
+"33
+[; ;./ECU_layer/relay/relay.h: 33: STD_ReturnType ecu_relay_initializ(const relay_config *_relay_config);
+[v _ecu_relay_initializ `(uc ~T0 @X0 0 ef1`*CS275 ]
 "54 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -435,98 +432,71 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"10 application.c
-[; ;application.c: 10: pin_config led_1 =
-[v _led_1 `S272 ~T0 @X0 1 e ]
-[i _led_1
+"22 application.c
+[; ;application.c: 22: relay_config relay_1 = {.relay_port = PORTD_INDEX, .relay_pin = GPIO_PIN0, .relay_status = GPIO_LOW};
+[v _relay_1 `S275 ~T0 @X0 1 e ]
+[i _relay_1
 :U ..
 :U ..
--> . `E2832 2 `uc
+-> . `E2832 3 `uc
 -> . `E2822 0 `uc
--> . `E2818 0 `uc
 -> . `E2814 0 `uc
 ..
 ..
 ]
-"18
-[; ;application.c: 18: pin_config led_2 =
-[v _led_2 `S272 ~T0 @X0 1 e ]
-[i _led_2
-:U ..
-:U ..
--> . `E2832 2 `uc
--> . `E2822 1 `uc
--> . `E2818 0 `uc
--> . `E2814 0 `uc
-..
-..
-]
-"26
-[; ;application.c: 26: pin_config led_3 =
-[v _led_3 `S272 ~T0 @X0 1 e ]
-[i _led_3
-:U ..
-:U ..
--> . `E2832 2 `uc
--> . `E2822 2 `uc
--> . `E2818 0 `uc
--> . `E2814 0 `uc
-..
-..
-]
-"34
-[; ;application.c: 34: STD_ReturnType ret = (STD_ReturnType)0x00;
+"24
+[; ;application.c: 24: STD_ReturnType ret = (STD_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
 [i _ret
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"35
-[; ;application.c: 35: int main()
+"26
+[; ;application.c: 26: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"36
-[; ;application.c: 36: {
+"27
+[; ;application.c: 27: {
 {
 [e :U _main ]
 [f ]
-"37
-[; ;application.c: 37:     ret = gpio_pin_Initialization(&led_1);
-[e = _ret ( _gpio_pin_Initialization (1 -> &U _led_1 `*CS272 ]
-"38
-[; ;application.c: 38:     ret = gpio_pin_Initialization(&led_2);
-[e = _ret ( _gpio_pin_Initialization (1 -> &U _led_2 `*CS272 ]
-"39
-[; ;application.c: 39:     ret = gpio_pin_Initialization(&led_3);
-[e = _ret ( _gpio_pin_Initialization (1 -> &U _led_3 `*CS272 ]
-"41
-[; ;application.c: 41:     _delay(1000);
-[e ( __delay (1 -> -> -> 1000 `i `l `ul ]
-"43
-[; ;application.c: 43:     ret = gpio_pin_write_logic(&led_1 , GPIO_HIGH);
-[e = _ret ( _gpio_pin_write_logic (2 , -> &U _led_1 `*CS272 . `E2814 1 ]
-"44
-[; ;application.c: 44:     ret = gpio_pin_write_logic(&led_2 , GPIO_HIGH);
-[e = _ret ( _gpio_pin_write_logic (2 , -> &U _led_2 `*CS272 . `E2814 1 ]
-"45
-[; ;application.c: 45:     ret = gpio_pin_write_logic(&led_3 , GPIO_HIGH);
-[e = _ret ( _gpio_pin_write_logic (2 , -> &U _led_3 `*CS272 . `E2814 1 ]
-"47
-[; ;application.c: 47:     while(1)
-[e :U 275 ]
-"48
-[; ;application.c: 48:     {
+"28
+[; ;application.c: 28:     application_initializ();
+[e ( _application_initializ ..  ]
+"30
+[; ;application.c: 30:     while(1)
+[e :U 278 ]
+"31
+[; ;application.c: 31:     {
 {
-"50
-[; ;application.c: 50:     }
-}
-[e :U 274 ]
-[e $U 275  ]
-[e :U 276 ]
 "53
-[; ;application.c: 53:     return (0);
+[; ;application.c: 53:         ret = ecu_relay_turn_on(&relay_1);
+[e = _ret ( _ecu_relay_turn_on (1 -> &U _relay_1 `*CS275 ]
+"57
+[; ;application.c: 57:     }
+}
+[e :U 277 ]
+[e $U 278  ]
+[e :U 279 ]
+"60
+[; ;application.c: 60:     return (0);
 [e ) -> 0 `i ]
-[e $UE 273  ]
-"54
-[; ;application.c: 54: }
-[e :UE 273 ]
+[e $UE 276  ]
+"61
+[; ;application.c: 61: }
+[e :UE 276 ]
+}
+"63
+[; ;application.c: 63: void application_initializ(void)
+[v _application_initializ `(v ~T0 @X0 1 ef ]
+"64
+[; ;application.c: 64: {
+{
+[e :U _application_initializ ]
+[f ]
+"75
+[; ;application.c: 75:     ret = ecu_relay_initializ(&relay_1);
+[e = _ret ( _ecu_relay_initializ (1 -> &U _relay_1 `*CS275 ]
+"76
+[; ;application.c: 76: }
+[e :UE 280 ]
 }

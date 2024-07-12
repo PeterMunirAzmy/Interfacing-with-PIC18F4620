@@ -5,8 +5,14 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ECU_layer" displayName="ECU_layer" projectFiles="true">
+        <logicalFolder name="7-seg" displayName="7-seg" projectFiles="true">
+          <itemPath>ECU_layer/7-seg/7-seg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="button" displayName="button" projectFiles="true">
           <itemPath>ECU_layer/button/button.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="dc_motor" displayName="dc_motor" projectFiles="true">
+          <itemPath>ECU_layer/dc_motor/dc_motor.h</itemPath>
         </logicalFolder>
         <logicalFolder name="led" displayName="led" projectFiles="true">
           <itemPath>ECU_layer/led/ecu_led.h</itemPath>
@@ -40,8 +46,14 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ECU_layer" displayName="ECU_layer" projectFiles="true">
+        <logicalFolder name="7-seg" displayName="7-seg" projectFiles="true">
+          <itemPath>ECU_layer/7-seg/7-seg.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="button" displayName="button" projectFiles="true">
           <itemPath>ECU_layer/button/button.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="dc_motor" displayName="dc_motor" projectFiles="true">
+          <itemPath>ECU_layer/dc_motor/dc_motor.c</itemPath>
         </logicalFolder>
         <logicalFolder name="led" displayName="led" projectFiles="true">
           <itemPath>ECU_layer/led/ecu_led.c</itemPath>
