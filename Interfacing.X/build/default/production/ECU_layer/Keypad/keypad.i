@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "ECU_layer/Keypad/keypad.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
+# 1 "ECU_layer/Keypad/keypad.c" 2
 
 
 
@@ -14,12 +14,10 @@
 
 
 
-# 1 "./application.h" 1
-# 12 "./application.h"
-# 1 "./ECU_layer/led/ecu_led.h" 1
-# 12 "./ECU_layer/led/ecu_led.h"
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 1
-# 14 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h"
+# 1 "ECU_layer/Keypad/keypad.h" 1
+# 12 "ECU_layer/Keypad/keypad.h"
+# 1 "ECU_layer/Keypad/../../MCAL_layer/GPIO/gpio.h" 1
+# 14 "ECU_layer/Keypad/../../MCAL_layer/GPIO/gpio.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4502,12 +4500,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 14 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 2
+# 14 "ECU_layer/Keypad/../../MCAL_layer/GPIO/gpio.h" 2
 
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h" 1
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h"
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 1
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_libraries.h"
+# 1 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_types.h" 1
+# 12 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_types.h"
+# 1 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 1
+# 12 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4660,12 +4658,12 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 2
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
+# 12 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 2
+# 12 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
 
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../compiler.h" 1
-# 13 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
-# 34 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h"
+# 1 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../compiler.h" 1
+# 13 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
+# 34 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4675,11 +4673,11 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 STD_ReturnType;
-# 15 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 2
+# 15 "ECU_layer/Keypad/../../MCAL_layer/GPIO/gpio.h" 2
 
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../device_config.h" 1
-# 16 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 2
-# 46 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h"
+# 1 "ECU_layer/Keypad/../../MCAL_layer/GPIO/../device_config.h" 1
+# 16 "ECU_layer/Keypad/../../MCAL_layer/GPIO/gpio.h" 2
+# 46 "ECU_layer/Keypad/../../MCAL_layer/GPIO/gpio.h"
 typedef enum
 {
     GPIO_LOW = 0,
@@ -4736,140 +4734,8 @@ STD_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 12 "./ECU_layer/led/ecu_led.h" 2
-
-# 1 "./ECU_layer/led/ecu_led_cfg.h" 1
-# 13 "./ECU_layer/led/ecu_led.h" 2
-
-
-
-
-
-
-
-typedef enum
-{
-    LED_OFF,
-    LED_ON
-
-}led_status;
-
-typedef struct
-{
-    uint8 port_name :4;
-    uint8 pin_number :3;
-    uint8 led_status :1;
-}led_config;
-
-
-STD_ReturnType ecu_led_initializ(const led_config *_led_config);
-STD_ReturnType ecu_led_turn_on(const led_config *_led_config);
-STD_ReturnType ecu_led_turn_off(const led_config *_led_config);
-STD_ReturnType ecu_led_toggle(const led_config *_led_config);
-# 12 "./application.h" 2
-
-# 1 "./ECU_layer/button/button.h" 1
-# 19 "./ECU_layer/button/button.h"
-typedef enum
-{
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-}button_status;
-
-typedef enum
-{
-    BUTTON_ACTIVE_LOW,
-    BUTTON_ACTIVE_HIGHT
-}button_activ;
-
-typedef struct
-{
-    pin_config button_pin;
-    button_status _button_status;
-    button_activ _button_activ;
-
-}button_config;
-
-
-STD_ReturnType ecu_button_init(button_config *_button_config);
-STD_ReturnType ecu_button_read_state(button_config *_button_config ,button_status *_button_status);
-# 13 "./application.h" 2
-
-# 1 "./ECU_layer/relay/relay.h" 1
-# 19 "./ECU_layer/relay/relay.h"
-typedef enum
-{
-    RELAY_STATE_OFF = 0,
-    RELAY_STATE_ON
-}relay_status_t;
-
-typedef struct
-{
-    uint8 relay_port : 4;
-    uint8 relay_pin : 3;
-    uint8 relay_status : 1;
-}relay_config;
-
-
-STD_ReturnType ecu_relay_initializ(const relay_config *_relay_config);
-STD_ReturnType ecu_relay_turn_on(const relay_config *_relay_config);
-STD_ReturnType ecu_relay_turn_off(const relay_config *_relay_config);
-STD_ReturnType ecu_relay_toggle(const relay_config *_relay_config);
-# 14 "./application.h" 2
-
-# 1 "./ECU_layer/dc_motor/dc_motor.h" 1
-# 19 "./ECU_layer/dc_motor/dc_motor.h"
-typedef enum
-{
-    DC_MOTOR_STATE_OFF = 0,
-    DC_MOTOR_STATE_ON
-}dc_motor_status_t;
-
-typedef struct
-{
-    uint8 dc_motor_port : 4;
-    uint8 dc_motor_pin : 3;
-    uint8 dc_motor_status : 1;
-}dc_motor_pin_config;
-
-typedef struct
-{
-    dc_motor_pin_config dc_motor[2];
-}dc_motor_config;
-
-
-STD_ReturnType ecu_dc_motor_initializ(const dc_motor_config *_dc_motor_config);
-STD_ReturnType ecu_dc_motor_move_right(const dc_motor_config *_dc_motor_config);
-STD_ReturnType ecu_dc_motor_move_left(const dc_motor_config *_dc_motor_config);
-STD_ReturnType ecu_dc_motor_stop(const dc_motor_config *_dc_motor_config);
-# 15 "./application.h" 2
-
-# 1 "./ECU_layer/7-seg/7-seg.h" 1
-# 19 "./ECU_layer/7-seg/7-seg.h"
-typedef enum
-{
-    seg_pin0,
-    seg_pin1,
-    seg_pin2,
-    seg_pin3
-
-}seg_pins;
-
-typedef struct
-{
-    pin_config _seg_pin[4];
-}seg_config;
-
-
-STD_ReturnType seg_initialization(const seg_config *_seg_config);
-STD_ReturnType seg_write_number(const seg_config *_seg_config , uint8 number);
-# 16 "./application.h" 2
-# 27 "./application.h"
-void application_initializ(void);
-# 8 "application.c" 2
-
-# 1 "./ECU_layer/Keypad/keypad.h" 1
-# 21 "./ECU_layer/Keypad/keypad.h"
+# 12 "ECU_layer/Keypad/keypad.h" 2
+# 21 "ECU_layer/Keypad/keypad.h"
 typedef struct
 {
     pin_config keypad_rows[4];
@@ -4879,40 +4745,82 @@ typedef struct
 
 STD_ReturnType keypad_initialize(const keypad_config *_keypad_config);
 STD_ReturnType keypad_get_value(const keypad_config *_keypad_config , uint8 *value);
-# 9 "application.c" 2
+# 8 "ECU_layer/Keypad/keypad.c" 2
 
 
-uint8 keypad_value = 0;
-
-keypad_config keypad_1 =
-{
-    .keypad_rows[0].port=PORTC_INDEX, .keypad_rows[0].pin=GPIO_PIN0,.keypad_rows[0].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[0].logic=GPIO_LOW ,
-    .keypad_rows[1].port=PORTC_INDEX, .keypad_rows[1].pin=GPIO_PIN1,.keypad_rows[1].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[1].logic=GPIO_LOW ,
-    .keypad_rows[2].port=PORTC_INDEX, .keypad_rows[2].pin=GPIO_PIN2,.keypad_rows[2].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[2].logic=GPIO_LOW ,
-    .keypad_rows[3].port=PORTC_INDEX, .keypad_rows[3].pin=GPIO_PIN3,.keypad_rows[3].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[3].logic=GPIO_LOW ,
-
-    .keypad_colums[0].port=PORTC_INDEX, .keypad_colums[0].pin=GPIO_PIN4,.keypad_colums[0].direction=GPIO_DIRECTION_INPUT, .keypad_colums[0].logic=GPIO_LOW,
-    .keypad_colums[1].port=PORTC_INDEX, .keypad_colums[1].pin=GPIO_PIN5,.keypad_colums[1].direction=GPIO_DIRECTION_INPUT, .keypad_colums[1].logic=GPIO_LOW,
-    .keypad_colums[2].port=PORTC_INDEX, .keypad_colums[2].pin=GPIO_PIN6,.keypad_colums[2].direction=GPIO_DIRECTION_INPUT, .keypad_colums[2].logic=GPIO_LOW,
-    .keypad_colums[3].port=PORTC_INDEX, .keypad_colums[3].pin=GPIO_PIN7,.keypad_colums[3].direction=GPIO_DIRECTION_INPUT, .keypad_colums[3].logic=GPIO_LOW
+const uint8 keypad_sampels[4][4] = {
+    {'7' ,'8' ,'9' ,'/'},
+    {'4' ,'5' ,'6' ,'*'},
+    {'1' ,'2' ,'3' ,'-'},
+    {'#' ,'0' ,'=' ,'+'}
 };
-STD_ReturnType ret = (STD_ReturnType)0x00;
 
-int main()
+
+
+
+
+
+STD_ReturnType keypad_initialize(const keypad_config *_keypad_config)
 {
-    application_initializ();
+    STD_ReturnType ret = (STD_ReturnType)0x01;
 
-    while(1)
+    if (((void*)0) == _keypad_config)
     {
-        ret = keypad_get_value(&keypad_1 , &keypad_value);
+        ret = (STD_ReturnType)0x00;
     }
+    else
+    {
+        for(int i = 0 ; i < 4 ; i++)
+        {
+        ret = gpio_pin_Initialization(&(_keypad_config->keypad_rows[i]));
+        }
 
+        for(int j = 0 ; j < 4 ; j++)
+        {
+        ret = gpio_pin_Initialization(&(_keypad_config->keypad_colums[j]));
+        }
 
-    return (0);
+    }
+    return ret;
 }
 
-void application_initializ(void)
-{
-    ret = keypad_initialize(&keypad_1);
 
+
+
+
+
+
+STD_ReturnType keypad_get_value(const keypad_config *_keypad_config , uint8 *value)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    uint8 colum_logic = 0;
+
+    if ((((void*)0) == _keypad_config) || (((void*)0) == value))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        for(int i = 0 ; i < 4 ; i++)
+        {
+            for(int j = 0 ; j < 4 ; j++)
+            {
+                ret = gpio_pin_write_logic(&(_keypad_config->keypad_rows[j]) , GPIO_LOW);
+            }
+
+            ret = gpio_pin_write_logic(&(_keypad_config->keypad_rows[i]) , GPIO_HIGH);
+
+            for(int k=0 ; k < 4 ; k++)
+            {
+                ret = gpio_pin_read_logic(&(_keypad_config->keypad_colums[k]) , &colum_logic);
+
+                if(GPIO_HIGH == colum_logic)
+                {
+                    *value = keypad_sampels[i][k];
+                }
+            }
+        }
+
+    }
+    return ret;
 }

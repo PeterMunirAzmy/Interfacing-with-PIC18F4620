@@ -3,6 +3,18 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
+"26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
+[e E2874 . `uc
+seg_pin0 0
+seg_pin1 1
+seg_pin2 2
+seg_pin3 3
+]
+"51
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/button/button.c
 [e E2874 . `uc
 BUTTON_RELEASED 0
@@ -23,6 +35,11 @@ GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "81
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"67 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
 [e E2814 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
@@ -65,7 +82,7 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"11 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"13 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [e E2832 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -91,21 +108,9 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[e E2874 . `uc
-seg_pin0 0
-seg_pin1 1
-seg_pin2 2
-seg_pin3 3
-]
-"51
-[e E2814 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"20 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"27
 [v _main main `(i  1 e 2 0 ]
-"33
+"40
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -131,10 +136,10 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[v _seg_initialization seg_initialization `(uc  1 e 1 0 ]
-"40
-[v _seg_write_number seg_write_number `(uc  1 e 1 0 ]
+"22 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
+[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
+"52
+[v _keypad_get_value keypad_get_value `(uc  1 e 1 0 ]
 "21 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
 [v _gpio_pin_direction_init gpio_pin_direction_init `(uc  1 e 1 0 ]
 "76
@@ -145,16 +150,20 @@ GPIO_HIGH 1
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
 "148
 [v _gpio_pin_Initialization gpio_pin_Initialization `(uc  1 e 1 0 ]
+"11 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+[v _keypad_value keypad_value `uc  1 e 1 0 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"11 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
-[s S484 . 4 `[4]S24 1 _seg_pin 4 0 ]
-[v _seg1 seg1 `S484  1 e 4 0 ]
-"18
+"13
+[s S243 . 8 `[4]S24 1 keypad_rows 4 0 `[4]S24 1 keypad_colums 4 4 ]
+[v _keypad_1 keypad_1 `S243  1 e 8 0 ]
+"25
 [v _ret ret `uc  1 e 1 0 ]
+"10 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
+[v _keypad_sampels keypad_sampels `C[4][4]uc  1 e 16 0 ]
 "52 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -191,46 +200,73 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "13
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"20 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"27 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"31
+"38
 } 0
-"40 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[v _seg_write_number seg_write_number `(uc  1 e 1 0 ]
+"52 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
+[v _keypad_get_value keypad_get_value `(uc  1 e 1 0 ]
 {
-"42
-[v seg_write_number@ret ret `uc  1 a 1 10 ]
+"72
+[v keypad_get_value@k k `i  1 a 2 17 ]
+"65
+[v keypad_get_value@j j `i  1 a 2 13 ]
+"63
+[v keypad_get_value@i i `i  1 a 2 15 ]
+"55
+[v keypad_get_value@colum_logic colum_logic `uc  1 a 1 12 ]
+"54
+[v keypad_get_value@ret ret `uc  1 a 1 11 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"40
-[s S484 . 4 `[4]S24 1 _seg_pin 4 0 ]
-[v seg_write_number@_seg_config _seg_config `*.30CS484  1 p 1 8 ]
-[v seg_write_number@number number `uc  1 p 1 9 ]
-"57
+"52
+[s S243 . 8 `[4]S24 1 keypad_rows 4 0 `[4]S24 1 keypad_colums 4 4 ]
+[v keypad_get_value@_keypad_config _keypad_config `*.30CS243  1 p 1 8 ]
+[v keypad_get_value@value value `*.30uc  1 p 1 9 ]
+"85
 } 0
-"33 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"109 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
+[v _gpio_pin_read_logic gpio_pin_read_logic `(uc  1 e 1 0 ]
+{
+"111
+[v gpio_pin_read_logic@ret ret `uc  1 a 1 6 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"109
+[v gpio_pin_read_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
+[v gpio_pin_read_logic@logic logic `*.30E2814  1 p 1 1 ]
+"122
+} 0
+"40 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
 {
-"37
+"44
 } 0
-"15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[v _seg_initialization seg_initialization `(uc  1 e 1 0 ]
+"22 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
+[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
 {
-"17
-[v seg_initialization@ret ret `uc  1 a 1 12 ]
+"37
+[v keypad_initialize@j j `i  1 a 2 15 ]
+"32
+[v keypad_initialize@i i `i  1 a 2 13 ]
+"24
+[v keypad_initialize@ret ret `uc  1 a 1 12 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"15
-[s S484 . 4 `[4]S24 1 _seg_pin 4 0 ]
-[v seg_initialization@_seg_config _seg_config `*.30CS484  1 p 1 11 ]
-"32
+"22
+[s S243 . 8 `[4]S24 1 keypad_rows 4 0 `[4]S24 1 keypad_colums 4 4 ]
+[v keypad_initialize@_keypad_config _keypad_config `*.30CS243  1 p 1 11 ]
+"44
 } 0
 "148 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
 [v _gpio_pin_Initialization gpio_pin_Initialization `(uc  1 e 1 0 ]

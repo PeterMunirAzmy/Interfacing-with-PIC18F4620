@@ -6,14 +6,21 @@
  */
 
 #include "application.h"
+#include "ECU_layer/Keypad/keypad.h"
 
+uint8 keypad_value = 0;
 
-seg_config seg1 =
+keypad_config keypad_1 =
 {
-    ._seg_pin[seg_pin0].port = PORTC_INDEX, ._seg_pin[seg_pin0].pin = GPIO_PIN0, ._seg_pin[seg_pin0].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin0].logic = GPIO_LOW,
-    ._seg_pin[seg_pin1].port = PORTC_INDEX, ._seg_pin[seg_pin1].pin = GPIO_PIN1, ._seg_pin[seg_pin1].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin1].logic = GPIO_LOW,
-    ._seg_pin[seg_pin2].port = PORTC_INDEX, ._seg_pin[seg_pin2].pin = GPIO_PIN2, ._seg_pin[seg_pin2].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin2].logic = GPIO_LOW,
-    ._seg_pin[seg_pin3].port = PORTC_INDEX, ._seg_pin[seg_pin3].pin = GPIO_PIN3, ._seg_pin[seg_pin3].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin3].logic = GPIO_LOW,
+    .keypad_rows[0].port=PORTC_INDEX, .keypad_rows[0].pin=GPIO_PIN0,.keypad_rows[0].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[0].logic=GPIO_LOW ,
+    .keypad_rows[1].port=PORTC_INDEX, .keypad_rows[1].pin=GPIO_PIN1,.keypad_rows[1].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[1].logic=GPIO_LOW ,
+    .keypad_rows[2].port=PORTC_INDEX, .keypad_rows[2].pin=GPIO_PIN2,.keypad_rows[2].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[2].logic=GPIO_LOW ,
+    .keypad_rows[3].port=PORTC_INDEX, .keypad_rows[3].pin=GPIO_PIN3,.keypad_rows[3].direction=GPIO_DIRECTION_OUTPUT, .keypad_rows[3].logic=GPIO_LOW ,
+    
+    .keypad_colums[0].port=PORTC_INDEX, .keypad_colums[0].pin=GPIO_PIN4,.keypad_colums[0].direction=GPIO_DIRECTION_INPUT, .keypad_colums[0].logic=GPIO_LOW,
+    .keypad_colums[1].port=PORTC_INDEX, .keypad_colums[1].pin=GPIO_PIN5,.keypad_colums[1].direction=GPIO_DIRECTION_INPUT, .keypad_colums[1].logic=GPIO_LOW,
+    .keypad_colums[2].port=PORTC_INDEX, .keypad_colums[2].pin=GPIO_PIN6,.keypad_colums[2].direction=GPIO_DIRECTION_INPUT, .keypad_colums[2].logic=GPIO_LOW,
+    .keypad_colums[3].port=PORTC_INDEX, .keypad_colums[3].pin=GPIO_PIN7,.keypad_colums[3].direction=GPIO_DIRECTION_INPUT, .keypad_colums[3].logic=GPIO_LOW  
 };
 STD_ReturnType ret = E_NOT_OK;
 
@@ -23,7 +30,7 @@ int main()
 
     while(1)
     {
-        ret = seg_write_number(&seg1 , 5);
+        ret = keypad_get_value(&keypad_1 , &keypad_value);
     }
 
 
@@ -32,6 +39,6 @@ int main()
 
 void application_initializ(void)
 {
-    ret = seg_initialization(&seg1);
+    ret = keypad_initialize(&keypad_1);
     
 }
