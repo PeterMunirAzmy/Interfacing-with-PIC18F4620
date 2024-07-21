@@ -4748,7 +4748,8 @@ STD_ReturnType keypad_get_value(const keypad_config *_keypad_config , uint8 *val
 # 8 "ECU_layer/Keypad/keypad.c" 2
 
 
-const uint8 keypad_sampels[4][4] = {
+const uint8 keypad_sampels[4][4] =
+{
     {'7' ,'8' ,'9' ,'/'},
     {'4' ,'5' ,'6' ,'*'},
     {'1' ,'2' ,'3' ,'-'},

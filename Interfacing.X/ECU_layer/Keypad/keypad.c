@@ -7,7 +7,8 @@
 
 #include "keypad.h"
 
-const uint8 keypad_sampels[KEYPAD_RAWS_NUMBER][KEYPAD_COLUMS_NUMBER] = {
+const uint8 keypad_sampels[KEYPAD_RAWS_NUMBER][KEYPAD_COLUMS_NUMBER] = 
+{
     {'7' ,'8' ,'9' ,'/'},
     {'4' ,'5' ,'6' ,'*'},
     {'1' ,'2' ,'3' ,'-'},

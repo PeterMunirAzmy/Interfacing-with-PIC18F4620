@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "ECU_layer/lcd/lcd.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
+# 1 "ECU_layer/lcd/lcd.c" 2
 
 
 
@@ -14,12 +14,10 @@
 
 
 
-# 1 "./application.h" 1
-# 12 "./application.h"
-# 1 "./ECU_layer/led/ecu_led.h" 1
-# 12 "./ECU_layer/led/ecu_led.h"
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 1
-# 14 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h"
+# 1 "ECU_layer/lcd/lcd.h" 1
+# 12 "ECU_layer/lcd/lcd.h"
+# 1 "ECU_layer/lcd/../../MCAL_layer/GPIO/gpio.h" 1
+# 14 "ECU_layer/lcd/../../MCAL_layer/GPIO/gpio.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4502,12 +4500,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 14 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 2
+# 14 "ECU_layer/lcd/../../MCAL_layer/GPIO/gpio.h" 2
 
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h" 1
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h"
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 1
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_libraries.h"
+# 1 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_types.h" 1
+# 12 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_types.h"
+# 1 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 1
+# 12 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4660,12 +4658,12 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 2
-# 12 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
+# 12 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 2
+# 12 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
 
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../compiler.h" 1
-# 13 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
-# 34 "./ECU_layer/led/../../MCAL_layer/GPIO/../mcal_std_types.h"
+# 1 "ECU_layer/lcd/../../MCAL_layer/GPIO/../compiler.h" 1
+# 13 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
+# 34 "ECU_layer/lcd/../../MCAL_layer/GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4675,11 +4673,11 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 STD_ReturnType;
-# 15 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 2
+# 15 "ECU_layer/lcd/../../MCAL_layer/GPIO/gpio.h" 2
 
-# 1 "./ECU_layer/led/../../MCAL_layer/GPIO/../device_config.h" 1
-# 16 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h" 2
-# 46 "./ECU_layer/led/../../MCAL_layer/GPIO/gpio.h"
+# 1 "ECU_layer/lcd/../../MCAL_layer/GPIO/../device_config.h" 1
+# 16 "ECU_layer/lcd/../../MCAL_layer/GPIO/gpio.h" 2
+# 46 "ECU_layer/lcd/../../MCAL_layer/GPIO/gpio.h"
 typedef enum
 {
     GPIO_LOW = 0,
@@ -4736,137 +4734,8 @@ STD_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 12 "./ECU_layer/led/ecu_led.h" 2
-
-# 1 "./ECU_layer/led/ecu_led_cfg.h" 1
-# 13 "./ECU_layer/led/ecu_led.h" 2
-
-
-
-
-
-
-
-typedef enum
-{
-    LED_OFF,
-    LED_ON
-
-}led_status;
-
-typedef struct
-{
-    uint8 port_name :4;
-    uint8 pin_number :3;
-    uint8 led_status :1;
-}led_config;
-
-
-STD_ReturnType ecu_led_initializ(const led_config *_led_config);
-STD_ReturnType ecu_led_turn_on(const led_config *_led_config);
-STD_ReturnType ecu_led_turn_off(const led_config *_led_config);
-STD_ReturnType ecu_led_toggle(const led_config *_led_config);
-# 12 "./application.h" 2
-
-# 1 "./ECU_layer/button/button.h" 1
-# 19 "./ECU_layer/button/button.h"
-typedef enum
-{
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-}button_status;
-
-typedef enum
-{
-    BUTTON_ACTIVE_LOW,
-    BUTTON_ACTIVE_HIGHT
-}button_activ;
-
-typedef struct
-{
-    pin_config button_pin;
-    button_status _button_status;
-    button_activ _button_activ;
-
-}button_config;
-
-
-STD_ReturnType ecu_button_init(button_config *_button_config);
-STD_ReturnType ecu_button_read_state(button_config *_button_config ,button_status *_button_status);
-# 13 "./application.h" 2
-
-# 1 "./ECU_layer/relay/relay.h" 1
-# 19 "./ECU_layer/relay/relay.h"
-typedef enum
-{
-    RELAY_STATE_OFF = 0,
-    RELAY_STATE_ON
-}relay_status_t;
-
-typedef struct
-{
-    uint8 relay_port : 4;
-    uint8 relay_pin : 3;
-    uint8 relay_status : 1;
-}relay_config;
-
-
-STD_ReturnType ecu_relay_initializ(const relay_config *_relay_config);
-STD_ReturnType ecu_relay_turn_on(const relay_config *_relay_config);
-STD_ReturnType ecu_relay_turn_off(const relay_config *_relay_config);
-STD_ReturnType ecu_relay_toggle(const relay_config *_relay_config);
-# 14 "./application.h" 2
-
-# 1 "./ECU_layer/dc_motor/dc_motor.h" 1
-# 19 "./ECU_layer/dc_motor/dc_motor.h"
-typedef enum
-{
-    DC_MOTOR_STATE_OFF = 0,
-    DC_MOTOR_STATE_ON
-}dc_motor_status_t;
-
-typedef struct
-{
-    uint8 dc_motor_port : 4;
-    uint8 dc_motor_pin : 3;
-    uint8 dc_motor_status : 1;
-}dc_motor_pin_config;
-
-typedef struct
-{
-    dc_motor_pin_config dc_motor[2];
-}dc_motor_config;
-
-
-STD_ReturnType ecu_dc_motor_initializ(const dc_motor_config *_dc_motor_config);
-STD_ReturnType ecu_dc_motor_move_right(const dc_motor_config *_dc_motor_config);
-STD_ReturnType ecu_dc_motor_move_left(const dc_motor_config *_dc_motor_config);
-STD_ReturnType ecu_dc_motor_stop(const dc_motor_config *_dc_motor_config);
-# 15 "./application.h" 2
-
-# 1 "./ECU_layer/7-seg/7-seg.h" 1
-# 19 "./ECU_layer/7-seg/7-seg.h"
-typedef enum
-{
-    seg_pin0,
-    seg_pin1,
-    seg_pin2,
-    seg_pin3
-
-}seg_pins;
-
-typedef struct
-{
-    pin_config _seg_pin[4];
-}seg_config;
-
-
-STD_ReturnType seg_initialization(const seg_config *_seg_config);
-STD_ReturnType seg_write_number(const seg_config *_seg_config , uint8 number);
-# 16 "./application.h" 2
-
-# 1 "./ECU_layer/lcd/lcd.h" 1
-# 32 "./ECU_layer/lcd/lcd.h"
+# 12 "ECU_layer/lcd/lcd.h" 2
+# 32 "ECU_layer/lcd/lcd.h"
 typedef struct
 {
     pin_config lcd_rs;
@@ -4902,78 +4771,277 @@ STD_ReturnType lcd_8bit_send_custom_char(const lcd_8bit *lcd , uint8 row , uint8
 STD_ReturnType convert_byte_to_string(uint8 value , uint8 *str);
 STD_ReturnType convert_short_to_string(uint16 value , uint16 *str);
 STD_ReturnType convert_int_to_string(uint32 value , uint32 *str);
-# 17 "./application.h" 2
-# 28 "./application.h"
-void application_initializ(void);
-# 8 "application.c" 2
-
-# 1 "./ECU_layer/Keypad/keypad.h" 1
-# 21 "./ECU_layer/Keypad/keypad.h"
-typedef struct
+# 8 "ECU_layer/lcd/lcd.c" 2
+# 17 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_4bit_init(const lcd_4bit *lcd)
 {
-    pin_config keypad_rows[4];
-    pin_config keypad_colums[4];
-}keypad_config;
+    STD_ReturnType ret = (STD_ReturnType)0x01;
 
-
-STD_ReturnType keypad_initialize(const keypad_config *_keypad_config);
-STD_ReturnType keypad_get_value(const keypad_config *_keypad_config , uint8 *value);
-# 9 "application.c" 2
-
-
-keypad_config keypad =
-{
-    .keypad_rows[0].port = PORTC_INDEX ,.keypad_rows[0].pin = GPIO_PIN0,.keypad_rows[0].direction = GPIO_DIRECTION_OUTPUT,.keypad_rows[0].logic=GPIO_LOW,
-    .keypad_rows[1].port = PORTC_INDEX ,.keypad_rows[1].pin = GPIO_PIN1,.keypad_rows[1].direction = GPIO_DIRECTION_OUTPUT,.keypad_rows[1].logic=GPIO_LOW,
-    .keypad_rows[2].port = PORTC_INDEX ,.keypad_rows[2].pin = GPIO_PIN2,.keypad_rows[2].direction = GPIO_DIRECTION_OUTPUT,.keypad_rows[2].logic=GPIO_LOW,
-    .keypad_rows[3].port = PORTC_INDEX ,.keypad_rows[3].pin = GPIO_PIN3,.keypad_rows[3].direction = GPIO_DIRECTION_OUTPUT,.keypad_rows[3].logic=GPIO_LOW,
-
-    .keypad_colums[0].port = PORTC_INDEX ,.keypad_colums[0].pin = GPIO_PIN4,.keypad_colums[0].direction = GPIO_DIRECTION_INPUT,.keypad_colums[0].logic=GPIO_LOW,
-    .keypad_colums[1].port = PORTC_INDEX ,.keypad_colums[1].pin = GPIO_PIN5,.keypad_colums[1].direction = GPIO_DIRECTION_INPUT,.keypad_colums[1].logic=GPIO_LOW,
-    .keypad_colums[2].port = PORTC_INDEX ,.keypad_colums[2].pin = GPIO_PIN6,.keypad_colums[2].direction = GPIO_DIRECTION_INPUT,.keypad_colums[2].logic=GPIO_LOW,
-    .keypad_colums[3].port = PORTC_INDEX ,.keypad_colums[3].pin = GPIO_PIN7,.keypad_colums[3].direction = GPIO_DIRECTION_INPUT,.keypad_colums[3].logic=GPIO_LOW
-};
-
-seg_config seg =
-{
-    ._seg_pin[seg_pin0].port = PORTD_INDEX, ._seg_pin[seg_pin0].pin = GPIO_PIN0, ._seg_pin[seg_pin0].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin0].logic = GPIO_LOW,
-    ._seg_pin[seg_pin1].port = PORTD_INDEX, ._seg_pin[seg_pin1].pin = GPIO_PIN1, ._seg_pin[seg_pin1].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin1].logic = GPIO_LOW,
-    ._seg_pin[seg_pin2].port = PORTD_INDEX, ._seg_pin[seg_pin2].pin = GPIO_PIN2, ._seg_pin[seg_pin2].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin2].logic = GPIO_LOW,
-    ._seg_pin[seg_pin3].port = PORTD_INDEX, ._seg_pin[seg_pin3].pin = GPIO_PIN3, ._seg_pin[seg_pin3].direction = GPIO_DIRECTION_OUTPUT, ._seg_pin[seg_pin3].logic = GPIO_LOW
-};
-
-STD_ReturnType ret = (STD_ReturnType)0x00;
-uint8 value;
-uint8 num_value = 0;
-
-int main()
-{
-    application_initializ();
-
-    while(1)
+    if (((void*)0) == lcd)
     {
-        ret = keypad_get_value(&keypad ,&value);
-
-        _delay((unsigned long)((100)*(8000000UL/4000.0)));
-        if (value >= '0' && value <= '9')
-        {
-            num_value = value - '0';
-        }
-        else
-        {
-            num_value = 0x0F;
-        }
-
-        ret = seg_write_number(&seg , (uint8)num_value);
+        ret = (STD_ReturnType)0x00;
     }
-
-
-    return (0);
+    else
+    {
+        ret = gpio_pin_Initialization(&(lcd->lcd_rs));
+        ret = gpio_pin_Initialization(&(lcd->lcd_en));
+        for(int i=0 ; i<4 ; i++)
+        {
+            ret = gpio_pin_Initialization(&(lcd->lcd_data[i]));
+        }
+    }
+    return ret;
 }
 
-void application_initializ(void)
+
+
+
+
+
+
+STD_ReturnType lcd_4bit_send_command(const lcd_4bit *lcd , uint8 command)
 {
-    ret = keypad_initialize(&keypad);
-    ret = seg_initialization(&seg);
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+
+
+
+
+
+
+
+STD_ReturnType lcd_4bit_send_data(const lcd_4bit *lcd , uint8 data)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 86 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_4bit_send_data_pos(const lcd_4bit *lcd , uint8 row , uint8 colum , uint8 data)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+
+
+
+
+
+
+
+STD_ReturnType lcd_4bit_send_string(const lcd_4bit *lcd , uint8 *str)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if ((((void*)0) == lcd) || (((void*)0) == str))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 129 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_4bit_send_string_pos(const lcd_4bit *lcd , uint8 row , uint8 colum , uint8 *str)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if ((((void*)0) == lcd) || (((void*)0) == str))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 152 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_4bit_send_custom_char(const lcd_4bit *lcd , uint8 row , uint8 colum , const uint8 _char[] , uint8 mem_pos)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 173 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_8bit_init(const lcd_8bit *lcd)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        ret = gpio_pin_Initialization(&(lcd->lcd_rs));
+        ret = gpio_pin_Initialization(&(lcd->lcd_en));
+        for(int i=0 ; i<8 ; i++)
+        {
+            ret = gpio_pin_Initialization(&(lcd->lcd_data[i]));
+        }
+    }
+    return ret;
+}
+
+
+
+
+
+
+
+STD_ReturnType lcd_8bit_send_command(const lcd_8bit *lcd , uint8 command)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+
+
+
+
+
+
+
+STD_ReturnType lcd_8bit_send_data(const lcd_8bit *lcd , uint8 data)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 241 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_8bit_send_data_pos(const lcd_8bit *lcd , uint8 row , uint8 colum , uint8 data)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+
+
+
+
+
+
+
+STD_ReturnType lcd_8bit_send_string(const lcd_8bit *lcd , uint8 *str)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if ((((void*)0) == lcd) || (((void*)0) == str))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 283 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_8bit_send_string_pos(const lcd_8bit *lcd , uint8 row , uint8 colum , uint8 *str)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if ((((void*)0) == lcd) || (((void*)0) == str))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 306 "ECU_layer/lcd/lcd.c"
+STD_ReturnType lcd_8bit_send_custom_char(const lcd_8bit *lcd , uint8 row , uint8 colum , const uint8 _char[] , uint8 mem_pos)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if (((void*)0) == lcd)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+}
+# 328 "ECU_layer/lcd/lcd.c"
+STD_ReturnType convert_byte_to_string(uint8 value , uint8 *str)
+{
+
+}
+
+
+
+
+
+
+
+STD_ReturnType convert_short_to_string(uint16 value , uint16 *str)
+{
+
+}
+
+
+
+
+
+
+
+STD_ReturnType convert_int_to_string(uint32 value , uint32 *str)
+{
 
 }
