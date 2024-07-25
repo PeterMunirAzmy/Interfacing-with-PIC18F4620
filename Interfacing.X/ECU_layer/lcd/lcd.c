@@ -205,7 +205,13 @@ STD_ReturnType lcd_4bit_send_custom_char(const lcd_4bit *lcd , uint8 row , uint8
     } 
     else 
     {
+        ret = lcd_4bit_send_command(lcd , (LCD_CGRAM_START + (mem_pos * 8)));
+        for(uint8 i=0 ; i<8 ; i++)
+        {
+            ret = lcd_4bit_send_data(lcd, _char[i]);
+        }
         
+        ret = lcd_4bit_send_data_pos(lcd, row, colum , mem_pos);
     }
     return ret;
 }
@@ -487,7 +493,13 @@ STD_ReturnType lcd_8bit_send_custom_char(const lcd_8bit *lcd , uint8 row , uint8
     } 
     else 
     {
+        ret = lcd_8bit_send_command(lcd , (LCD_CGRAM_START + (mem_pos * 8)));
+        for(uint8 i=0 ; i<8 ; i++)
+        {
+            ret = lcd_8bit_send_data(lcd, _char[i]);
+        }
         
+        ret = lcd_8bit_send_data_pos(lcd, row, colum , mem_pos);
     }
     return ret;
 }

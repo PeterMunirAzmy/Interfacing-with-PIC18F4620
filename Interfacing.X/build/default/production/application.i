@@ -4985,18 +4985,19 @@ void application_initializ(void);
 # 8 "application.c" 2
 
 
-
-keypad_config keypad =
+lcd_8bit lcd1 =
 {
-    .keypad_rows[0].port=PORTD_INDEX ,.keypad_rows[0].pin=GPIO_PIN0,.keypad_rows[0].direction=GPIO_DIRECTION_OUTPUT,.keypad_rows[0].logic=GPIO_LOW,
-    .keypad_rows[1].port=PORTD_INDEX ,.keypad_rows[1].pin=GPIO_PIN1,.keypad_rows[1].direction=GPIO_DIRECTION_OUTPUT,.keypad_rows[1].logic=GPIO_LOW,
-    .keypad_rows[2].port=PORTD_INDEX ,.keypad_rows[2].pin=GPIO_PIN2,.keypad_rows[2].direction=GPIO_DIRECTION_OUTPUT,.keypad_rows[2].logic=GPIO_LOW,
-    .keypad_rows[3].port=PORTD_INDEX ,.keypad_rows[3].pin=GPIO_PIN3,.keypad_rows[3].direction=GPIO_DIRECTION_OUTPUT,.keypad_rows[3].logic=GPIO_LOW,
+    .lcd_en.port=PORTC_INDEX ,.lcd_en.pin=GPIO_PIN0 ,.lcd_en.direction=GPIO_DIRECTION_OUTPUT ,.lcd_en.logic=GPIO_LOW,
+    .lcd_rs.port=PORTC_INDEX ,.lcd_rs.pin=GPIO_PIN1 ,.lcd_rs.direction=GPIO_DIRECTION_OUTPUT ,.lcd_rs.logic=GPIO_LOW,
 
-    .keypad_colums[0].port=PORTD_INDEX ,.keypad_colums[0].pin=GPIO_PIN4,.keypad_colums[0].direction=GPIO_DIRECTION_INPUT,.keypad_colums[0].logic=GPIO_LOW,
-    .keypad_colums[1].port=PORTD_INDEX ,.keypad_colums[1].pin=GPIO_PIN5,.keypad_colums[1].direction=GPIO_DIRECTION_INPUT,.keypad_colums[1].logic=GPIO_LOW,
-    .keypad_colums[2].port=PORTD_INDEX ,.keypad_colums[2].pin=GPIO_PIN6,.keypad_colums[2].direction=GPIO_DIRECTION_INPUT,.keypad_colums[2].logic=GPIO_LOW,
-    .keypad_colums[3].port=PORTD_INDEX ,.keypad_colums[3].pin=GPIO_PIN7,.keypad_colums[3].direction=GPIO_DIRECTION_INPUT,.keypad_colums[3].logic=GPIO_LOW
+    .lcd_data[0].port=PORTD_INDEX ,.lcd_data[0].pin=GPIO_PIN0 ,.lcd_data[0].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[0].logic=GPIO_LOW,
+    .lcd_data[1].port=PORTD_INDEX ,.lcd_data[1].pin=GPIO_PIN1 ,.lcd_data[1].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[1].logic=GPIO_LOW,
+    .lcd_data[2].port=PORTD_INDEX ,.lcd_data[2].pin=GPIO_PIN2 ,.lcd_data[2].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[2].logic=GPIO_LOW,
+    .lcd_data[3].port=PORTD_INDEX ,.lcd_data[3].pin=GPIO_PIN3 ,.lcd_data[3].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[3].logic=GPIO_LOW,
+    .lcd_data[4].port=PORTD_INDEX ,.lcd_data[4].pin=GPIO_PIN4 ,.lcd_data[4].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[4].logic=GPIO_LOW,
+    .lcd_data[5].port=PORTD_INDEX ,.lcd_data[5].pin=GPIO_PIN5 ,.lcd_data[5].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[5].logic=GPIO_LOW,
+    .lcd_data[6].port=PORTD_INDEX ,.lcd_data[6].pin=GPIO_PIN6 ,.lcd_data[6].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[6].logic=GPIO_LOW,
+    .lcd_data[7].port=PORTD_INDEX ,.lcd_data[7].pin=GPIO_PIN7 ,.lcd_data[7].direction=GPIO_DIRECTION_OUTPUT ,.lcd_data[7].logic=GPIO_LOW
 };
 
 lcd_4bit lcd2 =
@@ -5011,22 +5012,28 @@ lcd_4bit lcd2 =
 
 };
 
+uint8 customChar[] = {
+  0x00,
+  0x1B,
+  0x15,
+  0x11,
+  0x0A,
+  0x04,
+  0x00,
+  0x00
+};
+
 STD_ReturnType ret = (STD_ReturnType)0x00;
-uint8 value;
 
 int main()
 {
     application_initializ();
-    keypad_get_value(&keypad , &value);
 
-    ret = lcd_4bit_send_string_pos(&lcd2 , 1 , 1 , "Reading");
-    ret = lcd_4bit_send_string_pos(&lcd2 , 2 , 1 , &value);
+    ret = lcd_8bit_send_custom_char(&lcd1 , 1 , 1 , &customChar , 1);
+
     while(1)
     {
-        ret = keypad_get_value(&keypad , &value);
 
-        ret = lcd_4bit_send_string_pos(&lcd2 , 1 , 1 , "Reading");
-        ret = lcd_4bit_send_string_pos(&lcd2 , 2 , 1 , &value);
     }
 
 
@@ -5035,6 +5042,6 @@ int main()
 
 void application_initializ(void)
 {
-    ret = keypad_initialize(&keypad);
     ret = lcd_4bit_init(&lcd2);
+    ret = lcd_8bit_init(&lcd1);
 }
