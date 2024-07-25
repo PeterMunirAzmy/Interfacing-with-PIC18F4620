@@ -4,78 +4,83 @@
 [d chip 18F4620 ]
 [d frameptr 4065 ]
 "26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[e E2874 . `uc
+[e E3041 . `uc
 seg_pin0 0
 seg_pin1 1
 seg_pin2 2
 seg_pin3 3
 ]
 "51
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/button/button.c
-[e E2874 . `uc
+[e E3041 . `uc
 BUTTON_RELEASED 0
 BUTTON_PRESSED 1
 ]
-[e E2878 . `uc
+[e E3045 . `uc
 BUTTON_ACTIVE_LOW 0
 BUTTON_ACTIVE_HIGHT 1
 ]
 "39
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "26 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/dc_motor/dc_motor.c
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "81
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "68 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
-[e E2814 . `uc
+[e E2981 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"67 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/lcd/lcd.c
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "21 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/led/ecu_led.c
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "52
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "27 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/relay/relay.c
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "64
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "39 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "76
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "172
-[e E2832 . `uc
+[e E2999 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
@@ -83,14 +88,14 @@ PORTD_INDEX 3
 PORTE_INDEX 4
 ]
 "11 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
-[e E2832 . `uc
+[e E2999 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-[e E2822 . `uc
+[e E2989 . `uc
 GPIO_PIN0 0
 GPIO_PIN1 1
 GPIO_PIN2 2
@@ -100,17 +105,17 @@ GPIO_PIN5 5
 GPIO_PIN6 6
 GPIO_PIN7 7
 ]
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"36
+"39
 [v _main main `(i  1 e 2 0 ]
-"61
+"58
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -124,6 +129,10 @@ GPIO_HIGH 1
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memset.c
+[v _memset memset `(*.2v  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -136,14 +145,32 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[v _seg_initialization seg_initialization `(uc  1 e 1 0 ]
-"40
-[v _seg_write_number seg_write_number `(uc  1 e 1 0 ]
 "23 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
 [v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
 "53
 [v _keypad_get_value keypad_get_value `(uc  1 e 1 0 ]
+"17 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/lcd/lcd.c
+[v _lcd_4bit_init lcd_4bit_init `(uc  1 e 1 0 ]
+"57
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
+"82
+[v _lcd_4bit_send_data lcd_4bit_send_data `(uc  1 e 1 0 ]
+"165
+[v _lcd_4bit_send_string_pos lcd_4bit_send_string_pos `(uc  1 e 1 0 ]
+"219
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 e 1 0 ]
+"243
+[v _lcd_send_4bit_enable_signal lcd_send_4bit_enable_signal `(uc  1 e 1 0 ]
+"261
+[v _lcd_4bit_set_cursor lcd_4bit_set_cursor `(uc  1 e 1 0 ]
+"340
+[v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
+"366
+[v _lcd_8bit_send_data lcd_8bit_send_data `(uc  1 e 1 0 ]
+"500
+[v _lcd_send_8bit_enable_signal lcd_send_8bit_enable_signal `(uc  1 e 1 0 ]
+"524
+[v _lcd_8bit_set_cursor lcd_8bit_set_cursor `(uc  1 e 1 0 ]
 "21 C:\Users\peter\OneDrive\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
 [v _gpio_pin_direction_init gpio_pin_direction_init `(uc  1 e 1 0 ]
 "76
@@ -163,14 +190,12 @@ GPIO_HIGH 1
 [s S243 . 8 `[4]S24 1 keypad_rows 4 0 `[4]S24 1 keypad_colums 4 4 ]
 [v _keypad keypad `S243  1 e 8 0 ]
 "24
-[s S29 . 4 `[4]S24 1 _seg_pin 4 0 ]
-[v _seg seg `S29  1 e 4 0 ]
-"32
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v _lcd2 lcd2 `S276  1 e 6 0 ]
+"36
 [v _ret ret `uc  1 e 1 0 ]
-"33
+"37
 [v _value value `uc  1 e 1 0 ]
-"34
-[v _num_value num_value `uc  1 e 1 0 ]
 "10 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
 [v _keypad_sampels keypad_sampels `C[4][4]uc  1 e 16 0 ]
 "52 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
@@ -209,26 +234,61 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "13
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"36 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"39 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"59
+"56
 } 0
-"40 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[v _seg_write_number seg_write_number `(uc  1 e 1 0 ]
+"165 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/lcd/lcd.c
+[v _lcd_4bit_send_string_pos lcd_4bit_send_string_pos `(uc  1 e 1 0 ]
 {
-"42
-[v seg_write_number@ret ret `uc  1 a 1 10 ]
+"167
+[v lcd_4bit_send_string_pos@ret ret `uc  1 a 1 27 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"40
-[s S29 . 4 `[4]S24 1 _seg_pin 4 0 ]
-[v seg_write_number@_seg_config _seg_config `*.30CS29  1 p 1 8 ]
-[v seg_write_number@number number `uc  1 p 1 9 ]
-"57
+"165
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_send_string_pos@lcd lcd `*.30CS276  1 p 1 22 ]
+[v lcd_4bit_send_string_pos@row row `uc  1 p 1 23 ]
+[v lcd_4bit_send_string_pos@colum colum `uc  1 p 1 24 ]
+[v lcd_4bit_send_string_pos@str str `*.35uc  1 p 2 25 ]
+"187
+} 0
+"261
+[v _lcd_4bit_set_cursor lcd_4bit_set_cursor `(uc  1 e 1 0 ]
+{
+"263
+[v lcd_4bit_set_cursor@ret ret `uc  1 a 1 21 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"261
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_set_cursor@lcd lcd `*.30CS276  1 p 1 18 ]
+[v lcd_4bit_set_cursor@row row `uc  1 p 1 19 ]
+[v lcd_4bit_set_cursor@colum colum `uc  1 p 1 20 ]
+"292
+} 0
+"82
+[v _lcd_4bit_send_data lcd_4bit_send_data `(uc  1 e 1 0 ]
+{
+"84
+[v lcd_4bit_send_data@ret ret `uc  1 a 1 17 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"82
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_send_data@lcd lcd `*.30CS276  1 p 1 15 ]
+[v lcd_4bit_send_data@data data `uc  1 p 1 16 ]
+"100
 } 0
 "53 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
 [v _keypad_get_value keypad_get_value `(uc  1 e 1 0 ]
@@ -266,28 +326,79 @@ GPIO_HIGH 1
 ]
 "109
 [v gpio_pin_read_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-[v gpio_pin_read_logic@logic logic `*.30E2814  1 p 1 1 ]
+[v gpio_pin_read_logic@logic logic `*.30E2981  1 p 1 1 ]
 "122
 } 0
-"61 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
+"58 C:\Users\peter\OneDrive\Desktop\Interfacing.X\application.c
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
 {
-"66
+"62
 } 0
-"15 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/7-seg/7-seg.c
-[v _seg_initialization seg_initialization `(uc  1 e 1 0 ]
+"17 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/lcd/lcd.c
+[v _lcd_4bit_init lcd_4bit_init `(uc  1 e 1 0 ]
 {
-"17
-[v seg_initialization@ret ret `uc  1 a 1 12 ]
+"29
+[v lcd_4bit_init@i i `i  1 a 2 20 ]
+"19
+[v lcd_4bit_init@ret ret `uc  1 a 1 22 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"15
-[s S29 . 4 `[4]S24 1 _seg_pin 4 0 ]
-[v seg_initialization@_seg_config _seg_config `*.30CS29  1 p 1 11 ]
-"32
+"17
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_init@lcd lcd `*.30CS276  1 p 1 18 ]
+"49
+} 0
+"57
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
+{
+"59
+[v lcd_4bit_send_command@ret ret `uc  1 a 1 17 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"57
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_send_command@lcd lcd `*.30CS276  1 p 1 15 ]
+[v lcd_4bit_send_command@command command `uc  1 p 1 16 ]
+"74
+} 0
+"219
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 e 1 0 ]
+{
+"229
+[v lcd_send_4bits@i i `i  1 a 2 13 ]
+"221
+[v lcd_send_4bits@ret ret `uc  1 a 1 12 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"219
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_send_4bits@lcd lcd `*.30CS276  1 p 1 8 ]
+[v lcd_send_4bits@data_command data_command `uc  1 p 1 9 ]
+"235
+} 0
+"243
+[v _lcd_send_4bit_enable_signal lcd_send_4bit_enable_signal `(uc  1 e 1 0 ]
+{
+"245
+[v lcd_send_4bit_enable_signal@ret ret `uc  1 a 1 10 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"243
+[s S276 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_send_4bit_enable_signal@lcd lcd `*.30CS276  1 p 1 8 ]
+"258
 } 0
 "23 C:\Users\peter\OneDrive\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
 [v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
@@ -334,7 +445,7 @@ GPIO_HIGH 1
 ]
 "76
 [v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-[v gpio_pin_write_logic@logic logic `E2814  1 p 1 1 ]
+[v gpio_pin_write_logic@logic logic `E2981  1 p 1 1 ]
 "99
 } 0
 "21
