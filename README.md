@@ -4,12 +4,13 @@
         
   <h2>Project Components</h2>
         <ul>
-            <li>PIC18F46K20 Microcontroller</li>
-            <li>LEDs</li>
-            <li>DC Motors</li>
-            <li>Relays</li>
-            <li>Keypad</li>
-            <li>LCD (8-bit and 4-bit modes)</li>
+            <li><a href="Interfacing.X/ECU_layer/led">LEDs</a></li>
+            <li><a href="Interfacing.X/ECU_layer/dc_motor">DC Motors</a></li>
+            <li><a href="Interfacing.X/ECU_layer/relay">Relays</a></li>
+            <li><a href="Interfacing.X/ECU_layer/Keypad">Keypad</a></li>
+            <li><a href="Interfacing.X/ECU_layer/lcd">LCD (8-bit and 4-bit modes)</a></li>
+            <li><a href="Interfacing.X/ECU_layer/button">Push Button</a></li>
+            <li><a href="Interfacing.X/ECU_layer/7-seg">7-Segment Display</a></li>
         </ul>
         
   <h2>Features</h2>
@@ -21,7 +22,7 @@
             <li>Display information on an LCD in 8-bit and 4-bit modes</li>
         </ul>
         
-  <h2>Directory Structure</h2>
+   <h2>Directory Structure</h2>
         <ul>
             <li><strong>Interfacing.X/ECU_layer</strong> - Drivers for LEDs, DC motors, relays, keypad, and LCD</li>
             <li><strong>Interfacing.X/Examples</strong> - Examples demonstrating the interface</li>
@@ -41,11 +42,9 @@
         <div class="simulation">
             <p><strong>Note:</strong> The Proteus simulation files can be found in the <code>simulations</code> directory of this repository.</p>
         </div>
-
         
   <h2>Contact</h2>
         <p>For any inquiries or support, please contact <a href="mailto:peter.munir2000@gmail.com">Peter Munir</a>.</p>
     </div>
 </body>
 </html>
-
