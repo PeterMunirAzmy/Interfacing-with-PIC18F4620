@@ -22,11 +22,11 @@
             <li>Display information on an LCD in 8-bit and 4-bit modes</li>
         </ul>
         
-   <h2>Directory Structure</h2>
+  <h2>Directory Structure</h2>
         <ul>
-            <li><strong>Interfacing.X/ECU_layer</strong> - Drivers for LEDs, DC motors, relays, keypad, and LCD</li>
-            <li><strong>Interfacing.X/Examples</strong> - Examples demonstrating the interface</li>
-            <li><strong>Interfacing.X/MCAL_layer/GPIO</strong> - GPIO drivers and configurations</li>
+            <li><a href="Interfacing.X/ECU_layer"><strong>Interfacing.X/ECU_layer</strong></a> - Drivers for LEDs, DC motors, relays, keypad, and LCD</li>
+            <li><a href="Interfacing.X/Examples"><strong>Interfacing.X/Examples</strong></a> - Examples demonstrating the interface</li>
+            <li><a href="Interfacing.X/MCAL_layer/GPIO"><strong>Interfacing.X/MCAL_layer/GPIO</strong></a> - GPIO drivers and configurations</li>
         </ul>
         
   <h2>Simulation Examples</h2>
