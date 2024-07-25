@@ -24,9 +24,9 @@
         
   <h2>Directory Structure</h2>
         <ul>
-            <li><a href="Interfacing.X/ECU_layer">Interfacing.X/ECU_layer</a> - <a href="Interfacing.X/ECU_layer">Drivers for LEDs, DC motors, relays, keypad, and LCD</a></li>
-            <li><a href="Interfacing.X/Examples">Interfacing.X/Examples</a> - <a href="Interfacing.X/Examples">Examples demonstrating the interface</a></li>
-            <li><a href="Interfacing.X/MCAL_layer/GPIO">Interfacing.X/MCAL_layer/GPIO</a> - <a href="Interfacing.X/MCAL_layer/GPIO">GPIO drivers and configurations</a></li>
+            <li><a href="Interfacing.X/ECU_layer">Drivers for LEDs, DC motors, relays, keypad, and LCD</a></li>
+            <li><a href="Interfacing.X/Examples">Examples demonstrating the interface</a></li>
+            <li><a href="Interfacing.X/MCAL_layer/GPIO">GPIO drivers and configurations</a></li>
         </ul>
         
   <h2>Simulation Examples</h2>
