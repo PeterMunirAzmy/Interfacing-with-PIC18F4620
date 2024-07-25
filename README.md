@@ -40,7 +40,7 @@
             <li>LCD display in 8-bit and 4-bit modes</li>
         </ul>
         <div class="simulation">
-            <p><strong>Note:</strong> The Proteus simulation files can be found in the <code>Interfacing.X/Examples</code> directory of this repository.</p>
+            <p><strong>Note:</strong> The Proteus simulation files can be found in the <a href="Interfacing.X/Examples"><code>Interfacing.X/Examples</code></a> directory of this repository.</p>
         </div>
         
   <h2>Contact</h2>
