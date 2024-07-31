@@ -1,4 +1,4 @@
-# 1 "ECU_layer/button/button.c"
+# 1 "MCAL_layer/Interrupt/external_interrupt.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU_layer/button/button.c" 2
+# 1 "MCAL_layer/Interrupt/external_interrupt.c" 2
 
 
 
@@ -14,10 +14,10 @@
 
 
 
-# 1 "ECU_layer/button/button.h" 1
-# 12 "ECU_layer/button/button.h"
-# 1 "ECU_layer/button/../../MCAL_layer/GPIO/gpio.h" 1
-# 14 "ECU_layer/button/../../MCAL_layer/GPIO/gpio.h"
+# 1 "MCAL_layer/Interrupt/external_interrupt.h" 1
+# 12 "MCAL_layer/Interrupt/external_interrupt.h"
+# 1 "MCAL_layer/Interrupt/interrupt_config.h" 1
+# 12 "MCAL_layer/Interrupt/interrupt_config.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4500,12 +4500,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 14 "ECU_layer/button/../../MCAL_layer/GPIO/gpio.h" 2
+# 12 "MCAL_layer/Interrupt/interrupt_config.h" 2
 
-# 1 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_types.h" 1
-# 12 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_types.h"
-# 1 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 1
-# 12 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_libraries.h"
+# 1 "MCAL_layer/Interrupt/../mcal_std_types.h" 1
+# 12 "MCAL_layer/Interrupt/../mcal_std_types.h"
+# 1 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 1
+# 12 "MCAL_layer/Interrupt/../mcal_std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4658,12 +4658,72 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_libraries.h" 2
-# 12 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
+# 12 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 2
 
-# 1 "ECU_layer/button/../../MCAL_layer/GPIO/../compiler.h" 1
-# 13 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
-# 34 "ECU_layer/button/../../MCAL_layer/GPIO/../mcal_std_types.h"
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 14 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 2
+# 12 "MCAL_layer/Interrupt/../mcal_std_types.h" 2
+
+# 1 "MCAL_layer/Interrupt/../compiler.h" 1
+# 13 "MCAL_layer/Interrupt/../mcal_std_types.h" 2
+# 34 "MCAL_layer/Interrupt/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4673,11 +4733,14 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 STD_ReturnType;
-# 15 "ECU_layer/button/../../MCAL_layer/GPIO/gpio.h" 2
+# 13 "MCAL_layer/Interrupt/interrupt_config.h" 2
 
-# 1 "ECU_layer/button/../../MCAL_layer/GPIO/../device_config.h" 1
-# 16 "ECU_layer/button/../../MCAL_layer/GPIO/gpio.h" 2
-# 46 "ECU_layer/button/../../MCAL_layer/GPIO/gpio.h"
+# 1 "MCAL_layer/Interrupt/../device_config.h" 1
+# 14 "MCAL_layer/Interrupt/interrupt_config.h" 2
+
+
+# 1 "MCAL_layer/Interrupt/../GPIO/gpio.h" 1
+# 46 "MCAL_layer/Interrupt/../GPIO/gpio.h"
 typedef enum
 {
     GPIO_LOW = 0,
@@ -4734,58 +4797,303 @@ STD_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 12 "ECU_layer/button/button.h" 2
-
-
-
-
-
-
+# 16 "MCAL_layer/Interrupt/interrupt_config.h" 2
+# 55 "MCAL_layer/Interrupt/interrupt_config.h"
+typedef enum
+{
+    INTERRUPT_LOW_PRIORITY,
+    INTERRUPT_HIGH_PRIORITY
+}interrupt_priority;
+# 12 "MCAL_layer/Interrupt/external_interrupt.h" 2
+# 61 "MCAL_layer/Interrupt/external_interrupt.h"
+typedef enum
+{
+    INTERRUPT_EXTERNAL_INT0,
+    INTERRUPT_EXTERNAL_INT1,
+    INTERRUPT_EXTERNAL_INT2
+}interrupt_INTx_source;
 
 typedef enum
 {
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-}button_status;
-
-typedef enum
-{
-    BUTTON_ACTIVE_LOW,
-    BUTTON_ACTIVE_HIGHT
-}button_activ;
+    INTERRUPT_FALLING_EDGE,
+    INTERRUPT_RISING_EDGE
+}interrupt_INTx_edge;
 
 typedef struct
 {
-    pin_config button_pin;
-    button_status _button_status;
-    button_activ _button_activ;
+    void (* EXTERNAL_INTERRUPT_CALLBACK)(void);
+    pin_config interrupt_pin;
+    interrupt_INTx_source INTx;
+    interrupt_INTx_edge edge;
+    interrupt_priority priority;
+}interrupt_INTx;
 
-}button_config;
-
-
-STD_ReturnType ecu_button_init(button_config *_button_config);
-STD_ReturnType ecu_button_read_state(button_config *_button_config ,button_status *_button_status);
-# 8 "ECU_layer/button/button.c" 2
-
-
-
-
-
+typedef struct
+{
+    void (* EXTERNAL_INTERRUPT_CALLBACK)(void);
+    pin_config interrupt_pin;
+    interrupt_priority priority;
+}interrupt_RBx;
 
 
-STD_ReturnType ecu_button_init(button_config *_button_config)
+STD_ReturnType Interrupt_INTx_init(const interrupt_INTx *_interrupt_INTx);
+
+STD_ReturnType Interrupt_INTx_deinit(const interrupt_INTx *_interrupt_INTx);
+
+STD_ReturnType Interrupt_RBx_init(const interrupt_RBx *_interrupt_RBx);
+
+STD_ReturnType Interrupt_RBx_deinit(const interrupt_RBx *_interrupt_RBx);
+# 8 "MCAL_layer/Interrupt/external_interrupt.c" 2
+
+
+static void (*INT0_InterruptHandler)(void) = ((void*)0);
+static void (*INT1_InterruptHandler)(void) = ((void*)0);
+static void (*INT2_InterruptHandler)(void) = ((void*)0);
+
+static STD_ReturnType Interrupt_INTx_Enable(const interrupt_INTx *_interrupt_INTx);
+static STD_ReturnType Interrupt_INTx_Disable(const interrupt_INTx *_interrupt_INTx);
+static STD_ReturnType Interrupt_INTx_Priority_init(const interrupt_INTx *_interrupt_INTx);
+static STD_ReturnType Interrupt_INTx_Edge_init(const interrupt_INTx *_interrupt_INTx);
+static STD_ReturnType Interrupt_INTx_Pin_init(const interrupt_INTx *_interrupt_INTx);
+static STD_ReturnType Interrupt_INTx_Clear_Flag(const interrupt_INTx *_interrupt_INTx);
+
+static STD_ReturnType Interrupt_RBx_Enable(const interrupt_RBx *_interrupt_RBx);
+static STD_ReturnType Interrupt_RBx_Disable(const interrupt_RBx *_interrupt_RBx);
+static STD_ReturnType Interrupt_RBx_Priority_init(const interrupt_RBx *_interrupt_RBx);
+static STD_ReturnType Interrupt_RBx_Pin_init(const interrupt_RBx *_interrupt_RBx);
+
+static STD_ReturnType INT0_Interrupt_Handler(void (*Interrupt_Handler)(void));
+static STD_ReturnType INT1_Interrupt_Handler(void (*Interrupt_Handler)(void));
+static STD_ReturnType INT2_Interrupt_Handler(void (*Interrupt_Handler)(void));
+
+static STD_ReturnType INTx_Set_Interrupt_Handler(const interrupt_INTx *_interrupt_INTx);
+
+void INT0_ISR(void);
+void INT1_ISR(void);
+void INT2_ISR(void);
+
+
+
+
+
+
+STD_ReturnType Interrupt_INTx_init(const interrupt_INTx *_interrupt_INTx)
 {
     STD_ReturnType ret = (STD_ReturnType)0x01;
 
-    if (((void*)0) == _button_config)
+    if(((void*)0) == _interrupt_INTx)
     {
         ret = (STD_ReturnType)0x00;
     }
     else
     {
-        ret = gpio_pin_direction_init(&(_button_config->button_pin));
-    }
 
+        ret = Interrupt_INTx_Disable(_interrupt_INTx);
+
+
+        ret = Interrupt_INTx_Clear_Flag(_interrupt_INTx);
+
+
+        ret = Interrupt_INTx_Edge_init(_interrupt_INTx);
+
+
+
+
+
+
+
+        ret = Interrupt_INTx_Pin_init(_interrupt_INTx);
+
+
+        ret = INTx_Set_Interrupt_Handler(_interrupt_INTx);
+
+
+        ret = Interrupt_INTx_Enable(_interrupt_INTx);
+    }
+    return ret;
+}
+
+
+
+
+
+
+STD_ReturnType Interrupt_INTx_deinit(const interrupt_INTx *_interrupt_INTx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_INTx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        ret = Interrupt_INTx_Disable(_interrupt_INTx);
+    }
+    return ret;
+}
+
+
+
+
+
+
+STD_ReturnType Interrupt_RBx_init(const interrupt_RBx *_interrupt_RBx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_RBx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+STD_ReturnType Interrupt_RBx_deinit(const interrupt_RBx *_interrupt_RBx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_RBx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+# 145 "MCAL_layer/Interrupt/external_interrupt.c"
+static STD_ReturnType Interrupt_INTx_Enable(const interrupt_INTx *_interrupt_INTx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_INTx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        switch(_interrupt_INTx->INTx)
+        {
+            case INTERRUPT_EXTERNAL_INT0:
+                (INTCONbits.PEIE = 1);
+                (INTCONbits.GIE = 1);
+                (INTCONbits.INT0IE = 1);
+
+                break;
+
+            case INTERRUPT_EXTERNAL_INT1:
+                (INTCONbits.PEIE = 1);
+                (INTCONbits.GIE = 1);
+                (INTCON3bits.INT1IE = 1);
+                break;
+
+            case INTERRUPT_EXTERNAL_INT2:
+                (INTCONbits.PEIE = 1);
+                (INTCONbits.GIE = 1);
+                (INTCON3bits.INT2IE = 1);
+                break;
+
+            default:
+                ret = (STD_ReturnType)0x00;
+
+        }
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType Interrupt_INTx_Disable(const interrupt_INTx *_interrupt_INTx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_INTx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        switch(_interrupt_INTx->INTx)
+        {
+            case INTERRUPT_EXTERNAL_INT0:
+                (INTCONbits.INT0IE = 0);
+                break;
+
+            case INTERRUPT_EXTERNAL_INT1:
+                (INTCON3bits.INT1IE = 0);
+                break;
+
+            case INTERRUPT_EXTERNAL_INT2:
+                (INTCON3bits.INT2IE = 0);
+                break;
+            default:
+                ret = (STD_ReturnType)0x00;
+        }
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType Interrupt_INTx_Priority_init(const interrupt_INTx *_interrupt_INTx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if((((void*)0) == _interrupt_INTx) || (INTCONbits.GIE == 0))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        switch (_interrupt_INTx->INTx)
+        {
+            case INTERRUPT_EXTERNAL_INT0:
+                break;
+            case INTERRUPT_EXTERNAL_INT1:
+                switch (_interrupt_INTx->priority)
+                {
+                    case INTERRUPT_LOW_PRIORITY:
+                        (INTCON3bits.INT1IP = 0);
+                        break;
+                    case INTERRUPT_HIGH_PRIORITY:
+                        (INTCON3bits.INT1IP = 1);
+                        break;
+                }
+                break;
+
+            case INTERRUPT_EXTERNAL_INT2:
+                switch (_interrupt_INTx->edge)
+                {
+                    case INTERRUPT_LOW_PRIORITY:
+                        (INTCON3bits.INT2IP = 0);
+                        break;
+                    case INTERRUPT_HIGH_PRIORITY:
+                        (INTCON3bits.INT2IP = 1);
+                        break;
+                }
+                break;
+
+            default :
+                ret = (STD_ReturnType)0x00;
+        }
+    }
     return ret;
 }
 
@@ -4795,48 +5103,329 @@ STD_ReturnType ecu_button_init(button_config *_button_config)
 
 
 
-STD_ReturnType ecu_button_read_state(button_config *btn_config ,button_status *_button_status)
+static STD_ReturnType Interrupt_INTx_Edge_init(const interrupt_INTx *_interrupt_INTx)
 {
-    logic_t pin_logic_status = GPIO_LOW;
-    STD_ReturnType ret = (STD_ReturnType)0x00;
+    STD_ReturnType ret = (STD_ReturnType)0x01;
 
-    if (((void*)0) == btn_config || ((void*)0) == _button_status)
+    if(((void*)0) == _interrupt_INTx)
     {
         ret = (STD_ReturnType)0x00;
     }
     else
     {
-        gpio_pin_read_logic(&(btn_config->button_pin) , &pin_logic_status);
-
-        if(BUTTON_ACTIVE_HIGHT == btn_config->_button_activ)
+        switch (_interrupt_INTx->INTx)
         {
-            if(pin_logic_status == GPIO_HIGH)
-            {
-                *_button_status = BUTTON_PRESSED;
-            }
-            else
-            {
-                *_button_status = BUTTON_RELEASED;
-            }
+            case INTERRUPT_EXTERNAL_INT0:
+                switch (_interrupt_INTx->edge)
+                {
+                    case INTERRUPT_FALLING_EDGE:
+                        (INTCON2bits.INTEDG0 = 0);
+                        break;
+                    case INTERRUPT_RISING_EDGE:
+                        (INTCON2bits.INTEDG0 = 1);
+                        break;
+                }
+                break;
 
+            case INTERRUPT_EXTERNAL_INT1:
+                switch (_interrupt_INTx->edge)
+                {
+                    case INTERRUPT_FALLING_EDGE:
+                        (INTCON2bits.INTEDG1 = 0);
+                        break;
+                    case INTERRUPT_RISING_EDGE:
+                        (INTCON2bits.INTEDG1 = 1);
+                        break;
+                }
+                break;
+            case INTERRUPT_EXTERNAL_INT2:
+                switch (_interrupt_INTx->edge)
+                {
+                    case INTERRUPT_FALLING_EDGE:
+                        (INTCON2bits.INTEDG2 = 0);
+                        break;
+                    case INTERRUPT_RISING_EDGE:
+                        (INTCON2bits.INTEDG2 = 1);
+                        break;
+                }
+                break;
+            default:
+                ret = (STD_ReturnType)0x00;
         }
-        else if(BUTTON_ACTIVE_LOW == btn_config->_button_activ)
-        {
-            if(pin_logic_status == GPIO_HIGH)
-            {
-                *_button_status = BUTTON_RELEASED;
-            }
-            else
-            {
-                *_button_status = BUTTON_PRESSED;
-            }
-        }
-        else
-        {
 
-        }
-        ret = (STD_ReturnType)0x01;
     }
-
     return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType Interrupt_INTx_Pin_init(const interrupt_INTx *_interrupt_INTx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_INTx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        ret = gpio_pin_direction_init(&(_interrupt_INTx->interrupt_pin));
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType Interrupt_INTx_Clear_Flag(const interrupt_INTx *_interrupt_INTx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_INTx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        switch(_interrupt_INTx->INTx)
+        {
+            case INTERRUPT_EXTERNAL_INT0:
+                (INTCONbits.INT0IF = 0);
+                break;
+            case INTERRUPT_EXTERNAL_INT1:
+                (INTCON3bits.INT1IF = 0);
+                break;
+            case INTERRUPT_EXTERNAL_INT2:
+                (INTCON3bits.INT2IF = 0);
+                break;
+            default:
+                ret = (STD_ReturnType)0x00;
+        }
+    }
+    return ret;
+}
+
+
+
+
+
+
+
+static STD_ReturnType Interrupt_RBx_Enable(const interrupt_RBx *_interrupt_RBx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_RBx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType Interrupt_RBx_Disable(const interrupt_RBx *_interrupt_RBx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_RBx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType Interrupt_RBx_Priority_init(const interrupt_RBx *_interrupt_RBx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_RBx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType Interrupt_RBx_Pin_init(const interrupt_RBx *_interrupt_RBx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_RBx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType INT0_Interrupt_Handler(void (*Interrupt_Handler)(void))
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == Interrupt_Handler)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        INT0_InterruptHandler = Interrupt_Handler;
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType INT1_Interrupt_Handler(void (*Interrupt_Handler)(void))
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == Interrupt_Handler)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        INT1_InterruptHandler = Interrupt_Handler;
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType INT2_Interrupt_Handler(void (*Interrupt_Handler)(void))
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == Interrupt_Handler)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        INT2_InterruptHandler = Interrupt_Handler;
+    }
+    return ret;
+}
+
+
+
+
+
+
+static STD_ReturnType INTx_Set_Interrupt_Handler(const interrupt_INTx *_interrupt_INTx)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if(((void*)0) == _interrupt_INTx)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        switch(_interrupt_INTx->INTx)
+        {
+            case INTERRUPT_EXTERNAL_INT0:
+                ret = INT0_Interrupt_Handler(_interrupt_INTx->EXTERNAL_INTERRUPT_CALLBACK);
+                break;
+
+            case INTERRUPT_EXTERNAL_INT1:
+                ret = INT1_Interrupt_Handler(_interrupt_INTx->EXTERNAL_INTERRUPT_CALLBACK);
+                break;
+
+            case INTERRUPT_EXTERNAL_INT2:
+                ret = INT2_Interrupt_Handler(_interrupt_INTx->EXTERNAL_INTERRUPT_CALLBACK);
+                break;
+
+            default:
+                ret = (STD_ReturnType)0x00;
+        }
+    }
+    return ret;
+}
+
+
+void INT0_ISR(void)
+{
+
+    (INTCONbits.INT0IF = 0);
+
+
+
+
+    if(INT0_InterruptHandler)
+    {
+        INT0_InterruptHandler();
+    }
+}
+
+void INT1_ISR(void)
+{
+
+    (INTCON3bits.INT1IF = 0);
+
+
+
+
+    if(INT1_InterruptHandler)
+    {
+        INT1_InterruptHandler();
+    }
+}
+
+void INT2_ISR(void)
+{
+
+    (INTCON3bits.INT2IF = 0);
+
+
+
+
+    if(INT2_InterruptHandler)
+    {
+        INT2_InterruptHandler();
+    }
 }
