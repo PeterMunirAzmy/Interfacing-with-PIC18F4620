@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
   <h1>PIC18F46K20 Interface Project</h1>
         <p>This project demonstrates an interface using the PIC18F46K20 microcontroller to control LEDs, DC motors, relays, a keypad, and an LCD in both 8-bit and 4-bit modes.</p>
         
