@@ -4798,7 +4798,7 @@ STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
 # 16 "MCAL_layer/Interrupt/interrupt_config.h" 2
-# 55 "MCAL_layer/Interrupt/interrupt_config.h"
+# 61 "MCAL_layer/Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
@@ -4810,11 +4810,27 @@ void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
 # 8 "MCAL_layer/Interrupt/interrupt_manager.c" 2
-# 24 "MCAL_layer/Interrupt/interrupt_manager.c"
-void __attribute__((picinterrupt(("")))) Interrupt_Manager(void)
+
+
+
+
+void __attribute__((picinterrupt(("")))) Interrupt_Manager_High(void)
 {
     if((1 == INTCONbits.INT0IE) && (1 == INTCONbits.INT0IF ))
     {
         INT0_ISR();
+    }
+    if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF ))
+    {
+        INT2_ISR();
+    }
+}
+
+
+void __attribute__((picinterrupt(("low_priority")))) Interrupt_Manager_Low(void)
+{
+    if((1 == INTCON3bits.INT1IE) && (1 == INTCON3bits.INT1IF ))
+    {
+        INT1_ISR();
     }
 }

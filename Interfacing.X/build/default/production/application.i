@@ -4987,7 +4987,7 @@ void application_initializ(void);
 # 1 "./MCAL_layer/Interrupt/external_interrupt.h" 1
 # 12 "./MCAL_layer/Interrupt/external_interrupt.h"
 # 1 "./MCAL_layer/Interrupt/interrupt_config.h" 1
-# 55 "./MCAL_layer/Interrupt/interrupt_config.h"
+# 61 "./MCAL_layer/Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
@@ -5035,17 +5035,41 @@ STD_ReturnType Interrupt_RBx_deinit(const interrupt_RBx *_interrupt_RBx);
 # 9 "application.c" 2
 
 
-
+void ISR_0(void);
 void ISR_1(void);
+void ISR_2(void);
 
-
-interrupt_INTx into_obj ={
-    .EXTERNAL_INTERRUPT_CALLBACK = ISR_1, .INTx = INTERRUPT_EXTERNAL_INT0, .edge = INTERRUPT_RISING_EDGE,
+interrupt_INTx into_obj =
+{
+    .EXTERNAL_INTERRUPT_CALLBACK = ISR_0, .INTx = INTERRUPT_EXTERNAL_INT0, .edge = INTERRUPT_RISING_EDGE,
     .interrupt_pin.port = PORTB_INDEX, .interrupt_pin.pin = GPIO_PIN0, .interrupt_pin.direction = GPIO_DIRECTION_INPUT
 };
 
-pin_config led1 ={
+interrupt_INTx int1_obj =
+{
+    .EXTERNAL_INTERRUPT_CALLBACK = ISR_1, .INTx = INTERRUPT_EXTERNAL_INT1, .edge = INTERRUPT_RISING_EDGE,.priority = INTERRUPT_LOW_PRIORITY,
+    .interrupt_pin.port = PORTB_INDEX, .interrupt_pin.pin = GPIO_PIN1, .interrupt_pin.direction = GPIO_DIRECTION_INPUT
+};
+
+interrupt_INTx int2_obj =
+{
+    .EXTERNAL_INTERRUPT_CALLBACK = ISR_2, .INTx = INTERRUPT_EXTERNAL_INT2, .edge = INTERRUPT_RISING_EDGE,.priority = INTERRUPT_HIGH_PRIORITY,
+    .interrupt_pin.port = PORTB_INDEX, .interrupt_pin.pin = GPIO_PIN2, .interrupt_pin.direction = GPIO_DIRECTION_INPUT
+};
+
+pin_config led1 =
+{
     .port = PORTC_INDEX, .pin = GPIO_PIN0, .direction = GPIO_DIRECTION_OUTPUT, .logic = GPIO_LOW
+};
+
+pin_config led2 =
+{
+    .port = PORTC_INDEX, .pin = GPIO_PIN1, .direction = GPIO_DIRECTION_OUTPUT, .logic = GPIO_LOW
+};
+
+pin_config led3 =
+{
+    .port = PORTC_INDEX, .pin = GPIO_PIN2, .direction = GPIO_DIRECTION_OUTPUT, .logic = GPIO_LOW
 };
 
 STD_ReturnType ret = (STD_ReturnType)0x00;
@@ -5066,10 +5090,28 @@ int main()
 void application_initializ(void)
 {
     ret = Interrupt_INTx_init(&into_obj);
+    ret = Interrupt_INTx_init(&int1_obj);
+    ret = Interrupt_INTx_init(&int2_obj);
+
     ret = gpio_pin_Initialization(&led1);
+    ret = gpio_pin_Initialization(&led2);
+    ret = gpio_pin_Initialization(&led3);
+}
+
+void ISR_0(void)
+{
+    ret = gpio_pin_toggle_logic(&led1);
+    _delay((unsigned long)((250)*(8000000UL/4000.0)));
 }
 
 void ISR_1(void)
 {
-    ret = gpio_pin_toggle_logic(&led1);
+    ret = gpio_pin_toggle_logic(&led2);
+    _delay((unsigned long)((250)*(8000000UL/4000.0)));
+}
+
+void ISR_2(void)
+{
+    ret = gpio_pin_toggle_logic(&led3);
+    _delay((unsigned long)((250)*(8000000UL/4000.0)));
 }

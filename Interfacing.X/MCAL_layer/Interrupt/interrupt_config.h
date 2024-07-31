@@ -31,11 +31,15 @@
 #define INTERRUPT_ENABLE_BRIORITY_INTERRUPT()                   (RCONbits.IPEN = 1)
 #define INTERRUPT_DISABLE_BRIORITY_INTERRUPT()                  (RCONbits.IPEN = 0)
 
+#if Interrupt_Priority_level_Enable == Interrupt_Feature_Enable
+
 #define INTERRUPT_ENABLE_GLOBLE_HIGH_BRIORITY_INTERRUPT()      (INTCONbits.GIEH = 1)
 #define INTERRUPT_DISABLE_GLOBLE_HIGH_BRIORITY_INTERRUPT()     (INTCONbits.GIEH = 0)
 
 #define INTERRUPT_ENABLE_GLOBLE_LOW_BRIORITY_INTERRUPT()        (INTCONbits.GIEL = 1)
 #define INTERRUPT_DISABLE_GLOBLE_LOW_BRIORITY_INTERRUPT()       (INTCONbits.GIEL = 0)
+
+#else
 
 #define INTERRUPT_ENABLE_GLOBLE_INTERRUPT()                     (INTCONbits.GIE = 1)
 #define INTERRUPT_DISABLE_GLOBLE_INTERRUPT()                    (INTCONbits.GIE = 0)
@@ -43,10 +47,12 @@
 #define INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT()                 (INTCONbits.PEIE = 1)
 #define INTERRUPT_DISABLE_PERIPHERAL_INTERRUPT()                (INTCONbits.PEIE = 0)
 
+#endif
+
 
 
 #define Interrupt_Feature_Enable 1U
-//#define Interrupt_Priority_level_Enable  Interrupt_Feature_Enable
+#define Interrupt_Priority_level_Enable  Interrupt_Feature_Enable
 #define Interrupt_INTx_Feature_Enable   Interrupt_Feature_Enable
 #define Interrupt_OnChange_Feature_Enable   Interrupt_Feature_Enable
 

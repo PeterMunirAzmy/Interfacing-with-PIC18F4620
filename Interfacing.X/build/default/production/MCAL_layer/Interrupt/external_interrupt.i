@@ -4798,7 +4798,7 @@ STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
 # 16 "MCAL_layer/Interrupt/interrupt_config.h" 2
-# 55 "MCAL_layer/Interrupt/interrupt_config.h"
+# 61 "MCAL_layer/Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
@@ -4897,9 +4897,7 @@ STD_ReturnType Interrupt_INTx_init(const interrupt_INTx *_interrupt_INTx)
         ret = Interrupt_INTx_Edge_init(_interrupt_INTx);
 
 
-
-
-
+        ret = Interrupt_INTx_Priority_init(_interrupt_INTx);
 
 
         ret = Interrupt_INTx_Pin_init(_interrupt_INTx);
@@ -4972,41 +4970,74 @@ STD_ReturnType Interrupt_RBx_deinit(const interrupt_RBx *_interrupt_RBx)
     }
     return ret;
 }
-# 145 "MCAL_layer/Interrupt/external_interrupt.c"
+# 142 "MCAL_layer/Interrupt/external_interrupt.c"
 static STD_ReturnType Interrupt_INTx_Enable(const interrupt_INTx *_interrupt_INTx)
 {
     STD_ReturnType ret = (STD_ReturnType)0x01;
 
-    if(((void*)0) == _interrupt_INTx)
+    if (((void*)0) == _interrupt_INTx)
     {
         ret = (STD_ReturnType)0x00;
     }
     else
     {
-        switch(_interrupt_INTx->INTx)
+        switch (_interrupt_INTx->INTx)
         {
             case INTERRUPT_EXTERNAL_INT0:
-                (INTCONbits.PEIE = 1);
-                (INTCONbits.GIE = 1);
+
+                (RCONbits.IPEN = 1);
+                (INTCONbits.GIEH = 1);
                 (INTCONbits.INT0IE = 1);
+
+
+
 
                 break;
 
             case INTERRUPT_EXTERNAL_INT1:
-                (INTCONbits.PEIE = 1);
-                (INTCONbits.GIE = 1);
+
+                (RCONbits.IPEN = 1);
                 (INTCON3bits.INT1IE = 1);
+                switch (_interrupt_INTx->priority)
+                {
+                    case INTERRUPT_LOW_PRIORITY:
+                        (INTCONbits.GIEL = 1);
+                        break;
+                    case INTERRUPT_HIGH_PRIORITY:
+                        (INTCONbits.GIEH = 1);
+                        break;
+                }
+                break;
+
+
+
+
                 break;
 
             case INTERRUPT_EXTERNAL_INT2:
-                (INTCONbits.PEIE = 1);
-                (INTCONbits.GIE = 1);
+
+                (RCONbits.IPEN = 1);
                 (INTCON3bits.INT2IE = 1);
+                switch (_interrupt_INTx->priority)
+                {
+                    case INTERRUPT_LOW_PRIORITY:
+                        (INTCONbits.GIEL = 1);
+                        break;
+                    case INTERRUPT_HIGH_PRIORITY:
+                        (INTCONbits.GIEH = 1);
+                        break;
+                }
+                break;
+
+
+
+
+
                 break;
 
             default:
                 ret = (STD_ReturnType)0x00;
-
+                break;
         }
     }
     return ret;

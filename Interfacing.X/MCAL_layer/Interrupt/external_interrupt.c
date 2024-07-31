@@ -57,10 +57,8 @@ STD_ReturnType Interrupt_INTx_init(const interrupt_INTx *_interrupt_INTx)
         /* -------------------- configure external interrupt edge -------------------- */
         ret = Interrupt_INTx_Edge_init(_interrupt_INTx);
         
-        #if Interrupt_Priority_level_Enable == Interrupt_Feature_Enable
         /* -------------------- configure external interrupt priority -------------------- */
         ret = Interrupt_INTx_Priority_init(_interrupt_INTx);
-        #endif
 
         /* -------------------- configure external interrupt pin -------------------- */
         ret = Interrupt_INTx_Pin_init(_interrupt_INTx);
@@ -136,46 +134,78 @@ STD_ReturnType Interrupt_RBx_deinit(const interrupt_RBx *_interrupt_RBx)
 
 
 /* --------------------------------- Helper functions --------------------------------- */
-
 /**
  * 
  * @param _interrupt_INTx
  * @return 
  */
-static STD_ReturnType Interrupt_INTx_Enable(const interrupt_INTx *_interrupt_INTx)
+static STD_ReturnType Interrupt_INTx_Enable(const interrupt_INTx *_interrupt_INTx) 
 {
     STD_ReturnType ret = E_OK;
-    
-    if(NULL == _interrupt_INTx)
+
+    if (NULL == _interrupt_INTx) 
     {
         ret = E_NOT_OK;
-    }
-    else
+    } 
+    else 
     {
-        switch(_interrupt_INTx->INTx)
+        switch (_interrupt_INTx->INTx) 
         {
-            case INTERRUPT_EXTERNAL_INT0:
+            case INTERRUPT_EXTERNAL_INT0:          
+#if Interrupt_Priority_level_Enable == Interrupt_Feature_Enable
+                INTERRUPT_ENABLE_BRIORITY_INTERRUPT();
+                INTERRUPT_ENABLE_GLOBLE_HIGH_BRIORITY_INTERRUPT();
+                EXTERNAL_INT0_INTERRUPT_ENABLE();
+#else
                 INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
                 INTERRUPT_ENABLE_GLOBLE_INTERRUPT();
-                EXTERNAL_INT0_INTERRUPT_ENABLE();
-                
+#endif
                 break;
 
             case INTERRUPT_EXTERNAL_INT1:
+#if Interrupt_Priority_level_Enable == Interrupt_Feature_Enable
+                INTERRUPT_ENABLE_BRIORITY_INTERRUPT();
+                EXTERNAL_INT1_INTERRUPT_ENABLE();
+                switch (_interrupt_INTx->priority) 
+                {
+                    case INTERRUPT_LOW_PRIORITY:
+                        INTERRUPT_ENABLE_GLOBLE_LOW_BRIORITY_INTERRUPT();
+                        break;
+                    case INTERRUPT_HIGH_PRIORITY:
+                        INTERRUPT_ENABLE_GLOBLE_HIGH_BRIORITY_INTERRUPT();
+                        break;
+                }
+                break;
+#else
                 INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
                 INTERRUPT_ENABLE_GLOBLE_INTERRUPT();
-                EXTERNAL_INT1_INTERRUPT_ENABLE();
+#endif
                 break;
 
             case INTERRUPT_EXTERNAL_INT2:
+#if Interrupt_Priority_level_Enable == Interrupt_Feature_Enable
+                INTERRUPT_ENABLE_BRIORITY_INTERRUPT();
+                EXTERNAL_INT2_INTERRUPT_ENABLE();
+                switch (_interrupt_INTx->priority) 
+                {
+                    case INTERRUPT_LOW_PRIORITY:
+                        INTERRUPT_ENABLE_GLOBLE_LOW_BRIORITY_INTERRUPT();
+                        break;
+                    case INTERRUPT_HIGH_PRIORITY:
+                        INTERRUPT_ENABLE_GLOBLE_HIGH_BRIORITY_INTERRUPT();
+                        break;
+                }
+                break;
+
+#else
                 INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
                 INTERRUPT_ENABLE_GLOBLE_INTERRUPT();
-                EXTERNAL_INT2_INTERRUPT_ENABLE();
+#endif 
                 break;
 
             default:
                 ret = E_NOT_OK;
-                
+                break;
         }
     }
     return ret;
