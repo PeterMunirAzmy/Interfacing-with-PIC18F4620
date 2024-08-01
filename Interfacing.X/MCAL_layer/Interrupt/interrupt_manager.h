@@ -23,5 +23,11 @@ void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
 
+void RB4_ISR(void);
+void RB5_ISR(void);
+void RB6_ISR(void);
+void RB7_ISR(void);
+
+
 #endif	/* INTERRUPT_MANAGER_H */
 

@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/peter/OneDrive/Desktop/Interfacing.X/application.c</file>
             <file>file:/C:/Users/peter/OneDrive/Desktop/Interfacing.X/MCAL_layer/Interrupt/external_interrupt.c</file>
+            <file>file:/C:/Users/peter/OneDrive/Desktop/Interfacing.X/MCAL_layer/Interrupt/interrupt_manager.c</file>
             <file>file:/C:/Users/peter/OneDrive/Desktop/Interfacing.X/MCAL_layer/Interrupt/interrupt_config.h</file>
             <file>file:/C:/Users/peter/OneDrive/Desktop/Interfacing.X/MCAL_layer/Interrupt/external_interrupt.h</file>
         </group>
