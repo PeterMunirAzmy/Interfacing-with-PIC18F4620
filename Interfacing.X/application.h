@@ -16,6 +16,9 @@
 #include "ECU_layer/7-seg/7-seg.h"
 #include "ECU_layer/lcd/lcd.h"
 #include "ECU_layer/Keypad/keypad.h"
+#include "MCAL_layer/Interrupt/external_interrupt.h"
+#include "MCAL_layer/EEPROM/eeprom.h"
+
 
 
 

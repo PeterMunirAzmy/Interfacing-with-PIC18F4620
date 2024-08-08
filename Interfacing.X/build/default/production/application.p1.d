@@ -15,4 +15,6 @@ ECU_layer/7-seg/7-seg.h  \
 ECU_layer/lcd/lcd.h  \
 ECU_layer/Keypad/keypad.h  \
 MCAL_layer/Interrupt/external_interrupt.h  \
-MCAL_layer/Interrupt/interrupt_config.h 
+MCAL_layer/Interrupt/interrupt_config.h  \
+MCAL_layer/EEPROM/eeprom.h  \
+MCAL_layer/EEPROM/../Interrupt/internal_interrupt.h 
