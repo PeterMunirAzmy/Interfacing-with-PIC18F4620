@@ -18,6 +18,7 @@
 #include "ECU_layer/Keypad/keypad.h"
 #include "MCAL_layer/Interrupt/external_interrupt.h"
 #include "MCAL_layer/EEPROM/eeprom.h"
+#include "MCAL_layer/ADC/adc.h"
 
 
 

@@ -29,6 +29,9 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL_layer" displayName="MCAL_layer" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL_layer/ADC/adc.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_layer/EEPROM/eeprom.h</itemPath>
         </logicalFolder>
@@ -84,6 +87,9 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL_layer" displayName="MCAL_layer" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL_layer/ADC/adc.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_layer/EEPROM/eeprom.c</itemPath>
         </logicalFolder>

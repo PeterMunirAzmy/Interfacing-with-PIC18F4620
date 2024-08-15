@@ -1,55 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"28 ./ECU_layer/led/ecu_led.h
-[; ;./ECU_layer/led/ecu_led.h: 28: {
-[s S274 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S274 . port_name pin_number led_status ]
-"3 application.c
-[; ;application.c: 3: led_config led1 =
-[c E2999 0 1 2 3 4 .. ]
-[n E2999 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2989 0 1 2 3 4 5 6 7 .. ]
-[n E2989 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
-[c E3041 0 1 .. ]
-[n E3041 . LED_OFF LED_ON  ]
-"81 ./MCAL_layer/Interrupt/../GPIO/gpio.h
-[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . port pin direction logic ]
-"9 application.c
-[; ;application.c: 9: button_config btn =
-[c E3058 0 1 .. ]
-[n E3058 . BUTTON_RELEASED BUTTON_PRESSED  ]
-[c E3062 0 1 .. ]
-[n E3062 . BUTTON_ACTIVE_LOW BUTTON_ACTIVE_HIGHT  ]
-"32 ./ECU_layer/button/button.h
-[; ;./ECU_layer/button/button.h: 32: {
-[s S275 `S273 1 `E3058 1 `E3062 1 ]
-[n S275 . button_pin _button_status _button_activ ]
-"9 application.c
-[; ;application.c: 9: button_config btn =
-[c E2985 0 1 .. ]
-[n E2985 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-"35 ./ECU_layer/led/ecu_led.h
-[; ;./ECU_layer/led/ecu_led.h: 35: STD_ReturnType ecu_led_initializ(const led_config *_led_config);
-[v _ecu_led_initializ `(uc ~T0 @X0 0 ef1`*CS274 ]
-"40 ./ECU_layer/button/button.h
-[; ;./ECU_layer/button/button.h: 40: STD_ReturnType ecu_button_init(button_config *_button_config);
-[v _ecu_button_init `(uc ~T0 @X0 0 ef1`*S275 ]
-"36 ./MCAL_layer/EEPROM/eeprom.h
-[; ;./MCAL_layer/EEPROM/eeprom.h: 36: STD_ReturnType EEPROM_Data_Read_Byte(uint16 addres, uint8 *return_data);
-[v _EEPROM_Data_Read_Byte `(uc ~T0 @X0 0 ef2`us`*uc ]
-"36 ./ECU_layer/led/ecu_led.h
-[; ;./ECU_layer/led/ecu_led.h: 36: STD_ReturnType ecu_led_turn_on(const led_config *_led_config);
-[v _ecu_led_turn_on `(uc ~T0 @X0 0 ef1`*CS274 ]
-"37
-[; ;./ECU_layer/led/ecu_led.h: 37: STD_ReturnType ecu_led_turn_off(const led_config *_led_config);
-[v _ecu_led_turn_off `(uc ~T0 @X0 0 ef1`*CS274 ]
 [p mainexit ]
-"41 ./ECU_layer/button/button.h
-[; ;./ECU_layer/button/button.h: 41: STD_ReturnType ecu_button_read_state(button_config *_button_config ,button_status *_button_status);
-[v _ecu_button_read_state `(uc ~T0 @X0 0 ef2`*S275`*E3058 ]
-"35 ./MCAL_layer/EEPROM/eeprom.h
-[; ;./MCAL_layer/EEPROM/eeprom.h: 35: STD_ReturnType EEPROM_Data_Write_Byte(uint16 addres , uint8 data);
-[v _EEPROM_Data_Write_Byte `(uc ~T0 @X0 0 ef2`us`uc ]
+"33 ./application.h
+[; ;./application.h: 33: void application_initializ(void);
+[v _application_initializ `(v ~T0 @X0 0 ef ]
 "54 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -461,73 +414,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"3 application.c
-[; ;application.c: 3: led_config led1 =
-[v _led1 `S274 ~T0 @X0 1 e ]
-[i _led1
-:U ..
-:U ..
--> . `E2999 2 `uc
--> . `E2989 0 `uc
--> . `E3041 0 `uc
-..
-..
-]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"5 application.c
+[; ;application.c: 5: int main()
+[v _main `(i ~T0 @X0 1 ef ]
 "6
-[; ;application.c: 6: led_config led2 =
-[v _led2 `S274 ~T0 @X0 1 e ]
-[i _led2
-:U ..
-:U ..
--> . `E2999 2 `uc
--> . `E2989 1 `uc
--> . `E3041 0 `uc
-..
-..
-]
+[; ;application.c: 6: {
+{
+[e :U _main ]
+[f ]
+"7
+[; ;application.c: 7:     application_initializ();
+[e ( _application_initializ ..  ]
 "9
-[; ;application.c: 9: button_config btn =
-[v _btn `S275 ~T0 @X0 1 e ]
-[i _btn
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2999 2 `uc
--> . `E2989 2 `uc
--> . `E2985 1 `uc
-..
-..
-. `E3058 0
-. `E3062 1
-..
-..
-]
+[; ;application.c: 9:     while(1)
+[e :U 288 ]
+"10
+[; ;application.c: 10:     {
+{
+"12
+[; ;application.c: 12:     }
+}
+[e :U 287 ]
+[e $U 288  ]
+[e :U 289 ]
 "13
-[; ;application.c: 13: STD_ReturnType ret = (STD_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 e ]
-[i _ret
--> -> 0 `i `uc
-]
+[; ;application.c: 13:     return (0);
+[e ) -> 0 `i ]
+[e $UE 286  ]
 "14
-[; ;application.c: 14: uint8 counter = 0, high_value = 0, ret_data = 0, btn_state, prev_btn_state = BUTTON_RELEASED;
-[v _counter `uc ~T0 @X0 1 e ]
-[i _counter
--> -> 0 `i `uc
-]
-[v _high_value `uc ~T0 @X0 1 e ]
-[i _high_value
--> -> 0 `i `uc
-]
-[v _ret_data `uc ~T0 @X0 1 e ]
-[i _ret_data
--> -> 0 `i `uc
-]
-[v _btn_state `uc ~T0 @X0 1 e ]
-[v _prev_btn_state `uc ~T0 @X0 1 e ]
-[i _prev_btn_state
--> . `E3058 0 `uc
-]
+[; ;application.c: 14: }
+[e :UE 286 ]
+}
 "16
 [; ;application.c: 16: void application_initializ(void)
 [v _application_initializ `(v ~T0 @X0 1 ef ]
@@ -536,242 +454,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _application_initializ ]
 [f ]
-"18
-[; ;application.c: 18:     ret = ecu_led_initializ(&led1);
-[e = _ret ( _ecu_led_initializ (1 -> &U _led1 `*CS274 ]
 "19
-[; ;application.c: 19:     ret = ecu_led_initializ(&led2);
-[e = _ret ( _ecu_led_initializ (1 -> &U _led2 `*CS274 ]
-"20
-[; ;application.c: 20:     ret = ecu_button_init(&btn);
-[e = _ret ( _ecu_button_init (1 &U _btn ]
-"23
-[; ;application.c: 23:     ret = EEPROM_Data_Read_Byte(0x3FF, &ret_data);
-[e = _ret ( _EEPROM_Data_Read_Byte (2 , -> -> 1023 `i `us &U _ret_data ]
-"26
-[; ;application.c: 26:     counter = ret_data;
-[e = _counter _ret_data ]
-"27
-[; ;application.c: 27:     switch(counter)
-[e $U 287  ]
-"28
-[; ;application.c: 28:     {
-{
-"29
-[; ;application.c: 29:         case 1:
-[e :U 288 ]
-"30
-[; ;application.c: 30:             ecu_led_turn_on(&led1);
-[e ( _ecu_led_turn_on (1 -> &U _led1 `*CS274 ]
-"31
-[; ;application.c: 31:             ecu_led_turn_off(&led2);
-[e ( _ecu_led_turn_off (1 -> &U _led2 `*CS274 ]
-"32
-[; ;application.c: 32:             break;
-[e $U 286  ]
-"33
-[; ;application.c: 33:         case 2:
-[e :U 289 ]
-"34
-[; ;application.c: 34:             ecu_led_turn_on(&led2);
-[e ( _ecu_led_turn_on (1 -> &U _led2 `*CS274 ]
-"35
-[; ;application.c: 35:             ecu_led_turn_off(&led1);
-[e ( _ecu_led_turn_off (1 -> &U _led1 `*CS274 ]
-"36
-[; ;application.c: 36:             break;
-[e $U 286  ]
-"37
-[; ;application.c: 37:         case 3:
-[e :U 290 ]
-"38
-[; ;application.c: 38:             ecu_led_turn_off(&led1);
-[e ( _ecu_led_turn_off (1 -> &U _led1 `*CS274 ]
-"39
-[; ;application.c: 39:             ecu_led_turn_off(&led2);
-[e ( _ecu_led_turn_off (1 -> &U _led2 `*CS274 ]
-"40
-[; ;application.c: 40:             counter = 0;
-[e = _counter -> -> 0 `i `uc ]
-"41
-[; ;application.c: 41:             break;
-[e $U 286  ]
-"42
-[; ;application.c: 42:         default:
-[e :U 291 ]
-"44
-[; ;application.c: 44:             ecu_led_turn_off(&led1);
-[e ( _ecu_led_turn_off (1 -> &U _led1 `*CS274 ]
-"45
-[; ;application.c: 45:             ecu_led_turn_off(&led2);
-[e ( _ecu_led_turn_off (1 -> &U _led2 `*CS274 ]
-"46
-[; ;application.c: 46:             counter = 0;
-[e = _counter -> -> 0 `i `uc ]
-"47
-[; ;application.c: 47:             break;
-[e $U 286  ]
-"48
-[; ;application.c: 48:     }
-}
-[e $U 286  ]
-[e :U 287 ]
-[e [\ _counter , $ -> 1 `i 288
- , $ -> 2 `i 289
- , $ -> 3 `i 290
- 291 ]
-[e :U 286 ]
-"49
-[; ;application.c: 49: }
-[e :UE 285 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"51
-[; ;application.c: 51: int main()
-[v _main `(i ~T0 @X0 1 ef ]
-"52
-[; ;application.c: 52: {
-{
-[e :U _main ]
-[f ]
-"53
-[; ;application.c: 53:     application_initializ();
-[e ( _application_initializ ..  ]
-"55
-[; ;application.c: 55:     while(1)
-[e :U 294 ]
-"56
-[; ;application.c: 56:     {
-{
-"57
-[; ;application.c: 57:         ret = ecu_button_read_state(&btn, &btn_state);
-[e = _ret ( _ecu_button_read_state (2 , &U _btn -> &U _btn_state `*E3058 ]
-"60
-[; ;application.c: 60:         if (btn_state == BUTTON_PRESSED && prev_btn_state == BUTTON_RELEASED)
-[e $ ! && == -> _btn_state `i -> . `E3058 1 `i == -> _prev_btn_state `i -> . `E3058 0 `i 296  ]
-"61
-[; ;application.c: 61:         {
-{
-"62
-[; ;application.c: 62:             high_value++;
-[e ++ _high_value -> -> 1 `i `uc ]
-"63
-[; ;application.c: 63:             prev_btn_state = BUTTON_PRESSED;
-[e = _prev_btn_state -> . `E3058 1 `uc ]
-"64
-[; ;application.c: 64:         }
-}
-[e $U 297  ]
-"65
-[; ;application.c: 65:         else if (btn_state == BUTTON_RELEASED && prev_btn_state == BUTTON_PRESSED)
-[e :U 296 ]
-[e $ ! && == -> _btn_state `i -> . `E3058 0 `i == -> _prev_btn_state `i -> . `E3058 1 `i 298  ]
-"66
-[; ;application.c: 66:         {
-{
-"67
-[; ;application.c: 67:             prev_btn_state = BUTTON_RELEASED;
-[e = _prev_btn_state -> . `E3058 0 `uc ]
-"68
-[; ;application.c: 68:         }
-}
-[e :U 298 ]
-[e :U 297 ]
-"70
-[; ;application.c: 70:         if (high_value >= 1)
-[e $ ! >= -> _high_value `i -> 1 `i 299  ]
-"71
-[; ;application.c: 71:         {
-{
-"72
-[; ;application.c: 72:             high_value = 0;
-[e = _high_value -> -> 0 `i `uc ]
-"73
-[; ;application.c: 73:             counter++;
-[e ++ _counter -> -> 1 `i `uc ]
-"74
-[; ;application.c: 74:             if (counter > 3)
-[e $ ! > -> _counter `i -> 3 `i 300  ]
-"75
-[; ;application.c: 75:             {
-{
-"76
-[; ;application.c: 76:                 counter = 1;
-[e = _counter -> -> 1 `i `uc ]
-"77
-[; ;application.c: 77:             }
-}
-[e :U 300 ]
-"78
-[; ;application.c: 78:             ret = EEPROM_Data_Write_Byte(0x3FF, counter);
-[e = _ret ( _EEPROM_Data_Write_Byte (2 , -> -> 1023 `i `us _counter ]
-"79
-[; ;application.c: 79:         }
-}
-[e :U 299 ]
-"82
-[; ;application.c: 82:         switch(counter)
-[e $U 302  ]
-"83
-[; ;application.c: 83:         {
-{
-"84
-[; ;application.c: 84:             case 1:
-[e :U 303 ]
-"85
-[; ;application.c: 85:                 ecu_led_turn_on(&led1);
-[e ( _ecu_led_turn_on (1 -> &U _led1 `*CS274 ]
-"86
-[; ;application.c: 86:                 ecu_led_turn_off(&led2);
-[e ( _ecu_led_turn_off (1 -> &U _led2 `*CS274 ]
-"87
-[; ;application.c: 87:                 break;
-[e $U 301  ]
-"88
-[; ;application.c: 88:             case 2:
-[e :U 304 ]
-"89
-[; ;application.c: 89:                 ecu_led_turn_on(&led2);
-[e ( _ecu_led_turn_on (1 -> &U _led2 `*CS274 ]
-"90
-[; ;application.c: 90:                 ecu_led_turn_off(&led1);
-[e ( _ecu_led_turn_off (1 -> &U _led1 `*CS274 ]
-"91
-[; ;application.c: 91:                 break;
-[e $U 301  ]
-"92
-[; ;application.c: 92:             case 3:
-[e :U 305 ]
-"93
-[; ;application.c: 93:                 ecu_led_turn_off(&led1);
-[e ( _ecu_led_turn_off (1 -> &U _led1 `*CS274 ]
-"94
-[; ;application.c: 94:                 ecu_led_turn_off(&led2);
-[e ( _ecu_led_turn_off (1 -> &U _led2 `*CS274 ]
-"95
-[; ;application.c: 95:                 break;
-[e $U 301  ]
-"96
-[; ;application.c: 96:         }
-}
-[e $U 301  ]
-[e :U 302 ]
-[e [\ _counter , $ -> 1 `i 303
- , $ -> 2 `i 304
- , $ -> 3 `i 305
- 301 ]
-[e :U 301 ]
-"97
-[; ;application.c: 97:     }
-}
-[e :U 293 ]
-[e $U 294  ]
-[e :U 295 ]
-"99
-[; ;application.c: 99:     return (0);
-[e ) -> 0 `i ]
-[e $UE 292  ]
-"100
-[; ;application.c: 100: }
-[e :UE 292 ]
+[; ;application.c: 19: }
+[e :UE 290 ]
 }

@@ -51,6 +51,12 @@ void __interrupt(low_priority) Interrupt_Manager_Low(void)
 #else
 void __interrupt() Interrupt_Manager(void)
 {
+    /* ------------------------------ ADC interrupt ------------------------------ */
+    if((INTERRUPT_ENABLE == PIE1bits.ADIE ) && (INTERRUPT_OCCUR == PIR1bits.ADIF))
+    {
+        ADC_ISR();
+    }
+    
     /* ------------------------------ RB5 Interrupt ------------------------------ */
     if((INTERRUPT_ENABLE == INTCONbits.RBIE) && (INTERRUPT_OCCUR == INTCONbits.RBIF ))
     {

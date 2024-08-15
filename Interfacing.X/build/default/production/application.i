@@ -5032,58 +5032,115 @@ STD_ReturnType Interrupt_RBx_deinit(const interrupt_RBx *_interrupt_RBx);
 STD_ReturnType EEPROM_Data_Write_Byte(uint16 addres , uint8 data);
 STD_ReturnType EEPROM_Data_Read_Byte(uint16 addres, uint8 *return_data);
 # 20 "./application.h" 2
-# 32 "./application.h"
+
+# 1 "./MCAL_layer/ADC/adc.h" 1
+# 18 "./MCAL_layer/ADC/adc.h"
+# 1 "./MCAL_layer/ADC/../Interrupt/interrupt_manager.h" 1
+# 22 "./MCAL_layer/ADC/../Interrupt/interrupt_manager.h"
+void INT0_ISR(void);
+void INT1_ISR(void);
+void INT2_ISR(void);
+
+void RB4_ISR(void);
+void RB5_ISR(void);
+void RB6_ISR(void);
+void RB7_ISR(void);
+
+void ADC_ISR(void);
+# 18 "./MCAL_layer/ADC/adc.h" 2
+# 53 "./MCAL_layer/ADC/adc.h"
+typedef enum
+{
+    ADC_CHANNEL_AN0,
+    ADC_CHANNEL_AN1,
+    ADC_CHANNEL_AN2,
+    ADC_CHANNEL_AN3,
+    ADC_CHANNEL_AN4,
+    ADC_CHANNEL_AN5,
+    ADC_CHANNEL_AN6,
+    ADC_CHANNEL_AN7,
+    ADC_CHANNEL_AN8,
+    ADC_CHANNEL_AN9,
+    ADC_CHANNEL_AN10,
+    ADC_CHANNEL_AN11,
+    ADC_CHANNEL_AN12
+
+}adc_channel_select_t;
+
+
+typedef enum
+{
+    ADC_ALL_ANALOG_FUNCTIONALITY = 0x01,
+    ADC_AN12_ANALOG_FUNCTIONALITY,
+    ADC_AN11_ANALOG_FUNCTIONALITY,
+    ADC_AN10_ANALOG_FUNCTIONALITY,
+    ADC_AN9_ANALOG_FUNCTIONALITY,
+    ADC_AN8_ANALOG_FUNCTIONALITY,
+    ADC_AN7_ANALOG_FUNCTIONALITY,
+    ADC_AN6_ANALOG_FUNCTIONALITY,
+    ADC_AN5_ANALOG_FUNCTIONALITY,
+    ADC_AN4_ANALOG_FUNCTIONALITY,
+    ADC_AN3_ANALOG_FUNCTIONALITY,
+    ADC_AN2_ANALOG_FUNCTIONALITY,
+    ADC_AN1_ANALOG_FUNCTIONALITY,
+    ADC_AN0_ANALOG_FUNCTIONALITY,
+    ADC_ALL_DIGITAL_FUNCTIONALITY
+
+}adc_analog_functionality_t;
+
+typedef enum
+{
+    ADC_0_TDA,
+    ADC_2_TDA,
+    ADC_4_TDA,
+    ADC_6_TDA,
+    ADC_8_TDA,
+    ADC_12_TDA,
+    ADC_16_TDA,
+    ADC_20_TDA
+
+}adc_aquizition_time_t;
+
+typedef enum
+{
+    ADC_CONVERSION_CLOCK_FOSC_DIV_2,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    ADC_CONVERSION_CLOCK_FOSC_DIV_64
+
+}adc_conversion_clock_t;
+
+typedef struct
+{
+    void (* ADC_INTERRUPT_HANDLER)(void);
+    interrupt_priority priority;
+    adc_conversion_clock_t adc_conversion_clock;
+    adc_aquizition_time_t adc_aquizition_time;
+    adc_analog_functionality_t adc_analog_functionality;
+    adc_channel_select_t adc_channel_select;
+    uint8 voltage_reference ;
+    uint8 result_format ;
+}adc_config_t;
+
+
+STD_ReturnType ADC_Init(const adc_config_t *adc_config);
+STD_ReturnType ADC_Deinit(const adc_config_t *adc_config);
+STD_ReturnType ADC_Select_Channel(const adc_config_t *adc_config , adc_channel_select_t adc_channel_select);
+STD_ReturnType ADC_Start_Conversion(const adc_config_t *adc_config);
+STD_ReturnType ADC_Is_Conversion_Done(const adc_config_t *adc_config , uint8 *conversion_status);
+STD_ReturnType ADC_Get_Conversion_Result(const adc_config_t *adc_config , uint16 *conversion_result);
+STD_ReturnType ADC_Full_Conversion_Pending(const adc_config_t *adc_config , adc_channel_select_t adc_channel_select, uint16 *conversion_result);
+STD_ReturnType ADC_Full_Conversion_Interrupt(const adc_config_t *adc_config , adc_channel_select_t adc_channel_select);
+# 21 "./application.h" 2
+# 33 "./application.h"
 void application_initializ(void);
 # 1 "application.c" 2
 
 
-led_config led1 =
-{.port_name=PORTC_INDEX, .pin_number = GPIO_PIN0, .led_status = LED_OFF};
 
-led_config led2 =
-{.port_name=PORTC_INDEX, .pin_number = GPIO_PIN1, .led_status = LED_OFF};
-
-button_config btn =
-{.button_pin.pin = GPIO_PIN2, .button_pin.port=PORTC_INDEX, .button_pin.direction = GPIO_DIRECTION_INPUT,
- ._button_activ = BUTTON_ACTIVE_HIGHT, ._button_status = BUTTON_RELEASED};
-
-STD_ReturnType ret = (STD_ReturnType)0x00;
-uint8 counter = 0, high_value = 0, ret_data = 0, btn_state, prev_btn_state = BUTTON_RELEASED;
-
-void application_initializ(void)
-{
-    ret = ecu_led_initializ(&led1);
-    ret = ecu_led_initializ(&led2);
-    ret = ecu_button_init(&btn);
-
-
-    ret = EEPROM_Data_Read_Byte(0x3FF, &ret_data);
-
-
-    counter = ret_data;
-    switch(counter)
-    {
-        case 1:
-            ecu_led_turn_on(&led1);
-            ecu_led_turn_off(&led2);
-            break;
-        case 2:
-            ecu_led_turn_on(&led2);
-            ecu_led_turn_off(&led1);
-            break;
-        case 3:
-            ecu_led_turn_off(&led1);
-            ecu_led_turn_off(&led2);
-            counter = 0;
-            break;
-        default:
-
-            ecu_led_turn_off(&led1);
-            ecu_led_turn_off(&led2);
-            counter = 0;
-            break;
-    }
-}
 
 int main()
 {
@@ -5091,47 +5148,12 @@ int main()
 
     while(1)
     {
-        ret = ecu_button_read_state(&btn, &btn_state);
 
-
-        if (btn_state == BUTTON_PRESSED && prev_btn_state == BUTTON_RELEASED)
-        {
-            high_value++;
-            prev_btn_state = BUTTON_PRESSED;
-        }
-        else if (btn_state == BUTTON_RELEASED && prev_btn_state == BUTTON_PRESSED)
-        {
-            prev_btn_state = BUTTON_RELEASED;
-        }
-
-        if (high_value >= 1)
-        {
-            high_value = 0;
-            counter++;
-            if (counter > 3)
-            {
-                counter = 1;
-            }
-            ret = EEPROM_Data_Write_Byte(0x3FF, counter);
-        }
-
-
-        switch(counter)
-        {
-            case 1:
-                ecu_led_turn_on(&led1);
-                ecu_led_turn_off(&led2);
-                break;
-            case 2:
-                ecu_led_turn_on(&led2);
-                ecu_led_turn_off(&led1);
-                break;
-            case 3:
-                ecu_led_turn_off(&led1);
-                ecu_led_turn_off(&led2);
-                break;
-        }
     }
-
     return (0);
+}
+
+void application_initializ(void)
+{
+
 }
