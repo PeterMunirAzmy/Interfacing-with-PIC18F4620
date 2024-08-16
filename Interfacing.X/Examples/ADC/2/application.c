@@ -22,7 +22,7 @@ lcd_4bit lcd_1 =
        
 STD_ReturnType ret = E_NOT_OK;
 uint16 res_1, res_2;
-uint16 result_1[6],result_2[6];
+uint8 result_1[6],result_2[6];
 uint8 flag=0;
 
 int main() 
@@ -36,20 +36,10 @@ int main()
         if (0 == flag) {
             ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN0);
             ret = convert_uint16_to_string(res_1, result_1);
-
-            // Clear the area before writing
-            lcd_4bit_send_string_pos(&lcd_1, 1, 6, "    "); // Clear 4 spaces
-
-            // Now display the new string
             ret = lcd_4bit_send_string_pos(&lcd_1, 1, 6, result_1);
         } else if (1 == flag) {
             ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN1);
             ret = convert_uint16_to_string(res_2, result_2);
-
-            // Clear the area before writing
-            lcd_4bit_send_string_pos(&lcd_1, 2, 6, "    "); // Clear 4 spaces
-
-            // Now display the new string
             ret = lcd_4bit_send_string_pos(&lcd_1, 2, 6, result_2);
         }
     }
