@@ -5034,21 +5034,7 @@ STD_ReturnType EEPROM_Data_Read_Byte(uint16 addres, uint8 *return_data);
 # 20 "./application.h" 2
 
 # 1 "./MCAL_layer/ADC/adc.h" 1
-# 18 "./MCAL_layer/ADC/adc.h"
-# 1 "./MCAL_layer/ADC/../Interrupt/interrupt_manager.h" 1
-# 22 "./MCAL_layer/ADC/../Interrupt/interrupt_manager.h"
-void INT0_ISR(void);
-void INT1_ISR(void);
-void INT2_ISR(void);
-
-void RB4_ISR(void);
-void RB5_ISR(void);
-void RB6_ISR(void);
-void RB7_ISR(void);
-
-void ADC_ISR(void);
-# 18 "./MCAL_layer/ADC/adc.h" 2
-# 53 "./MCAL_layer/ADC/adc.h"
+# 52 "./MCAL_layer/ADC/adc.h"
 typedef enum
 {
     ADC_CHANNEL_AN0,
@@ -5140,20 +5126,83 @@ void application_initializ(void);
 # 1 "application.c" 2
 
 
+void ADC_Interrupt_function(void);
 
+adc_config_t adc1=
+{
+    .ADC_INTERRUPT_HANDLER = ADC_Interrupt_function, .adc_aquizition_time=ADC_12_TDA,
+    .adc_channel_select=ADC_CHANNEL_AN0, .adc_conversion_clock=ADC_CONVERSION_CLOCK_FOSC_DIV_16,
+    .result_format=0x01, .voltage_reference = 0x00
+};
+
+lcd_4bit lcd_1 =
+{
+    .lcd_en.port = PORTC_INDEX, .lcd_en.pin = GPIO_PIN0, .lcd_en.direction = GPIO_DIRECTION_OUTPUT, .lcd_en.logic = GPIO_LOW,
+    .lcd_rs.port = PORTC_INDEX, .lcd_rs.pin = GPIO_PIN1, .lcd_rs.direction = GPIO_DIRECTION_OUTPUT, .lcd_rs.logic = GPIO_LOW,
+
+    .lcd_data[0].port = PORTC_INDEX, .lcd_data[0].pin = GPIO_PIN2, .lcd_data[0].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[0].logic = GPIO_LOW,
+    .lcd_data[1].port = PORTC_INDEX, .lcd_data[1].pin = GPIO_PIN3, .lcd_data[1].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[1].logic = GPIO_LOW,
+    .lcd_data[2].port = PORTC_INDEX, .lcd_data[2].pin = GPIO_PIN4, .lcd_data[2].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[2].logic = GPIO_LOW,
+    .lcd_data[3].port = PORTC_INDEX, .lcd_data[3].pin = GPIO_PIN5, .lcd_data[3].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[3].logic = GPIO_LOW
+};
+
+STD_ReturnType ret = (STD_ReturnType)0x00;
+uint16 res_1, res_2;
+uint16 result_1[6],result_2[6];
+uint8 flag=0;
 
 int main()
 {
     application_initializ();
+    ret = lcd_4bit_send_string_pos(&lcd_1 , 1 , 1 ,"POT1: ");
+    ret = lcd_4bit_send_string_pos(&lcd_1 , 2 , 1 ,"POT2: ");
 
-    while(1)
-    {
 
+    while (1) {
+        if (0 == flag) {
+            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN0);
+            ret = convert_uint16_to_string(res_1, result_1);
+
+
+            lcd_4bit_send_string_pos(&lcd_1, 1, 6, "    ");
+
+
+            ret = lcd_4bit_send_string_pos(&lcd_1, 1, 6, result_1);
+        } else if (1 == flag) {
+            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN1);
+            ret = convert_uint16_to_string(res_2, result_2);
+
+
+            lcd_4bit_send_string_pos(&lcd_1, 2, 6, "    ");
+
+
+            ret = lcd_4bit_send_string_pos(&lcd_1, 2, 6, result_2);
+        }
     }
+
+
     return (0);
 }
 
 void application_initializ(void)
 {
+    ret = ADC_Init(&adc1);
+    ret = lcd_4bit_init(&lcd_1);
+}
+
+
+void ADC_Interrupt_function()
+{
+    if (0 == flag)
+    {
+        ret = ADC_Get_Conversion_Result(&adc1, &res_1);
+        flag=1;
+    }
+    else if (1 == flag)
+    {
+        ret = ADC_Get_Conversion_Result(&adc1, &res_2);
+        flag=0;
+    }
+
 
 }

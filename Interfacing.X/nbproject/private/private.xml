@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/peter/Desktop/Interfacing.X/ECU_layer/lcd/lcd.h</file>
+            <file>file:/C:/Users/peter/Desktop/Interfacing.X/application.c</file>
+            <file>file:/C:/Users/peter/Desktop/Interfacing.X/ECU_layer/lcd/lcd.c</file>
+            <file>file:/C:/Users/peter/Desktop/Interfacing.X/MCAL_layer/ADC/adc.h</file>
+        </group>
     </open-files>
 </project-private>

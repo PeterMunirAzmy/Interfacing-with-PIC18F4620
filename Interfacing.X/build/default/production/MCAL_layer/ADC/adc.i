@@ -4808,21 +4808,7 @@ typedef enum
 }interrupt_priority;
 # 12 "MCAL_layer/ADC/../Interrupt/internal_interrupt.h" 2
 # 17 "MCAL_layer/ADC/adc.h" 2
-
-# 1 "MCAL_layer/ADC/../Interrupt/interrupt_manager.h" 1
-# 22 "MCAL_layer/ADC/../Interrupt/interrupt_manager.h"
-void INT0_ISR(void);
-void INT1_ISR(void);
-void INT2_ISR(void);
-
-void RB4_ISR(void);
-void RB5_ISR(void);
-void RB6_ISR(void);
-void RB7_ISR(void);
-
-void ADC_ISR(void);
-# 18 "MCAL_layer/ADC/adc.h" 2
-# 53 "MCAL_layer/ADC/adc.h"
+# 52 "MCAL_layer/ADC/adc.h"
 typedef enum
 {
     ADC_CHANNEL_AN0,

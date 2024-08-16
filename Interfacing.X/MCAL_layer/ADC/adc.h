@@ -15,7 +15,6 @@
 #include "../compiler.h"
 #include "../GPIO/gpio.h"
 #include "../Interrupt/internal_interrupt.h"
-#include "../Interrupt/interrupt_manager.h"
 
 
 /*Section : Macro Declaration*/

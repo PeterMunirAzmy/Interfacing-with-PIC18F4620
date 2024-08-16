@@ -7,5 +7,4 @@ MCAL_layer/ADC/../compiler.h  \
 MCAL_layer/ADC/../device_config.h  \
 MCAL_layer/ADC/../GPIO/gpio.h  \
 MCAL_layer/ADC/../Interrupt/internal_interrupt.h  \
-MCAL_layer/ADC/../Interrupt/interrupt_config.h  \
-MCAL_layer/ADC/../Interrupt/interrupt_manager.h 
+MCAL_layer/ADC/../Interrupt/interrupt_config.h 

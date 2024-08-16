@@ -21,40 +21,24 @@ lcd_4bit lcd_1 =
 };
        
 STD_ReturnType ret = E_NOT_OK;
-uint16 res_1, res_2;
-uint16 result_1[6],result_2[6];
-uint8 flag=0;
+uint16 res_1;
+uint16 result[6];
+
 
 int main() 
 {
     application_initializ();
-    ret = lcd_4bit_send_string_pos(&lcd_1 , 1 , 1 ,"POT1: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1 , 2 , 1 ,"POT2: ");
-
-
-    while (1) {
-        if (0 == flag) {
-            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN0);
-            ret = convert_uint16_to_string(res_1, result_1);
-
-            // Clear the area before writing
-            lcd_4bit_send_string_pos(&lcd_1, 1, 6, "    "); // Clear 4 spaces
-
-            // Now display the new string
-            ret = lcd_4bit_send_string_pos(&lcd_1, 1, 6, result_1);
-        } else if (1 == flag) {
-            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN1);
-            ret = convert_uint16_to_string(res_2, result_2);
-
-            // Clear the area before writing
-            lcd_4bit_send_string_pos(&lcd_1, 2, 6, "    "); // Clear 4 spaces
-
-            // Now display the new string
-            ret = lcd_4bit_send_string_pos(&lcd_1, 2, 6, result_2);
-        }
+    ret = lcd_4bit_send_string_pos(&lcd_1 , 1 , 1 ,"POT: ");
+            
+    while(1)
+    {
+        ret = ADC_Full_Conversion_Interrupt(&adc1 , ADC_CHANNEL_AN0);
+        ret = convert_uint16_to_string(res_1 , result);
+        ret = lcd_4bit_send_string_pos(&lcd_1 , 1 , 6 , result);
+        
     }
 
-    
+
     return (EXIT_SUCCESS);
 }
 
@@ -65,18 +49,8 @@ void application_initializ(void)
 }
 
 
-void ADC_Interrupt_function() 
+void ADC_Interrupt_function()
 {
-    if (0 == flag) 
-    {
-        ret = ADC_Get_Conversion_Result(&adc1, &res_1);
-        flag=1;
-    } 
-    else if (1 == flag) 
-    {
-        ret = ADC_Get_Conversion_Result(&adc1, &res_2);
-        flag=0;
-    }
-    
+    ret = ADC_Get_Conversion_Result(&adc1 , &res_1);
     
 }

@@ -107,8 +107,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>MCAL_layer</Elem>
-    <Elem>ECU_layer</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
