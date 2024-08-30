@@ -4769,10 +4769,10 @@ typedef enum
 
 typedef struct
 {
-    uint8 port : 3;
-    uint8 pin :3;
-    uint8 direction : 1;
-    uint8 logic : 1;
+    port_index_t port;
+    pin_index_t pin;
+    direction_t direction;
+    logic_t logic;
 
 }pin_config;
 
@@ -4809,9 +4809,9 @@ typedef enum
 
 typedef struct
 {
-    uint8 port_name :4;
-    uint8 pin_number :3;
-    uint8 led_status :1;
+    port_index_t port_name;
+    pin_index_t pin_number;
+    uint8 led_status;
 }led_config;
 
 
@@ -4957,8 +4957,8 @@ STD_ReturnType lcd_send_8bit_enable_signal(const lcd_8bit *lcd);
 STD_ReturnType lcd_8bit_set_cursor(const lcd_8bit *lcd , uint8 row , uint8 colum);
 
 STD_ReturnType convert_uint8_to_string(uint8 value , uint8 *str);
-STD_ReturnType convert_uint16_to_string(uint16 value , uint16 *str);
-STD_ReturnType convert_uint32_to_string(uint32 value , uint32 *str);
+STD_ReturnType convert_uint16_to_string(uint16 value , uint8 *str);
+STD_ReturnType convert_uint32_to_string(uint32 value , uint8 *str);
 # 17 "./application.h" 2
 
 # 1 "./ECU_layer/Keypad/keypad.h" 1
@@ -4977,7 +4977,7 @@ STD_ReturnType keypad_get_value(const keypad_config *_keypad_config , uint8 *val
 # 1 "./MCAL_layer/Interrupt/external_interrupt.h" 1
 # 12 "./MCAL_layer/Interrupt/external_interrupt.h"
 # 1 "./MCAL_layer/Interrupt/interrupt_config.h" 1
-# 54 "./MCAL_layer/Interrupt/interrupt_config.h"
+# 55 "./MCAL_layer/Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
@@ -5121,88 +5121,104 @@ STD_ReturnType ADC_Get_Conversion_Result(const adc_config_t *adc_config , uint16
 STD_ReturnType ADC_Full_Conversion_Pending(const adc_config_t *adc_config , adc_channel_select_t adc_channel_select, uint16 *conversion_result);
 STD_ReturnType ADC_Full_Conversion_Interrupt(const adc_config_t *adc_config , adc_channel_select_t adc_channel_select);
 # 21 "./application.h" 2
+
+# 1 "./MCAL_layer/Timer0/Timer0.h" 1
+# 40 "./MCAL_layer/Timer0/Timer0.h"
+typedef enum
+{
+    Timer0_Prescaler_Dev_2,
+    Timer0_Prescaler_Dev_4,
+    Timer0_Prescaler_Dev_8,
+    Timer0_Prescaler_Dev_16,
+    Timer0_Prescaler_Dev_32,
+    Timer0_Prescaler_Dev_64,
+    Timer0_Prescaler_Dev_128,
+    Timer0_Prescaler_Dev_256
+}timer0_prescaler_t;
+
+typedef enum
+{
+    Timer0_Prescaler_Enable,
+    Timer0_Prescaler_Disable
+}timer0_prescaler_status_t;
+
+typedef enum
+{
+    Timer0_FALLING_EDGE_SELECT,
+    Timer0_RISING_EDGE_SELECT
+}timer0_edge_select_t;
+
+typedef enum
+{
+    Timer0_Counter_Mode,
+    Timer0_Timer_Mode
+}timer0_mode_t;
+
+typedef enum
+{
+    Timer0_8Bit_Register,
+    Timer0_16Bit_Register
+}timer0_register_size_t;
+
+typedef struct
+{
+    void(*Timer0_Interrupt_Handlar)(void);
+    interrupt_priority priority;
+    timer0_prescaler_t prescaler_value;
+    timer0_prescaler_status_t prescaler_status;
+    timer0_edge_select_t edge_select;
+    timer0_mode_t mode;
+    timer0_register_size_t register_size;
+    uint16 preloaded_value;
+
+}timer0_t;
+
+
+STD_ReturnType Timer0_Init(const timer0_t *timer0_confg);
+STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg);
+STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value);
+STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value);
+# 22 "./application.h" 2
 # 33 "./application.h"
 void application_initializ(void);
 # 1 "application.c" 2
 
 
 void ADC_Interrupt_function(void);
+void application_initializ(void);
 
-adc_config_t adc1=
+timer0_t timer0 =
 {
-    .ADC_INTERRUPT_HANDLER = ADC_Interrupt_function, .adc_aquizition_time=ADC_12_TDA,
-    .adc_channel_select=ADC_CHANNEL_AN0, .adc_conversion_clock=ADC_CONVERSION_CLOCK_FOSC_DIV_16,
-    .result_format=0x01, .voltage_reference = 0x00
+    .Timer0_Interrupt_Handlar = ADC_Interrupt_function ,.mode = Timer0_Timer_Mode , .preloaded_value = 3036,
+    .prescaler_status = Timer0_Prescaler_Enable,.register_size = Timer0_16Bit_Register,
+    .prescaler_value = Timer0_Prescaler_Dev_8
 };
 
-lcd_4bit lcd_1 =
-{
-    .lcd_en.port = PORTC_INDEX, .lcd_en.pin = GPIO_PIN0, .lcd_en.direction = GPIO_DIRECTION_OUTPUT, .lcd_en.logic = GPIO_LOW,
-    .lcd_rs.port = PORTC_INDEX, .lcd_rs.pin = GPIO_PIN1, .lcd_rs.direction = GPIO_DIRECTION_OUTPUT, .lcd_rs.logic = GPIO_LOW,
-
-    .lcd_data[0].port = PORTC_INDEX, .lcd_data[0].pin = GPIO_PIN2, .lcd_data[0].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[0].logic = GPIO_LOW,
-    .lcd_data[1].port = PORTC_INDEX, .lcd_data[1].pin = GPIO_PIN3, .lcd_data[1].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[1].logic = GPIO_LOW,
-    .lcd_data[2].port = PORTC_INDEX, .lcd_data[2].pin = GPIO_PIN4, .lcd_data[2].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[2].logic = GPIO_LOW,
-    .lcd_data[3].port = PORTC_INDEX, .lcd_data[3].pin = GPIO_PIN5, .lcd_data[3].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[3].logic = GPIO_LOW
-};
+led_config led1 =
+{.port_name=PORTC_INDEX, .pin_number = GPIO_PIN0, .led_status = LED_OFF};
 
 STD_ReturnType ret = (STD_ReturnType)0x00;
-uint16 res_1, res_2;
-uint16 result_1[6],result_2[6];
-uint8 flag=0;
-
+volatile uint16 flag =0;
 int main()
 {
     application_initializ();
-    ret = lcd_4bit_send_string_pos(&lcd_1 , 1 , 1 ,"POT1: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1 , 2 , 1 ,"POT2: ");
 
+    while (1)
+    {
 
-    while (1) {
-        if (0 == flag) {
-            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN0);
-            ret = convert_uint16_to_string(res_1, result_1);
-
-
-            lcd_4bit_send_string_pos(&lcd_1, 1, 6, "    ");
-
-
-            ret = lcd_4bit_send_string_pos(&lcd_1, 1, 6, result_1);
-        } else if (1 == flag) {
-            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN1);
-            ret = convert_uint16_to_string(res_2, result_2);
-
-
-            lcd_4bit_send_string_pos(&lcd_1, 2, 6, "    ");
-
-
-            ret = lcd_4bit_send_string_pos(&lcd_1, 2, 6, result_2);
-        }
     }
-
-
     return (0);
 }
 
 void application_initializ(void)
 {
-    ret = ADC_Init(&adc1);
-    ret = lcd_4bit_init(&lcd_1);
+    ret = Timer0_Init(&timer0);
+    ret = ecu_led_initializ(&led1);
 }
 
 
-void ADC_Interrupt_function()
+void ADC_Interrupt_function(void)
 {
-    if (0 == flag)
-    {
-        ret = ADC_Get_Conversion_Result(&adc1, &res_1);
-        flag=1;
-    }
-    else if (1 == flag)
-    {
-        ret = ADC_Get_Conversion_Result(&adc1, &res_2);
-        flag=0;
-    }
-
-
+    flag++;
+    ret = ecu_led_toggle(&led1);
 }

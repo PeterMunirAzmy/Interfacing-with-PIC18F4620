@@ -105,6 +105,12 @@ void __interrupt() Interrupt_Manager(void)
     {
         INT2_ISR();
     }
+    
+    /* ------------------------------ TIMER0 interrupt ------------------------------ */
+    if((INTERRUPT_ENABLE == INTCONbits.TMR0IE) && (INTERRUPT_OCCUR == INTCONbits.TMR0IF))
+    {
+        TMR0_ISR();
+    }
 }
 
 #endif

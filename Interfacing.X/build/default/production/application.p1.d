@@ -18,4 +18,5 @@ MCAL_layer/Interrupt/external_interrupt.h  \
 MCAL_layer/Interrupt/interrupt_config.h  \
 MCAL_layer/EEPROM/eeprom.h  \
 MCAL_layer/EEPROM/../Interrupt/internal_interrupt.h  \
-MCAL_layer/ADC/adc.h 
+MCAL_layer/ADC/adc.h  \
+MCAL_layer/Timer0/Timer0.h 

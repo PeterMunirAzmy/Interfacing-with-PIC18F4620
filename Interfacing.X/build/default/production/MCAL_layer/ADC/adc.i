@@ -4775,10 +4775,10 @@ typedef enum
 
 typedef struct
 {
-    uint8 port : 3;
-    uint8 pin :3;
-    uint8 direction : 1;
-    uint8 logic : 1;
+    port_index_t port;
+    pin_index_t pin;
+    direction_t direction;
+    logic_t logic;
 
 }pin_config;
 
@@ -4800,7 +4800,7 @@ STD_ReturnType gpio_port_toggle_logic(port_index_t port);
 # 1 "MCAL_layer/ADC/../Interrupt/internal_interrupt.h" 1
 # 12 "MCAL_layer/ADC/../Interrupt/internal_interrupt.h"
 # 1 "MCAL_layer/ADC/../Interrupt/interrupt_config.h" 1
-# 54 "MCAL_layer/ADC/../Interrupt/interrupt_config.h"
+# 55 "MCAL_layer/ADC/../Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
@@ -4901,6 +4901,7 @@ static void (*ADC_InterruptHandler)(void) = ((void*)0);
 static __attribute__((inline)) void ADC_Voltage_Reference_Configuration(const adc_config_t *adc_config);
 static __attribute__((inline)) void ADC_Result_Format_Configuration(const adc_config_t *adc_config);
 static __attribute__((inline)) void ADC_Input_Channel_Port_Configuration(adc_channel_select_t adc_channel_select);
+static __attribute__((inline)) void ADC_Interrupt_init(const adc_config_t *adc_config);
 
 
 
@@ -4931,20 +4932,9 @@ STD_ReturnType ADC_Init(const adc_config_t *adc_config)
         ADC_Input_Channel_Port_Configuration(adc_config->adc_channel_select);
 
 
-        (INTCONbits.PEIE = 1);
-        (INTCONbits.GIE = 1);
-        (PIE1bits.ADIE = 1);
-        (PIR1bits.ADIF = 0);
-        switch(adc_config->priority)
-        {
-            case INTERRUPT_HIGH_PRIORITY :
-                (IPR1bits.ADIP = 1);
-                break;
-            case INTERRUPT_LOW_PRIORITY :
-                (IPR1bits.ADIP = 0);
-                break;
-        }
+        ADC_Interrupt_init(adc_config);
         ADC_InterruptHandler = adc_config->ADC_INTERRUPT_HANDLER;
+
 
         ADC_Result_Format_Configuration(adc_config);
 
@@ -5070,7 +5060,7 @@ STD_ReturnType ADC_Get_Conversion_Result(const adc_config_t *adc_config , uint16
     }
     return ret;
 }
-# 192 "MCAL_layer/ADC/adc.c"
+# 182 "MCAL_layer/ADC/adc.c"
 STD_ReturnType ADC_Full_Conversion_Pending(const adc_config_t *adc_config , adc_channel_select_t adc_channel_select,
                                            uint16 *conversion_result)
 {
@@ -5205,4 +5195,16 @@ void ADC_ISR(void)
     {
         ADC_InterruptHandler();
     }
+}
+
+static __attribute__((inline)) void ADC_Interrupt_init(const adc_config_t *adc_config)
+{
+
+    (PIE1bits.ADIE = 1);
+    (PIR1bits.ADIF = 0);
+# 337 "MCAL_layer/ADC/adc.c"
+    (INTCONbits.PEIE = 1);
+    (INTCONbits.GIE = 1);
+
+
 }

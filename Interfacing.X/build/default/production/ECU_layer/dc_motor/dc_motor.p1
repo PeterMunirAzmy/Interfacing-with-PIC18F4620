@@ -7,22 +7,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU_layer/dc_motor/dc_motor.h: 33: {
 [s S275 `S274 -> 2 `i ]
 [n S275 . dc_motor ]
-"81 ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h
-[; ;ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h: 81: {
-[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . port pin direction logic ]
 "26 ECU_layer/dc_motor/dc_motor.c
 [; ;ECU_layer/dc_motor/dc_motor.c: 26:         pin_config dc_motor_pin_1 =
+[c E2999 0 1 2 3 4 .. ]
+[n E2999 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E2989 0 1 2 3 4 5 6 7 .. ]
+[n E2989 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
 [c E2985 0 1 .. ]
 [n E2985 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-"95 ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h
-[; ;ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h: 95: STD_ReturnType gpio_pin_Initialization(const pin_config *_pin_config);
-[v _gpio_pin_Initialization `(uc ~T0 @X0 0 ef1`*CS273 ]
-"81 ECU_layer/dc_motor/dc_motor.c
-[; ;ECU_layer/dc_motor/dc_motor.c: 81:         ret = gpio_pin_write_logic(&dc_motor_pin_1 , GPIO_HIGH);
 [c E2981 0 1 .. ]
 [n E2981 . GPIO_LOW GPIO_HIGH  ]
-"92 ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h
+"81 ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h
+[; ;ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h: 81: {
+[s S273 `E2999 1 `E2989 1 `E2985 1 `E2981 1 ]
+[n S273 . port pin direction logic ]
+"95
+[; ;ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h: 95: STD_ReturnType gpio_pin_Initialization(const pin_config *_pin_config);
+[v _gpio_pin_Initialization `(uc ~T0 @X0 0 ef1`*CS273 ]
+"92
 [; ;ECU_layer/dc_motor/../../MCAL_layer/GPIO/gpio.h: 92: STD_ReturnType gpio_pin_write_logic(const pin_config *_pin_config, logic_t logic);
 [v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS273`E2981 ]
 "54 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
@@ -478,32 +480,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 "26
 [; ;ECU_layer/dc_motor/dc_motor.c: 26:         pin_config dc_motor_pin_1 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_1 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_1 F3064 ]
-[e ; = . _dc_motor_pin_1 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_1 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_1 2 -> . `E2985 0 `uc = . _dc_motor_pin_1 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_1 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_1 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_1 2 . `E2985 0 = . _dc_motor_pin_1 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 [v F3066 `S273 ~T0 @X0 1 s ]
 [i F3066
 :U ..
 :U ..
 "34
 [; ;ECU_layer/dc_motor/dc_motor.c: 34:         pin_config dc_motor_pin_2 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_2 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_2 F3066 ]
-[e ; = . _dc_motor_pin_2 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_2 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_2 2 -> . `E2985 0 `uc = . _dc_motor_pin_2 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_2 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_2 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_2 2 . `E2985 0 = . _dc_motor_pin_2 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 "42
 [; ;ECU_layer/dc_motor/dc_motor.c: 42:         ret = gpio_pin_Initialization(&dc_motor_pin_1);
 [e = _ret ( _gpio_pin_Initialization (1 -> &U _dc_motor_pin_1 `*CS273 ]
@@ -564,32 +566,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 "65
 [; ;ECU_layer/dc_motor/dc_motor.c: 65:          pin_config dc_motor_pin_1 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_1 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_1 F3071 ]
-[e ; = . _dc_motor_pin_1 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_1 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_1 2 -> . `E2985 0 `uc = . _dc_motor_pin_1 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_1 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_1 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_1 2 . `E2985 0 = . _dc_motor_pin_1 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 [v F3073 `S273 ~T0 @X0 1 s ]
 [i F3073
 :U ..
 :U ..
 "73
 [; ;ECU_layer/dc_motor/dc_motor.c: 73:         pin_config dc_motor_pin_2 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_2 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_2 F3073 ]
-[e ; = . _dc_motor_pin_2 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_2 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_2 2 -> . `E2985 0 `uc = . _dc_motor_pin_2 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_2 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_2 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_2 2 . `E2985 0 = . _dc_motor_pin_2 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 "81
 [; ;ECU_layer/dc_motor/dc_motor.c: 81:         ret = gpio_pin_write_logic(&dc_motor_pin_1 , GPIO_HIGH);
 [e = _ret ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin_1 `*CS273 . `E2981 1 ]
@@ -650,32 +652,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 "104
 [; ;ECU_layer/dc_motor/dc_motor.c: 104:         pin_config dc_motor_pin_1 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_1 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_1 F3078 ]
-[e ; = . _dc_motor_pin_1 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_1 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_1 2 -> . `E2985 0 `uc = . _dc_motor_pin_1 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_1 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_1 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_1 2 . `E2985 0 = . _dc_motor_pin_1 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 [v F3080 `S273 ~T0 @X0 1 s ]
 [i F3080
 :U ..
 :U ..
 "112
 [; ;ECU_layer/dc_motor/dc_motor.c: 112:         pin_config dc_motor_pin_2 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_2 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_2 F3080 ]
-[e ; = . _dc_motor_pin_2 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_2 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_2 2 -> . `E2985 0 `uc = . _dc_motor_pin_2 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_2 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_2 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_2 2 . `E2985 0 = . _dc_motor_pin_2 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 "120
 [; ;ECU_layer/dc_motor/dc_motor.c: 120:         ret = gpio_pin_write_logic(&dc_motor_pin_2 , GPIO_HIGH);
 [e = _ret ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin_2 `*CS273 . `E2981 1 ]
@@ -736,32 +738,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 "143
 [; ;ECU_layer/dc_motor/dc_motor.c: 143:         pin_config dc_motor_pin_1 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_1 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_1 F3085 ]
-[e ; = . _dc_motor_pin_1 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_1 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_1 2 -> . `E2985 0 `uc = . _dc_motor_pin_1 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_1 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_1 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_1 2 . `E2985 0 = . _dc_motor_pin_1 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 [v F3087 `S273 ~T0 @X0 1 s ]
 [i F3087
 :U ..
 :U ..
 "151
 [; ;ECU_layer/dc_motor/dc_motor.c: 151:         pin_config dc_motor_pin_2 =
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+-> -> 0 `i `E2999
+-> -> 0 `i `E2989
+-> -> 0 `i `E2985
+-> -> 0 `i `E2981
 ..
 ..
 ]
 [v _dc_motor_pin_2 `S273 ~T0 @X0 1 a ]
 [e = _dc_motor_pin_2 F3087 ]
-[e ; = . _dc_motor_pin_2 0 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 ; = . _dc_motor_pin_2 1 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 ; = . _dc_motor_pin_2 2 -> . `E2985 0 `uc = . _dc_motor_pin_2 3 . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 ]
+[e ; = . _dc_motor_pin_2 0 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 0 `E2999 ; = . _dc_motor_pin_2 1 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 1 `E2989 ; = . _dc_motor_pin_2 2 . `E2985 0 = . _dc_motor_pin_2 3 -> . *U + &U . *U __dc_motor_config 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __dc_motor_config 0 `ui `ux 2 `E2981 ]
 "159
 [; ;ECU_layer/dc_motor/dc_motor.c: 159:         ret = gpio_pin_write_logic(&dc_motor_pin_1 , GPIO_LOW);
 [e = _ret ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin_1 `*CS273 . `E2981 0 ]

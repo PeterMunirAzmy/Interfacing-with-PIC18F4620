@@ -1,4 +1,4 @@
-# 1 "MCAL_layer/EEPROM/eeprom.c"
+# 1 "MCAL_layer/Timer0/Timer0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "G:\\C_Extention\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_layer/EEPROM/eeprom.c" 2
+# 1 "MCAL_layer/Timer0/Timer0.c" 2
 
 
 
@@ -14,8 +14,256 @@
 
 
 
-# 1 "MCAL_layer/EEPROM/eeprom.h" 1
-# 12 "MCAL_layer/EEPROM/eeprom.h"
+# 1 "MCAL_layer/Timer0/Timer0.h" 1
+# 12 "MCAL_layer/Timer0/Timer0.h"
+# 1 "G:\\C_Extention\\pic\\include\\xc.h" 1 3
+# 18 "G:\\C_Extention\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\c99\\xc8debug.h" 1 3
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 1 3
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 5 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 2 3
+
+
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\c99\\features.h" 1 3
+# 11 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 3
+# 1 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 24 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
+# 128 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 22 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 2 3
+
+int atoi (const char *);
+long atol (const char *);
+
+long long atoll (const char *);
+
+double atof (const char *);
+
+
+float strtof (const char *restrict, char **restrict);
+double strtod (const char *restrict, char **restrict);
+long double strtold (const char *restrict, char **restrict);
+
+
+
+long strtol (const char *restrict, char **restrict, int);
+unsigned long strtoul (const char *restrict, char **restrict, int);
+
+long long strtoll (const char *restrict, char **restrict, int);
+unsigned long long strtoull (const char *restrict, char **restrict, int);
+
+
+unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
+
+unsigned long long __strtoxll(const char * s, char ** endptr, int base, char is_signed);
+# 55 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 3
+int rand (void);
+void srand (unsigned);
+
+void *malloc (size_t);
+void *calloc (size_t, size_t);
+void *realloc (void *, size_t);
+void free (void *);
+
+          void abort (void);
+int atexit (void (*) (void));
+          void exit (int);
+          void _Exit (int);
+
+void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+
+
+
+
+
+
+
+__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+int abs (int);
+long labs (long);
+
+long long llabs (long long);
+
+
+typedef struct { int quot, rem; } div_t;
+typedef struct { long quot, rem; } ldiv_t;
+
+typedef struct { long long quot, rem; } lldiv_t;
+
+
+div_t div (int, int);
+ldiv_t ldiv (long, long);
+
+lldiv_t lldiv (long long, long long);
+
+
+typedef struct { unsigned int quot, rem; } udiv_t;
+typedef struct { unsigned long quot, rem; } uldiv_t;
+udiv_t udiv (unsigned int, unsigned int);
+uldiv_t uldiv (unsigned long, unsigned long);
+# 5 "G:\\C_Extention\\pic\\include\\c99\\xc8debug.h" 2 3
+
+
+
+
+
+
+
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 23 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
+
+# 1 "G:\\C_Extention\\pic\\include\\builtins.h" 1 3
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 1 3
+# 26 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 3
+# 1 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 133 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned __int24 uintptr_t;
+# 148 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 intptr_t;
+# 164 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 179 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 194 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 215 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 235 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 27 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 2 3
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+typedef int24_t int_fast24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+typedef uint24_t uint_fast24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 148 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 3
+# 1 "G:\\C_Extention\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 149 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 2 3
+# 4 "G:\\C_Extention\\pic\\include\\builtins.h" 2 3
+
+
+
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+#pragma intrinsic(__nopf000)
+extern void __nopf000(void);
+#pragma intrinsic(__nopffff)
+extern void __nopffff(void);
+#pragma intrinsic(__nop0000)
+extern void __nop0000(void);
+
+
+
+#pragma intrinsic(_delay)
+extern __attribute__((nonreentrant)) void _delay(uint32_t);
+#pragma intrinsic(_delaywdt)
+extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
+
+#pragma intrinsic(_delay3)
+extern __attribute__((nonreentrant)) void _delay3(uint8_t);
+# 24 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
+# 33 "G:\\C_Extention\\pic\\include\\xc.h" 3
+# 1 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 1 3
+
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\htc.h" 1 3
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\xc.h" 1 3
+# 4 "G:\\C_Extention\\pic\\include\\htc.h" 2 3
+# 6 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 2 3
+
+
+# 1 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18_chip_select.h" 1 3
+# 369 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18_chip_select.h" 3
 # 1 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "G:\\C_Extention\\pic\\include\\__at.h" 1 3
@@ -4228,25 +4476,35 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 12 "MCAL_layer/EEPROM/eeprom.h" 2
+# 370 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18_chip_select.h" 2 3
+# 9 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 2 3
+# 19 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 3
+__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
-# 1 "MCAL_layer/EEPROM/../mcal_std_types.h" 1
-# 12 "MCAL_layer/EEPROM/../mcal_std_types.h"
-# 1 "MCAL_layer/EEPROM/../mcal_std_libraries.h" 1
-# 12 "MCAL_layer/EEPROM/../mcal_std_libraries.h"
+
+
+
+
+
+
+# 1 "G:\\C_Extention\\pic\\include\\errata.h" 1 3
+# 28 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 2 3
+# 156 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 3
+__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+# 192 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 3
+unsigned char __t1rd16on(void);
+unsigned char __t3rd16on(void);
+# 33 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
+# 12 "MCAL_layer/Timer0/Timer0.h" 2
+
+# 1 "MCAL_layer/Timer0/../mcal_std_types.h" 1
+# 12 "MCAL_layer/Timer0/../mcal_std_types.h"
+# 1 "MCAL_layer/Timer0/../mcal_std_libraries.h" 1
+# 12 "MCAL_layer/Timer0/../mcal_std_libraries.h"
 # 1 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 1 3
-
-
-
-# 1 "G:\\C_Extention\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 5 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 2 3
-
-
-
-
-
-# 1 "G:\\C_Extention\\pic\\include\\c99\\features.h" 1 3
-# 11 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 2 3
 # 24 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 3
 # 1 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 1 3
 # 12 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
@@ -4256,14 +4514,8 @@ typedef void * va_list[1];
 
 
 typedef void * __isoc_va_list[1];
-# 128 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
 # 143 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 ssize_t;
-# 174 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
 # 255 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long off_t;
 # 409 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
@@ -4404,86 +4656,8 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL_layer/EEPROM/../mcal_std_libraries.h" 2
+# 12 "MCAL_layer/Timer0/../mcal_std_libraries.h" 2
 
-# 1 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 1 3
-# 21 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 3
-# 1 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 24 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
-# 22 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 2 3
-
-int atoi (const char *);
-long atol (const char *);
-
-long long atoll (const char *);
-
-double atof (const char *);
-
-
-float strtof (const char *restrict, char **restrict);
-double strtod (const char *restrict, char **restrict);
-long double strtold (const char *restrict, char **restrict);
-
-
-
-long strtol (const char *restrict, char **restrict, int);
-unsigned long strtoul (const char *restrict, char **restrict, int);
-
-long long strtoll (const char *restrict, char **restrict, int);
-unsigned long long strtoull (const char *restrict, char **restrict, int);
-
-
-unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
-
-unsigned long long __strtoxll(const char * s, char ** endptr, int base, char is_signed);
-# 55 "G:\\C_Extention\\pic\\include\\c99\\stdlib.h" 3
-int rand (void);
-void srand (unsigned);
-
-void *malloc (size_t);
-void *calloc (size_t, size_t);
-void *realloc (void *, size_t);
-void free (void *);
-
-          void abort (void);
-int atexit (void (*) (void));
-          void exit (int);
-          void _Exit (int);
-
-void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-
-
-
-
-
-
-__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-int abs (int);
-long labs (long);
-
-long long llabs (long long);
-
-
-typedef struct { int quot, rem; } div_t;
-typedef struct { long quot, rem; } ldiv_t;
-
-typedef struct { long long quot, rem; } lldiv_t;
-
-
-div_t div (int, int);
-ldiv_t ldiv (long, long);
-
-lldiv_t lldiv (long long, long long);
-
-
-typedef struct { unsigned int quot, rem; } udiv_t;
-typedef struct { unsigned long quot, rem; } uldiv_t;
-udiv_t udiv (unsigned int, unsigned int);
-uldiv_t uldiv (unsigned long, unsigned long);
-# 13 "MCAL_layer/EEPROM/../mcal_std_libraries.h" 2
 
 # 1 "G:\\C_Extention\\pic\\include\\c99\\string.h" 1 3
 # 25 "G:\\C_Extention\\pic\\include\\c99\\string.h" 3
@@ -4542,177 +4716,12 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "MCAL_layer/EEPROM/../mcal_std_libraries.h" 2
-# 12 "MCAL_layer/EEPROM/../mcal_std_types.h" 2
-
-# 1 "MCAL_layer/EEPROM/../compiler.h" 1
-# 12 "MCAL_layer/EEPROM/../compiler.h"
-# 1 "G:\\C_Extention\\pic\\include\\xc.h" 1 3
-# 18 "G:\\C_Extention\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "G:\\C_Extention\\pic\\include\\c99\\xc8debug.h" 1 3
-# 12 "G:\\C_Extention\\pic\\include\\c99\\xc8debug.h" 3
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 23 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
-
-# 1 "G:\\C_Extention\\pic\\include\\builtins.h" 1 3
-
-
-
-# 1 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 1 3
-# 26 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 3
-# 1 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 133 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned __int24 uintptr_t;
-# 148 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 intptr_t;
-# 164 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef signed char int8_t;
-
-
-
-
-typedef short int16_t;
-# 179 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int32_t;
-
-
-
-
-
-typedef long long int64_t;
-# 194 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long intmax_t;
-
-
-
-
-
-typedef unsigned char uint8_t;
-
-
-
-
-typedef unsigned short uint16_t;
-# 215 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uint32_t;
-
-
-
-
-
-typedef unsigned long long uint64_t;
-# 235 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long long uintmax_t;
-# 27 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 2 3
-
-typedef int8_t int_fast8_t;
-
-typedef int64_t int_fast64_t;
-
-
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-
-typedef int24_t int_least24_t;
-typedef int24_t int_fast24_t;
-
-typedef int32_t int_least32_t;
-
-typedef int64_t int_least64_t;
-
-
-typedef uint8_t uint_fast8_t;
-
-typedef uint64_t uint_fast64_t;
-
-
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-
-typedef uint24_t uint_least24_t;
-typedef uint24_t uint_fast24_t;
-
-typedef uint32_t uint_least32_t;
-
-typedef uint64_t uint_least64_t;
-# 148 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 3
-# 1 "G:\\C_Extention\\pic\\include\\c99\\bits/stdint.h" 1 3
-typedef int16_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef uint16_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-# 149 "G:\\C_Extention\\pic\\include\\c99\\stdint.h" 2 3
-# 4 "G:\\C_Extention\\pic\\include\\builtins.h" 2 3
-
-
-
-#pragma intrinsic(__nop)
-extern void __nop(void);
-
-#pragma intrinsic(__nopf000)
-extern void __nopf000(void);
-#pragma intrinsic(__nopffff)
-extern void __nopffff(void);
-#pragma intrinsic(__nop0000)
-extern void __nop0000(void);
-
-
-
-#pragma intrinsic(_delay)
-extern __attribute__((nonreentrant)) void _delay(uint32_t);
-#pragma intrinsic(_delaywdt)
-extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
-
-#pragma intrinsic(_delay3)
-extern __attribute__((nonreentrant)) void _delay3(uint8_t);
-# 24 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
-# 33 "G:\\C_Extention\\pic\\include\\xc.h" 3
-# 1 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "G:\\C_Extention\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "G:\\C_Extention\\pic\\include\\xc.h" 1 3
-# 4 "G:\\C_Extention\\pic\\include\\htc.h" 2 3
-# 6 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 2 3
-
-
-# 1 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18_chip_select.h" 1 3
-# 9 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 2 3
-# 19 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
-
-
-
-
-
-
-
-# 1 "G:\\C_Extention\\pic\\include\\errata.h" 1 3
-# 28 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 2 3
-# 156 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
-__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
-__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
-# 192 "G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\pic18.h" 3
-unsigned char __t1rd16on(void);
-unsigned char __t3rd16on(void);
-# 33 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
-# 12 "MCAL_layer/EEPROM/../compiler.h" 2
-# 13 "MCAL_layer/EEPROM/../mcal_std_types.h" 2
-# 34 "MCAL_layer/EEPROM/../mcal_std_types.h"
+# 14 "MCAL_layer/Timer0/../mcal_std_libraries.h" 2
+# 12 "MCAL_layer/Timer0/../mcal_std_types.h" 2
+
+# 1 "MCAL_layer/Timer0/../compiler.h" 1
+# 13 "MCAL_layer/Timer0/../mcal_std_types.h" 2
+# 34 "MCAL_layer/Timer0/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4722,18 +4731,14 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 STD_ReturnType;
-# 13 "MCAL_layer/EEPROM/eeprom.h" 2
+# 13 "MCAL_layer/Timer0/Timer0.h" 2
 
-# 1 "MCAL_layer/EEPROM/../Interrupt/internal_interrupt.h" 1
-# 12 "MCAL_layer/EEPROM/../Interrupt/internal_interrupt.h"
-# 1 "MCAL_layer/EEPROM/../Interrupt/interrupt_config.h" 1
-# 14 "MCAL_layer/EEPROM/../Interrupt/interrupt_config.h"
-# 1 "MCAL_layer/EEPROM/../Interrupt/../device_config.h" 1
-# 14 "MCAL_layer/EEPROM/../Interrupt/interrupt_config.h" 2
+# 1 "MCAL_layer/Timer0/../device_config.h" 1
+# 14 "MCAL_layer/Timer0/Timer0.h" 2
 
 
-# 1 "MCAL_layer/EEPROM/../Interrupt/../GPIO/gpio.h" 1
-# 46 "MCAL_layer/EEPROM/../Interrupt/../GPIO/gpio.h"
+# 1 "MCAL_layer/Timer0/../GPIO/gpio.h" 1
+# 46 "MCAL_layer/Timer0/../GPIO/gpio.h"
 typedef enum
 {
     GPIO_LOW = 0,
@@ -4790,65 +4795,134 @@ STD_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 16 "MCAL_layer/EEPROM/../Interrupt/interrupt_config.h" 2
-# 55 "MCAL_layer/EEPROM/../Interrupt/interrupt_config.h"
+# 16 "MCAL_layer/Timer0/Timer0.h" 2
+
+# 1 "MCAL_layer/Timer0/../Interrupt/internal_interrupt.h" 1
+# 12 "MCAL_layer/Timer0/../Interrupt/internal_interrupt.h"
+# 1 "MCAL_layer/Timer0/../Interrupt/interrupt_config.h" 1
+# 55 "MCAL_layer/Timer0/../Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority;
-# 12 "MCAL_layer/EEPROM/../Interrupt/internal_interrupt.h" 2
-# 14 "MCAL_layer/EEPROM/eeprom.h" 2
-# 35 "MCAL_layer/EEPROM/eeprom.h"
-STD_ReturnType EEPROM_Data_Write_Byte(uint16 addres , uint8 data);
-STD_ReturnType EEPROM_Data_Read_Byte(uint16 addres, uint8 *return_data);
-# 8 "MCAL_layer/EEPROM/eeprom.c" 2
+# 12 "MCAL_layer/Timer0/../Interrupt/internal_interrupt.h" 2
+# 17 "MCAL_layer/Timer0/Timer0.h" 2
+# 40 "MCAL_layer/Timer0/Timer0.h"
+typedef enum
+{
+    Timer0_Prescaler_Dev_2,
+    Timer0_Prescaler_Dev_4,
+    Timer0_Prescaler_Dev_8,
+    Timer0_Prescaler_Dev_16,
+    Timer0_Prescaler_Dev_32,
+    Timer0_Prescaler_Dev_64,
+    Timer0_Prescaler_Dev_128,
+    Timer0_Prescaler_Dev_256
+}timer0_prescaler_t;
+
+typedef enum
+{
+    Timer0_Prescaler_Enable,
+    Timer0_Prescaler_Disable
+}timer0_prescaler_status_t;
+
+typedef enum
+{
+    Timer0_FALLING_EDGE_SELECT,
+    Timer0_RISING_EDGE_SELECT
+}timer0_edge_select_t;
+
+typedef enum
+{
+    Timer0_Counter_Mode,
+    Timer0_Timer_Mode
+}timer0_mode_t;
+
+typedef enum
+{
+    Timer0_8Bit_Register,
+    Timer0_16Bit_Register
+}timer0_register_size_t;
+
+typedef struct
+{
+    void(*Timer0_Interrupt_Handlar)(void);
+    interrupt_priority priority;
+    timer0_prescaler_t prescaler_value;
+    timer0_prescaler_status_t prescaler_status;
+    timer0_edge_select_t edge_select;
+    timer0_mode_t mode;
+    timer0_register_size_t register_size;
+    uint16 preloaded_value;
+
+}timer0_t;
+
+
+STD_ReturnType Timer0_Init(const timer0_t *timer0_confg);
+STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg);
+STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value);
+STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value);
+# 8 "MCAL_layer/Timer0/Timer0.c" 2
+
+
+static __attribute__((inline)) void Timer0_Prescaler_config(const timer0_t *timer0_confg);
+static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_confg);
+static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg);
+static __attribute__((inline)) void Timer0_Register_Size(const timer0_t *timer0_confg);
+static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0_confg);
+static __attribute__((inline)) void Timer0_preloaded_value(const timer0_t *timer0_confg);
+
+static void(*TMR_Interrupt_Handler)(void) = ((void*)0);
+
+static uint16 preloaded_value = 0;
 
 
 
 
 
 
-
-
-STD_ReturnType EEPROM_Data_Write_Byte(uint16 address , uint8 data)
+STD_ReturnType Timer0_Init(const timer0_t *timer0_confg)
 {
     STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer0_confg)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        (T0CONbits.TMR0ON = 0);
+
+        Timer0_Prescaler_config(timer0_confg);
+        Timer0_Register_Size(timer0_confg);
+        Timer0_Mode(timer0_confg);
+        Timer0_Interrupt_init(timer0_confg);
+        TMR_Interrupt_Handler = timer0_confg->Timer0_Interrupt_Handlar;
+        Timer0_preloaded_value(timer0_confg);
+
+        (T0CONbits.TMR0ON = 1);
+
+    }
+    return ret;
+}
 
 
-    uint8 interrupt_status = INTCONbits.GIE;
 
 
-    EEADRH = (uint8)(address >> 8)&(0x03);
-    EEADR = (uint8)(address & 0xFF);
 
 
-    EEDATA = data;
-
-
-    EECON1bits.CFGS = 0;
-    EECON1bits.EEPGD = 0;
-
-
-     EECON1bits.WREN = 1;
-
-
-     (INTCONbits.GIE = 0);
-
-     EECON2 = 0x55;
-     EECON2 = 0xAA;
-
-
-    EECON1bits.WR = 1;
-
-
-    while(EECON1bits.WR);
-
-
-    EECON1bits.WREN = 0;
-
-
-    INTCONbits.GIE = interrupt_status;
+STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer0_confg)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        (T0CONbits.TMR0ON = 0);
+        (INTCONbits.TMR0IE = 0);
+    }
     return ret;
 }
 
@@ -4858,31 +4932,126 @@ STD_ReturnType EEPROM_Data_Write_Byte(uint16 address , uint8 data)
 
 
 
-STD_ReturnType EEPROM_Data_Read_Byte(uint16 address, uint8 *return_data)
+STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value)
 {
     STD_ReturnType ret = (STD_ReturnType)0x01;
-
-    if(((void*)0) == return_data)
+    if(((void*)0) == timer0_confg)
     {
         ret = (STD_ReturnType)0x00;
     }
     else
     {
-
-    EEADRH = (uint8)(address >> 8)&(0x03);
-    EEADR = (uint8)(address & 0xFF);
-
-
-    EECON1bits.CFGS = 0;
-    EECON1bits.EEPGD = 0;
-
-
-    EECON1bits.RD = 1;
-    __nop();
-    __nop();
-
-    *return_data = EEDATA;
+        TMR0H = (value >> 8);
+        TMR0L = (uint8)(value);
     }
-
     return ret;
+}
+
+
+
+
+
+
+
+STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    uint8 Tmr0_L = 0 , Tmr0_H = 0;
+    if((((void*)0) == timer0_confg) || (((void*)0) == value))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        Tmr0_L = TMR0L;
+        Tmr0_H = TMR0H;
+        *value = (uint16)((Tmr0_H << 8) + Tmr0_L);
+    }
+    return ret;
+}
+
+void TMR0_ISR(void)
+{
+    (INTCONbits.TMR0IF = 0);
+    TMR0H = (preloaded_value >> 8);
+    TMR0L = (uint8)(preloaded_value);
+    if(TMR_Interrupt_Handler)
+    {
+        TMR_Interrupt_Handler();
+    }
+}
+
+
+
+static __attribute__((inline)) void Timer0_Prescaler_config(const timer0_t *timer0_confg)
+{
+    switch (timer0_confg->prescaler_status)
+    {
+        case Timer0_Prescaler_Enable:
+            (T0CONbits.PSA = 0);
+        case Timer0_Prescaler_Disable:
+            (T0CONbits.PSA = 1);
+        default:
+            (T0CONbits.PSA = 1);
+    }
+    T0CONbits.T0PS = timer0_confg->prescaler_value;
+}
+
+static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_confg)
+{
+    switch (timer0_confg->edge_select)
+    {
+        case Timer0_FALLING_EDGE_SELECT:
+            (T0CONbits.T0SE = 1);
+        case Timer0_RISING_EDGE_SELECT:
+            (T0CONbits.T0SE = 0);
+        default:
+            (T0CONbits.T0SE = 0);
+    }
+}
+
+static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg)
+{
+    switch (timer0_confg->mode)
+    {
+        case Timer0_Counter_Mode:
+            (T0CONbits.T0CS = 1);
+            Timer0_Select_Edge(timer0_confg);
+        case Timer0_Timer_Mode:
+            (T0CONbits.T0CS = 0);
+        default:
+            (T0CONbits.T0CS = 0);
+    }
+}
+
+static __attribute__((inline)) void Timer0_Register_Size(const timer0_t *timer0_confg)
+{
+    switch (timer0_confg->register_size)
+    {
+        case Timer0_8Bit_Register:
+            (T0CONbits.T08BIT = 1);
+        case Timer0_16Bit_Register:
+            (T0CONbits.T08BIT = 0);
+        default:
+            (T0CONbits.T08BIT = 0);
+    }
+}
+
+static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0_confg)
+{
+
+    (INTCONbits.TMR0IE = 1);
+    (INTCONbits.TMR0IF = 0);
+# 200 "MCAL_layer/Timer0/Timer0.c"
+    (INTCONbits.PEIE = 1);
+    (INTCONbits.GIE = 1);
+
+
+}
+
+static __attribute__((inline)) void Timer0_preloaded_value(const timer0_t *timer0_confg)
+{
+    TMR0H = ((timer0_confg->preloaded_value) >> 8);
+    TMR0L = (uint8)(timer0_confg->preloaded_value);
+    preloaded_value = timer0_confg->preloaded_value;
 }

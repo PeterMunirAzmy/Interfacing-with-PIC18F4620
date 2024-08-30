@@ -4777,10 +4777,10 @@ typedef enum
 
 typedef struct
 {
-    uint8 port : 3;
-    uint8 pin :3;
-    uint8 direction : 1;
-    uint8 logic : 1;
+    port_index_t port;
+    pin_index_t pin;
+    direction_t direction;
+    logic_t logic;
 
 }pin_config;
 
@@ -4798,7 +4798,7 @@ STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
 # 16 "MCAL_layer/Interrupt/interrupt_config.h" 2
-# 54 "MCAL_layer/Interrupt/interrupt_config.h"
+# 55 "MCAL_layer/Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,

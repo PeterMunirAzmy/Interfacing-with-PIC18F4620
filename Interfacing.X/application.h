@@ -19,7 +19,7 @@
 #include "MCAL_layer/Interrupt/external_interrupt.h"
 #include "MCAL_layer/EEPROM/eeprom.h"
 #include "MCAL_layer/ADC/adc.h"
-
+#include "MCAL_layer/Timer0/Timer0.h"
 
 
 

@@ -11,6 +11,7 @@ static void (*ADC_InterruptHandler)(void) = NULL;
 static inline void ADC_Voltage_Reference_Configuration(const adc_config_t *adc_config);
 static inline void ADC_Result_Format_Configuration(const adc_config_t *adc_config);
 static inline void ADC_Input_Channel_Port_Configuration(adc_channel_select_t adc_channel_select);
+static inline void ADC_Interrupt_init(const adc_config_t *adc_config);
 
 
 /**
@@ -41,20 +42,9 @@ STD_ReturnType ADC_Init(const adc_config_t *adc_config)
         ADC_Input_Channel_Port_Configuration(adc_config->adc_channel_select);
         
         /* configuration the interrupt */
-        INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
-        INTERRUPT_ENABLE_GLOBLE_INTERRUPT();
-        ADC_INTERRUPT_ENABLE();
-        ADC_INTERRUPT_FLAG_CLEAR();
-        switch(adc_config->priority)
-        {
-            case INTERRUPT_HIGH_PRIORITY :
-                ADC_HIGHT_BRIORITY_SET();
-                break;
-            case INTERRUPT_LOW_PRIORITY :
-                ADC_LOW_BRIORITY_SET();
-                break;
-        }
+        ADC_Interrupt_init(adc_config);
         ADC_InterruptHandler = adc_config->ADC_INTERRUPT_HANDLER;
+        
         /* configuration the result format */
         ADC_Result_Format_Configuration(adc_config);
         
@@ -323,4 +313,29 @@ void ADC_ISR(void)
     {
         ADC_InterruptHandler();
     }
+}
+
+static inline void ADC_Interrupt_init(const adc_config_t *adc_config) 
+{
+    
+    ADC_INTERRUPT_ENABLE();
+    ADC_INTERRUPT_FLAG_CLEAR();
+    
+#if Interrupt_Priority_level_Enable == Interrupt_Feature_Enable   
+    INTERRUPT_ENABLE_BRIORITY_INTERRUPT();
+    switch (adc_config->priority) {
+        case INTERRUPT_HIGH_PRIORITY:
+            INTERRUPT_ENABLE_GLOBLE_HIGH_BRIORITY_INTERRUPT();
+            ADC_HIGHT_BRIORITY_SET();
+            break;
+        case INTERRUPT_LOW_PRIORITY:
+            INTERRUPT_ENABLE_GLOBLE_LOW_BRIORITY_INTERRUPT();
+            ADC_LOW_BRIORITY_SET();
+            break; 
+    }
+#else
+    INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
+    INTERRUPT_ENABLE_GLOBLE_INTERRUPT();
+#endif
+    
 }

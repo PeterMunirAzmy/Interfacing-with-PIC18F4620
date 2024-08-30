@@ -578,6 +578,8 @@ STD_ReturnType lcd_8bit_set_cursor(const lcd_8bit *lcd , uint8 row , uint8 colum
 STD_ReturnType convert_uint8_to_string(uint8 value , uint8 *str)
 {
     STD_ReturnType ret = E_OK;
+    uint8 temp_string[4]={0};
+    uint8 counter = 0;
     
     if (NULL == str) 
     {
@@ -585,8 +587,14 @@ STD_ReturnType convert_uint8_to_string(uint8 value , uint8 *str)
     } 
     else 
     {
-        memset(str, '\0' , 4);
-        sprintf(str , "%i" ,value);
+        memset(str, ' ' , 3);
+        str[3]='\0';
+        sprintf((char *)temp_string , "%i" ,value);
+        while(temp_string[counter] != '\0')
+        {
+            str[counter] = temp_string[counter];
+            counter++;
+        }
     }
     return ret; 
 }
@@ -597,9 +605,11 @@ STD_ReturnType convert_uint8_to_string(uint8 value , uint8 *str)
  * @param str
  * @return 
  */
-STD_ReturnType convert_uint16_to_string(uint16 value , uint16 *str)
+STD_ReturnType convert_uint16_to_string(uint16 value , uint8 *str)
 {
     STD_ReturnType ret = E_OK;
+    uint8 temp_string[6]={0};
+    uint8 counter = 0;
     
     if (NULL == str) 
     {
@@ -607,8 +617,14 @@ STD_ReturnType convert_uint16_to_string(uint16 value , uint16 *str)
     } 
     else 
     {
-        memset(str, '\0' , 6);
-        sprintf(str , "%i" ,value);
+        memset(str, ' ' , 5);
+        str[5]='\0';
+        sprintf((char *)temp_string , "%i" ,value);
+        while(temp_string[counter] != '\0')
+        {
+            str[counter] = temp_string[counter];
+            counter++;
+        }
     }
     return ret;
 }
@@ -619,9 +635,11 @@ STD_ReturnType convert_uint16_to_string(uint16 value , uint16 *str)
  * @param str
  * @return 
  */
-STD_ReturnType convert_uint32_to_string(uint32 value , uint32 *str)
+STD_ReturnType convert_uint32_to_string(uint32 value , uint8 *str)
 {
     STD_ReturnType ret = E_OK;
+    uint8 temp_string[11]={0};
+    uint8 counter = 0;
     
     if (NULL == str) 
     {
@@ -629,8 +647,14 @@ STD_ReturnType convert_uint32_to_string(uint32 value , uint32 *str)
     } 
     else 
     {
-        memset(str, '\0' , 11);
-        sprintf(str , "%i" ,value);
+        memset(str, ' ' , 10);
+        str[10]='\0';
+        sprintf((char *)temp_string , "%i" ,value);
+        while(temp_string[counter] != '\0')
+        {
+            str[counter] = temp_string[counter];
+            counter++;
+        }
     }
     return ret;
 }

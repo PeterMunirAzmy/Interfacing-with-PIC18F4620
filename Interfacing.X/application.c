@@ -1,82 +1,40 @@
 #include "application.h"
 
 void ADC_Interrupt_function(void);
+void application_initializ(void);
 
-adc_config_t adc1=
+timer0_t timer0 =
 {
-    .ADC_INTERRUPT_HANDLER = ADC_Interrupt_function, .adc_aquizition_time=ADC_12_TDA, 
-    .adc_channel_select=ADC_CHANNEL_AN0, .adc_conversion_clock=ADC_CONVERSION_CLOCK_FOSC_DIV_16, 
-    .result_format=ADC_RESULT_FORMAT_RIGHT, .voltage_reference = ADC_VOLTAGE_REFERANCE_DISABLE
+    .Timer0_Interrupt_Handlar = ADC_Interrupt_function ,.mode = Timer0_Timer_Mode , .preloaded_value = 3036, 
+    .prescaler_status = Timer0_Prescaler_Enable,.register_size = Timer0_16Bit_Register,
+    .prescaler_value = Timer0_Prescaler_Dev_8
 };
 
-lcd_4bit lcd_1 =
-{
-    .lcd_en.port = PORTC_INDEX, .lcd_en.pin = GPIO_PIN0, .lcd_en.direction = GPIO_DIRECTION_OUTPUT, .lcd_en.logic = GPIO_LOW,
-    .lcd_rs.port = PORTC_INDEX, .lcd_rs.pin = GPIO_PIN1, .lcd_rs.direction = GPIO_DIRECTION_OUTPUT, .lcd_rs.logic = GPIO_LOW,
-
-    .lcd_data[0].port = PORTC_INDEX, .lcd_data[0].pin = GPIO_PIN2, .lcd_data[0].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[0].logic = GPIO_LOW,
-    .lcd_data[1].port = PORTC_INDEX, .lcd_data[1].pin = GPIO_PIN3, .lcd_data[1].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[1].logic = GPIO_LOW,
-    .lcd_data[2].port = PORTC_INDEX, .lcd_data[2].pin = GPIO_PIN4, .lcd_data[2].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[2].logic = GPIO_LOW,
-    .lcd_data[3].port = PORTC_INDEX, .lcd_data[3].pin = GPIO_PIN5, .lcd_data[3].direction = GPIO_DIRECTION_OUTPUT, .lcd_data[3].logic = GPIO_LOW
-};
+led_config led1 = 
+{.port_name=PORTC_INDEX, .pin_number = GPIO_PIN0, .led_status = LED_OFF};
        
 STD_ReturnType ret = E_NOT_OK;
-uint16 res_1, res_2;
-uint16 result_1[6],result_2[6];
-uint8 flag=0;
-
+volatile uint16 flag =0;
 int main() 
 {
     application_initializ();
-    ret = lcd_4bit_send_string_pos(&lcd_1 , 1 , 1 ,"POT1: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1 , 2 , 1 ,"POT2: ");
-
-
-    while (1) {
-        if (0 == flag) {
-            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN0);
-            ret = convert_uint16_to_string(res_1, result_1);
-
-            // Clear the area before writing
-            lcd_4bit_send_string_pos(&lcd_1, 1, 6, "    "); // Clear 4 spaces
-
-            // Now display the new string
-            ret = lcd_4bit_send_string_pos(&lcd_1, 1, 6, result_1);
-        } else if (1 == flag) {
-            ret = ADC_Full_Conversion_Interrupt(&adc1, ADC_CHANNEL_AN1);
-            ret = convert_uint16_to_string(res_2, result_2);
-
-            // Clear the area before writing
-            lcd_4bit_send_string_pos(&lcd_1, 2, 6, "    "); // Clear 4 spaces
-
-            // Now display the new string
-            ret = lcd_4bit_send_string_pos(&lcd_1, 2, 6, result_2);
-        }
-    }
-
     
+    while (1) 
+    {
+        
+    }
     return (EXIT_SUCCESS);
 }
 
 void application_initializ(void)
 {
-    ret = ADC_Init(&adc1);
-    ret = lcd_4bit_init(&lcd_1);
+    ret = Timer0_Init(&timer0);
+    ret = ecu_led_initializ(&led1);
 }
 
 
-void ADC_Interrupt_function() 
+void ADC_Interrupt_function(void) 
 {
-    if (0 == flag) 
-    {
-        ret = ADC_Get_Conversion_Result(&adc1, &res_1);
-        flag=1;
-    } 
-    else if (1 == flag) 
-    {
-        ret = ADC_Get_Conversion_Result(&adc1, &res_2);
-        flag=0;
-    }
-    
-    
+    flag++;
+    ret = ecu_led_toggle(&led1);
 }

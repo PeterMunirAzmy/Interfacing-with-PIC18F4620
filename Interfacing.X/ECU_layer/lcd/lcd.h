@@ -66,8 +66,8 @@ STD_ReturnType lcd_send_8bit_enable_signal(const lcd_8bit *lcd);
 STD_ReturnType lcd_8bit_set_cursor(const lcd_8bit *lcd , uint8 row , uint8 colum);
 
 STD_ReturnType convert_uint8_to_string(uint8 value , uint8 *str);
-STD_ReturnType convert_uint16_to_string(uint16 value , uint16 *str);
-STD_ReturnType convert_uint32_to_string(uint32 value , uint32 *str);
+STD_ReturnType convert_uint16_to_string(uint16 value , uint8 *str);
+STD_ReturnType convert_uint32_to_string(uint32 value , uint8 *str);
 
 
 #endif	/* LCD_H */

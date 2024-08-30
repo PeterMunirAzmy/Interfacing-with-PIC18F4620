@@ -29,6 +29,7 @@ void RB6_ISR(void);
 void RB7_ISR(void);
 
 void ADC_ISR(void);
+void TMR0_ISR(void);
 
 #endif	/* INTERRUPT_MANAGER_H */
 

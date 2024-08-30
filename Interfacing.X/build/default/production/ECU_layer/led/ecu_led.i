@@ -4774,10 +4774,10 @@ typedef enum
 
 typedef struct
 {
-    uint8 port : 3;
-    uint8 pin :3;
-    uint8 direction : 1;
-    uint8 logic : 1;
+    port_index_t port;
+    pin_index_t pin;
+    direction_t direction;
+    logic_t logic;
 
 }pin_config;
 
@@ -4814,9 +4814,9 @@ typedef enum
 
 typedef struct
 {
-    uint8 port_name :4;
-    uint8 pin_number :3;
-    uint8 led_status :1;
+    port_index_t port_name;
+    pin_index_t pin_number;
+    uint8 led_status;
 }led_config;
 
 

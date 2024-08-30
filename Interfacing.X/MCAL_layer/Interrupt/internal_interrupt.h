@@ -22,6 +22,11 @@
 #define ADC_HIGHT_BRIORITY_SET()              (IPR1bits.ADIP = 1)
 #define ADC_LOW_BRIORITY_SET()                (IPR1bits.ADIP = 0)
 
+#define TIMER0_INTERRUPT_ENABLE()             (INTCONbits.TMR0IE = 1)
+#define TIMER0_INTERRUPT_DISABLE()            (INTCONbits.TMR0IE = 0)
+#define TIMER0_INTERRUPT_FLAG_CLEAR()         (INTCONbits.TMR0IF = 0)
+#define TIMER0_HIGHT_BRIORITY_SET()           (INTCON2bits.TMR0IP = 1)
+#define TIMER0_LOW_BRIORITY_SET()             (INTCON2bits.TMR0IP = 0)
 
 /*Section : Data Type Declaration*/
 
