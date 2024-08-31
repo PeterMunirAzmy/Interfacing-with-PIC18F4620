@@ -47,6 +47,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12
 [; ;MCAL_layer/Timer0/Timer0.c: 12: static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg);
 [v _Timer0_Mode `TF3099 ~T0 @X0 0 s ]
+[v F3096 `(v ~T0 @X0 1 tf1`*CS274 ]
+"11
+[; ;MCAL_layer/Timer0/Timer0.c: 11: static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_confg);
+[v _Timer0_Select_Edge `TF3096 ~T0 @X0 0 s ]
 [v F3105 `(v ~T0 @X0 1 tf1`*CS274 ]
 "14
 [; ;MCAL_layer/Timer0/Timer0.c: 14: static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0_confg);
@@ -553,276 +557,285 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL_layer/Timer0/Timer0.c: 39:         Timer0_Mode(timer0_confg);
 [e ( _Timer0_Mode (1 _timer0_confg ]
 "40
-[; ;MCAL_layer/Timer0/Timer0.c: 40:         Timer0_Interrupt_init(timer0_confg);
-[e ( _Timer0_Interrupt_init (1 _timer0_confg ]
+[; ;MCAL_layer/Timer0/Timer0.c: 40:         Timer0_Select_Edge(timer0_confg);
+[e ( _Timer0_Select_Edge (1 _timer0_confg ]
 "41
-[; ;MCAL_layer/Timer0/Timer0.c: 41:         TMR_Interrupt_Handler = timer0_confg->Timer0_Interrupt_Handlar;
-[e = _TMR_Interrupt_Handler . *U _timer0_confg 0 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 41:         Timer0_Interrupt_init(timer0_confg);
+[e ( _Timer0_Interrupt_init (1 _timer0_confg ]
 "42
-[; ;MCAL_layer/Timer0/Timer0.c: 42:         Timer0_preloaded_value(timer0_confg);
+[; ;MCAL_layer/Timer0/Timer0.c: 42:         TMR_Interrupt_Handler = timer0_confg->Timer0_Interrupt_Handlar;
+[e = _TMR_Interrupt_Handler . *U _timer0_confg 0 ]
+"43
+[; ;MCAL_layer/Timer0/Timer0.c: 43:         Timer0_preloaded_value(timer0_confg);
 [e ( _Timer0_preloaded_value (1 _timer0_confg ]
-"44
-[; ;MCAL_layer/Timer0/Timer0.c: 44:         (T0CONbits.TMR0ON = 1);
+"45
+[; ;MCAL_layer/Timer0/Timer0.c: 45:         (T0CONbits.TMR0ON = 1);
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"46
-[; ;MCAL_layer/Timer0/Timer0.c: 46:     }
+"47
+[; ;MCAL_layer/Timer0/Timer0.c: 47:     }
 }
 [e :U 277 ]
-"47
-[; ;MCAL_layer/Timer0/Timer0.c: 47:     return ret;
+"48
+[; ;MCAL_layer/Timer0/Timer0.c: 48:     return ret;
 [e ) _ret ]
 [e $UE 275  ]
-"48
-[; ;MCAL_layer/Timer0/Timer0.c: 48: }
+"49
+[; ;MCAL_layer/Timer0/Timer0.c: 49: }
 [e :UE 275 ]
 }
-"55
-[; ;MCAL_layer/Timer0/Timer0.c: 55: STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg)
-[v _Timer0_Deinit `(uc ~T0 @X0 1 ef1`*CS274 ]
 "56
-[; ;MCAL_layer/Timer0/Timer0.c: 56: {
+[; ;MCAL_layer/Timer0/Timer0.c: 56: STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg)
+[v _Timer0_Deinit `(uc ~T0 @X0 1 ef1`*CS274 ]
+"57
+[; ;MCAL_layer/Timer0/Timer0.c: 57: {
 {
 [e :U _Timer0_Deinit ]
-"55
-[; ;MCAL_layer/Timer0/Timer0.c: 55: STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg)
-[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 "56
-[; ;MCAL_layer/Timer0/Timer0.c: 56: {
-[f ]
+[; ;MCAL_layer/Timer0/Timer0.c: 56: STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg)
+[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 "57
-[; ;MCAL_layer/Timer0/Timer0.c: 57:     STD_ReturnType ret = (STD_ReturnType)0x01;
+[; ;MCAL_layer/Timer0/Timer0.c: 57: {
+[f ]
+"58
+[; ;MCAL_layer/Timer0/Timer0.c: 58:     STD_ReturnType ret = (STD_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"58
-[; ;MCAL_layer/Timer0/Timer0.c: 58:     if(((void*)0) == timer0_confg)
-[e $ ! == -> -> -> 0 `i `*v `*CS274 _timer0_confg 279  ]
 "59
-[; ;MCAL_layer/Timer0/Timer0.c: 59:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 59:     if(((void*)0) == timer0_confg)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _timer0_confg 279  ]
 "60
-[; ;MCAL_layer/Timer0/Timer0.c: 60:         ret = (STD_ReturnType)0x00;
-[e = _ret -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 60:     {
+{
 "61
-[; ;MCAL_layer/Timer0/Timer0.c: 61:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 61:         ret = (STD_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"62
+[; ;MCAL_layer/Timer0/Timer0.c: 62:     }
 }
 [e $U 280  ]
-"62
-[; ;MCAL_layer/Timer0/Timer0.c: 62:     else
-[e :U 279 ]
 "63
-[; ;MCAL_layer/Timer0/Timer0.c: 63:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 63:     else
+[e :U 279 ]
 "64
-[; ;MCAL_layer/Timer0/Timer0.c: 64:         (T0CONbits.TMR0ON = 0);
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 64:     {
+{
 "65
-[; ;MCAL_layer/Timer0/Timer0.c: 65:         (INTCONbits.TMR0IE = 0);
-[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 65:         (T0CONbits.TMR0ON = 0);
+[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
 "66
-[; ;MCAL_layer/Timer0/Timer0.c: 66:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 66:         (INTCONbits.TMR0IE = 0);
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+"67
+[; ;MCAL_layer/Timer0/Timer0.c: 67:     }
 }
 [e :U 280 ]
-"67
-[; ;MCAL_layer/Timer0/Timer0.c: 67:     return ret;
+"68
+[; ;MCAL_layer/Timer0/Timer0.c: 68:     return ret;
 [e ) _ret ]
 [e $UE 278  ]
-"68
-[; ;MCAL_layer/Timer0/Timer0.c: 68: }
+"69
+[; ;MCAL_layer/Timer0/Timer0.c: 69: }
 [e :UE 278 ]
 }
-"76
-[; ;MCAL_layer/Timer0/Timer0.c: 76: STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value)
-[v _Timer0_Write_Value `(uc ~T0 @X0 1 ef2`*CS274`us ]
 "77
-[; ;MCAL_layer/Timer0/Timer0.c: 77: {
+[; ;MCAL_layer/Timer0/Timer0.c: 77: STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value)
+[v _Timer0_Write_Value `(uc ~T0 @X0 1 ef2`*CS274`us ]
+"78
+[; ;MCAL_layer/Timer0/Timer0.c: 78: {
 {
 [e :U _Timer0_Write_Value ]
-"76
-[; ;MCAL_layer/Timer0/Timer0.c: 76: STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value)
+"77
+[; ;MCAL_layer/Timer0/Timer0.c: 77: STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value)
 [v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 [v _value `us ~T0 @X0 1 r2 ]
-"77
-[; ;MCAL_layer/Timer0/Timer0.c: 77: {
-[f ]
 "78
-[; ;MCAL_layer/Timer0/Timer0.c: 78:     STD_ReturnType ret = (STD_ReturnType)0x01;
+[; ;MCAL_layer/Timer0/Timer0.c: 78: {
+[f ]
+"79
+[; ;MCAL_layer/Timer0/Timer0.c: 79:     STD_ReturnType ret = (STD_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"79
-[; ;MCAL_layer/Timer0/Timer0.c: 79:     if(((void*)0) == timer0_confg)
-[e $ ! == -> -> -> 0 `i `*v `*CS274 _timer0_confg 282  ]
 "80
-[; ;MCAL_layer/Timer0/Timer0.c: 80:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 80:     if(((void*)0) == timer0_confg)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _timer0_confg 282  ]
 "81
-[; ;MCAL_layer/Timer0/Timer0.c: 81:         ret = (STD_ReturnType)0x00;
-[e = _ret -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 81:     {
+{
 "82
-[; ;MCAL_layer/Timer0/Timer0.c: 82:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 82:         ret = (STD_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"83
+[; ;MCAL_layer/Timer0/Timer0.c: 83:     }
 }
 [e $U 283  ]
-"83
-[; ;MCAL_layer/Timer0/Timer0.c: 83:     else
-[e :U 282 ]
 "84
-[; ;MCAL_layer/Timer0/Timer0.c: 84:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 84:     else
+[e :U 282 ]
 "85
-[; ;MCAL_layer/Timer0/Timer0.c: 85:         TMR0H = (value >> 8);
-[e = _TMR0H -> >> -> _value `ui -> 8 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 85:     {
+{
 "86
-[; ;MCAL_layer/Timer0/Timer0.c: 86:         TMR0L = (uint8)(value);
-[e = _TMR0L -> _value `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 86:         TMR0H = (value >> 8);
+[e = _TMR0H -> >> -> _value `ui -> 8 `i `uc ]
 "87
-[; ;MCAL_layer/Timer0/Timer0.c: 87:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 87:         TMR0L = (uint8)(value);
+[e = _TMR0L -> _value `uc ]
+"88
+[; ;MCAL_layer/Timer0/Timer0.c: 88:     }
 }
 [e :U 283 ]
-"88
-[; ;MCAL_layer/Timer0/Timer0.c: 88:     return ret;
+"89
+[; ;MCAL_layer/Timer0/Timer0.c: 89:     return ret;
 [e ) _ret ]
 [e $UE 281  ]
-"89
-[; ;MCAL_layer/Timer0/Timer0.c: 89: }
+"90
+[; ;MCAL_layer/Timer0/Timer0.c: 90: }
 [e :UE 281 ]
 }
-"97
-[; ;MCAL_layer/Timer0/Timer0.c: 97: STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value)
-[v _Timer0_Read_Value `(uc ~T0 @X0 1 ef2`*CS274`*us ]
 "98
-[; ;MCAL_layer/Timer0/Timer0.c: 98: {
+[; ;MCAL_layer/Timer0/Timer0.c: 98: STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value)
+[v _Timer0_Read_Value `(uc ~T0 @X0 1 ef2`*CS274`*us ]
+"99
+[; ;MCAL_layer/Timer0/Timer0.c: 99: {
 {
 [e :U _Timer0_Read_Value ]
-"97
-[; ;MCAL_layer/Timer0/Timer0.c: 97: STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value)
+"98
+[; ;MCAL_layer/Timer0/Timer0.c: 98: STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value)
 [v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 [v _value `*us ~T0 @X0 1 r2 ]
-"98
-[; ;MCAL_layer/Timer0/Timer0.c: 98: {
-[f ]
 "99
-[; ;MCAL_layer/Timer0/Timer0.c: 99:     STD_ReturnType ret = (STD_ReturnType)0x01;
+[; ;MCAL_layer/Timer0/Timer0.c: 99: {
+[f ]
+"100
+[; ;MCAL_layer/Timer0/Timer0.c: 100:     STD_ReturnType ret = (STD_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"100
-[; ;MCAL_layer/Timer0/Timer0.c: 100:     uint8 Tmr0_L = 0 , Tmr0_H = 0;
+"101
+[; ;MCAL_layer/Timer0/Timer0.c: 101:     uint8 Tmr0_L = 0 , Tmr0_H = 0;
 [v _Tmr0_L `uc ~T0 @X0 1 a ]
 [e = _Tmr0_L -> -> 0 `i `uc ]
 [v _Tmr0_H `uc ~T0 @X0 1 a ]
 [e = _Tmr0_H -> -> 0 `i `uc ]
-"101
-[; ;MCAL_layer/Timer0/Timer0.c: 101:     if((((void*)0) == timer0_confg) || (((void*)0) == value))
-[e $ ! || == -> -> -> 0 `i `*v `*CS274 _timer0_confg == -> -> -> 0 `i `*v `*us _value 285  ]
 "102
-[; ;MCAL_layer/Timer0/Timer0.c: 102:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 102:     if((((void*)0) == timer0_confg) || (((void*)0) == value))
+[e $ ! || == -> -> -> 0 `i `*v `*CS274 _timer0_confg == -> -> -> 0 `i `*v `*us _value 285  ]
 "103
-[; ;MCAL_layer/Timer0/Timer0.c: 103:         ret = (STD_ReturnType)0x00;
-[e = _ret -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 103:     {
+{
 "104
-[; ;MCAL_layer/Timer0/Timer0.c: 104:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 104:         ret = (STD_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"105
+[; ;MCAL_layer/Timer0/Timer0.c: 105:     }
 }
 [e $U 286  ]
-"105
-[; ;MCAL_layer/Timer0/Timer0.c: 105:     else
-[e :U 285 ]
 "106
-[; ;MCAL_layer/Timer0/Timer0.c: 106:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 106:     else
+[e :U 285 ]
 "107
-[; ;MCAL_layer/Timer0/Timer0.c: 107:         Tmr0_L = TMR0L;
-[e = _Tmr0_L _TMR0L ]
+[; ;MCAL_layer/Timer0/Timer0.c: 107:     {
+{
 "108
-[; ;MCAL_layer/Timer0/Timer0.c: 108:         Tmr0_H = TMR0H;
-[e = _Tmr0_H _TMR0H ]
+[; ;MCAL_layer/Timer0/Timer0.c: 108:         Tmr0_L = TMR0L;
+[e = _Tmr0_L _TMR0L ]
 "109
-[; ;MCAL_layer/Timer0/Timer0.c: 109:         *value = (uint16)((Tmr0_H << 8) + Tmr0_L);
-[e = *U _value -> + << -> _Tmr0_H `i -> 8 `i -> _Tmr0_L `i `us ]
+[; ;MCAL_layer/Timer0/Timer0.c: 109:         Tmr0_H = TMR0H;
+[e = _Tmr0_H _TMR0H ]
 "110
-[; ;MCAL_layer/Timer0/Timer0.c: 110:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 110:         *value = (uint16)((Tmr0_H << 8) + Tmr0_L);
+[e = *U _value -> + << -> _Tmr0_H `i -> 8 `i -> _Tmr0_L `i `us ]
+"111
+[; ;MCAL_layer/Timer0/Timer0.c: 111:     }
 }
 [e :U 286 ]
-"111
-[; ;MCAL_layer/Timer0/Timer0.c: 111:     return ret;
+"112
+[; ;MCAL_layer/Timer0/Timer0.c: 112:     return ret;
 [e ) _ret ]
 [e $UE 284  ]
-"112
-[; ;MCAL_layer/Timer0/Timer0.c: 112: }
+"113
+[; ;MCAL_layer/Timer0/Timer0.c: 113: }
 [e :UE 284 ]
 }
-"114
-[; ;MCAL_layer/Timer0/Timer0.c: 114: void TMR0_ISR(void)
-[v _TMR0_ISR `(v ~T0 @X0 1 ef ]
 "115
-[; ;MCAL_layer/Timer0/Timer0.c: 115: {
+[; ;MCAL_layer/Timer0/Timer0.c: 115: void TMR0_ISR(void)
+[v _TMR0_ISR `(v ~T0 @X0 1 ef ]
+"116
+[; ;MCAL_layer/Timer0/Timer0.c: 116: {
 {
 [e :U _TMR0_ISR ]
 [f ]
-"116
-[; ;MCAL_layer/Timer0/Timer0.c: 116:     (INTCONbits.TMR0IF = 0);
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "117
-[; ;MCAL_layer/Timer0/Timer0.c: 117:     TMR0H = (preloaded_value >> 8);
-[e = _TMR0H -> >> -> _preloaded_value `ui -> 8 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 117:     (INTCONbits.TMR0IF = 0);
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "118
-[; ;MCAL_layer/Timer0/Timer0.c: 118:     TMR0L = (uint8)(preloaded_value);
-[e = _TMR0L -> _preloaded_value `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 118:     TMR0H = (preloaded_value >> 8);
+[e = _TMR0H -> >> -> _preloaded_value `ui -> 8 `i `uc ]
 "119
-[; ;MCAL_layer/Timer0/Timer0.c: 119:     if(TMR_Interrupt_Handler)
-[e $ ! != _TMR_Interrupt_Handler -> -> 0 `i `*F3134 288  ]
+[; ;MCAL_layer/Timer0/Timer0.c: 119:     TMR0L = (uint8)(preloaded_value);
+[e = _TMR0L -> _preloaded_value `uc ]
 "120
-[; ;MCAL_layer/Timer0/Timer0.c: 120:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 120:     if(TMR_Interrupt_Handler)
+[e $ ! != _TMR_Interrupt_Handler -> -> 0 `i `*F3134 288  ]
 "121
-[; ;MCAL_layer/Timer0/Timer0.c: 121:         TMR_Interrupt_Handler();
-[e ( *U _TMR_Interrupt_Handler ..  ]
+[; ;MCAL_layer/Timer0/Timer0.c: 121:     {
+{
 "122
-[; ;MCAL_layer/Timer0/Timer0.c: 122:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 122:         TMR_Interrupt_Handler();
+[e ( *U _TMR_Interrupt_Handler ..  ]
+"123
+[; ;MCAL_layer/Timer0/Timer0.c: 123:     }
 }
 [e :U 288 ]
-"123
-[; ;MCAL_layer/Timer0/Timer0.c: 123: }
+"124
+[; ;MCAL_layer/Timer0/Timer0.c: 124: }
 [e :UE 287 ]
 }
 [v F3136 `(v ~T0 @X0 1 tf1`*CS274 ]
-"127
-[; ;MCAL_layer/Timer0/Timer0.c: 127: static __attribute__((inline)) void Timer0_Prescaler_config(const timer0_t *timer0_confg)
-[v _Timer0_Prescaler_config `TF3136 ~T0 @X0 1 s ]
 "128
-[; ;MCAL_layer/Timer0/Timer0.c: 128: {
+[; ;MCAL_layer/Timer0/Timer0.c: 128: static __attribute__((inline)) void Timer0_Prescaler_config(const timer0_t *timer0_confg)
+[v _Timer0_Prescaler_config `TF3136 ~T0 @X0 1 s ]
+"129
+[; ;MCAL_layer/Timer0/Timer0.c: 129: {
 {
 [e :U _Timer0_Prescaler_config ]
-"127
-[; ;MCAL_layer/Timer0/Timer0.c: 127: static __attribute__((inline)) void Timer0_Prescaler_config(const timer0_t *timer0_confg)
-[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 "128
-[; ;MCAL_layer/Timer0/Timer0.c: 128: {
-[f ]
+[; ;MCAL_layer/Timer0/Timer0.c: 128: static __attribute__((inline)) void Timer0_Prescaler_config(const timer0_t *timer0_confg)
+[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 "129
-[; ;MCAL_layer/Timer0/Timer0.c: 129:     switch (timer0_confg->prescaler_status)
-[e $U 291  ]
+[; ;MCAL_layer/Timer0/Timer0.c: 129: {
+[f ]
 "130
-[; ;MCAL_layer/Timer0/Timer0.c: 130:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 130:     switch (timer0_confg->prescaler_status)
+[e $U 291  ]
 "131
-[; ;MCAL_layer/Timer0/Timer0.c: 131:         case Timer0_Prescaler_Enable:
-[e :U 292 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 131:     {
+{
 "132
-[; ;MCAL_layer/Timer0/Timer0.c: 132:             (T0CONbits.PSA = 0);
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 132:         case Timer0_Prescaler_Enable:
+[e :U 292 ]
 "133
-[; ;MCAL_layer/Timer0/Timer0.c: 133:         case Timer0_Prescaler_Disable:
-[e :U 293 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 133:             (T0CONbits.PSA = 0);
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
 "134
-[; ;MCAL_layer/Timer0/Timer0.c: 134:             (T0CONbits.PSA = 1);
-[e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 134:             break;
+[e $U 290  ]
 "135
-[; ;MCAL_layer/Timer0/Timer0.c: 135:         default:
-[e :U 294 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 135:         case Timer0_Prescaler_Disable:
+[e :U 293 ]
 "136
 [; ;MCAL_layer/Timer0/Timer0.c: 136:             (T0CONbits.PSA = 1);
 [e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
 "137
-[; ;MCAL_layer/Timer0/Timer0.c: 137:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 137:             break;
+[e $U 290  ]
+"138
+[; ;MCAL_layer/Timer0/Timer0.c: 138:         default:
+[e :U 294 ]
+"139
+[; ;MCAL_layer/Timer0/Timer0.c: 139:             (T0CONbits.PSA = 1);
+[e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
+"140
+[; ;MCAL_layer/Timer0/Timer0.c: 140:     }
 }
 [e $U 290  ]
 [e :U 291 ]
@@ -830,53 +843,59 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E3055 1 `ui 293
  294 ]
 [e :U 290 ]
-"138
-[; ;MCAL_layer/Timer0/Timer0.c: 138:     T0CONbits.T0PS = timer0_confg->prescaler_value;
+"141
+[; ;MCAL_layer/Timer0/Timer0.c: 141:     T0CONbits.T0PS = timer0_confg->prescaler_value;
 [e = . . _T0CONbits 0 0 -> . *U _timer0_confg 2 `uc ]
-"139
-[; ;MCAL_layer/Timer0/Timer0.c: 139: }
+"142
+[; ;MCAL_layer/Timer0/Timer0.c: 142: }
 [e :UE 289 ]
 }
 [v F3139 `(v ~T0 @X0 1 tf1`*CS274 ]
-"141
-[; ;MCAL_layer/Timer0/Timer0.c: 141: static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_confg)
+"144
+[; ;MCAL_layer/Timer0/Timer0.c: 144: static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_confg)
 [v _Timer0_Select_Edge `TF3139 ~T0 @X0 1 s ]
-"142
-[; ;MCAL_layer/Timer0/Timer0.c: 142: {
+"145
+[; ;MCAL_layer/Timer0/Timer0.c: 145: {
 {
 [e :U _Timer0_Select_Edge ]
-"141
-[; ;MCAL_layer/Timer0/Timer0.c: 141: static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_confg)
-[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
-"142
-[; ;MCAL_layer/Timer0/Timer0.c: 142: {
-[f ]
-"143
-[; ;MCAL_layer/Timer0/Timer0.c: 143:     switch (timer0_confg->edge_select)
-[e $U 297  ]
 "144
-[; ;MCAL_layer/Timer0/Timer0.c: 144:     {
-{
+[; ;MCAL_layer/Timer0/Timer0.c: 144: static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_confg)
+[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 "145
-[; ;MCAL_layer/Timer0/Timer0.c: 145:         case Timer0_FALLING_EDGE_SELECT:
-[e :U 298 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 145: {
+[f ]
 "146
-[; ;MCAL_layer/Timer0/Timer0.c: 146:             (T0CONbits.T0SE = 1);
-[e = . . _T0CONbits 0 2 -> -> 1 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 146:     switch (timer0_confg->edge_select)
+[e $U 297  ]
 "147
-[; ;MCAL_layer/Timer0/Timer0.c: 147:         case Timer0_RISING_EDGE_SELECT:
-[e :U 299 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 147:     {
+{
 "148
-[; ;MCAL_layer/Timer0/Timer0.c: 148:             (T0CONbits.T0SE = 0);
-[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 148:         case Timer0_FALLING_EDGE_SELECT:
+[e :U 298 ]
 "149
-[; ;MCAL_layer/Timer0/Timer0.c: 149:         default:
-[e :U 300 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 149:             (T0CONbits.T0SE = 1);
+[e = . . _T0CONbits 0 2 -> -> 1 `i `uc ]
 "150
-[; ;MCAL_layer/Timer0/Timer0.c: 150:             (T0CONbits.T0SE = 0);
-[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 150:             break;
+[e $U 296  ]
 "151
-[; ;MCAL_layer/Timer0/Timer0.c: 151:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 151:         case Timer0_RISING_EDGE_SELECT:
+[e :U 299 ]
+"152
+[; ;MCAL_layer/Timer0/Timer0.c: 152:             (T0CONbits.T0SE = 0);
+[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+"153
+[; ;MCAL_layer/Timer0/Timer0.c: 153:             break;
+[e $U 296  ]
+"154
+[; ;MCAL_layer/Timer0/Timer0.c: 154:         default:
+[e :U 300 ]
+"155
+[; ;MCAL_layer/Timer0/Timer0.c: 155:             (T0CONbits.T0SE = 0);
+[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+"156
+[; ;MCAL_layer/Timer0/Timer0.c: 156:     }
 }
 [e $U 296  ]
 [e :U 297 ]
@@ -884,53 +903,59 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E3059 1 `ui 299
  300 ]
 [e :U 296 ]
-"152
-[; ;MCAL_layer/Timer0/Timer0.c: 152: }
+"157
+[; ;MCAL_layer/Timer0/Timer0.c: 157: }
 [e :UE 295 ]
 }
 [v F3142 `(v ~T0 @X0 1 tf1`*CS274 ]
-"154
-[; ;MCAL_layer/Timer0/Timer0.c: 154: static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg)
+"159
+[; ;MCAL_layer/Timer0/Timer0.c: 159: static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg)
 [v _Timer0_Mode `TF3142 ~T0 @X0 1 s ]
-"155
-[; ;MCAL_layer/Timer0/Timer0.c: 155: {
+"160
+[; ;MCAL_layer/Timer0/Timer0.c: 160: {
 {
 [e :U _Timer0_Mode ]
-"154
-[; ;MCAL_layer/Timer0/Timer0.c: 154: static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg)
-[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
-"155
-[; ;MCAL_layer/Timer0/Timer0.c: 155: {
-[f ]
-"156
-[; ;MCAL_layer/Timer0/Timer0.c: 156:     switch (timer0_confg->mode)
-[e $U 303  ]
-"157
-[; ;MCAL_layer/Timer0/Timer0.c: 157:     {
-{
-"158
-[; ;MCAL_layer/Timer0/Timer0.c: 158:         case Timer0_Counter_Mode:
-[e :U 304 ]
 "159
-[; ;MCAL_layer/Timer0/Timer0.c: 159:             (T0CONbits.T0CS = 1);
-[e = . . _T0CONbits 0 3 -> -> 1 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 159: static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg)
+[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 "160
-[; ;MCAL_layer/Timer0/Timer0.c: 160:             Timer0_Select_Edge(timer0_confg);
-[e ( _Timer0_Select_Edge (1 _timer0_confg ]
+[; ;MCAL_layer/Timer0/Timer0.c: 160: {
+[f ]
 "161
-[; ;MCAL_layer/Timer0/Timer0.c: 161:         case Timer0_Timer_Mode:
-[e :U 305 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 161:     switch (timer0_confg->mode)
+[e $U 303  ]
 "162
-[; ;MCAL_layer/Timer0/Timer0.c: 162:             (T0CONbits.T0CS = 0);
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 162:     {
+{
 "163
-[; ;MCAL_layer/Timer0/Timer0.c: 163:         default:
-[e :U 306 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 163:         case Timer0_Counter_Mode:
+[e :U 304 ]
 "164
-[; ;MCAL_layer/Timer0/Timer0.c: 164:             (T0CONbits.T0CS = 0);
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 164:             (T0CONbits.T0CS = 1);
+[e = . . _T0CONbits 0 3 -> -> 1 `i `uc ]
 "165
-[; ;MCAL_layer/Timer0/Timer0.c: 165:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 165:             Timer0_Select_Edge(timer0_confg);
+[e ( _Timer0_Select_Edge (1 _timer0_confg ]
+"166
+[; ;MCAL_layer/Timer0/Timer0.c: 166:             break;
+[e $U 302  ]
+"167
+[; ;MCAL_layer/Timer0/Timer0.c: 167:         case Timer0_Timer_Mode:
+[e :U 305 ]
+"168
+[; ;MCAL_layer/Timer0/Timer0.c: 168:             (T0CONbits.T0CS = 0);
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+"169
+[; ;MCAL_layer/Timer0/Timer0.c: 169:             break;
+[e $U 302  ]
+"170
+[; ;MCAL_layer/Timer0/Timer0.c: 170:         default:
+[e :U 306 ]
+"171
+[; ;MCAL_layer/Timer0/Timer0.c: 171:             (T0CONbits.T0CS = 0);
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+"172
+[; ;MCAL_layer/Timer0/Timer0.c: 172:     }
 }
 [e $U 302  ]
 [e :U 303 ]
@@ -938,50 +963,56 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E3063 1 `ui 305
  306 ]
 [e :U 302 ]
-"166
-[; ;MCAL_layer/Timer0/Timer0.c: 166: }
+"173
+[; ;MCAL_layer/Timer0/Timer0.c: 173: }
 [e :UE 301 ]
 }
 [v F3145 `(v ~T0 @X0 1 tf1`*CS274 ]
-"168
-[; ;MCAL_layer/Timer0/Timer0.c: 168: static __attribute__((inline)) void Timer0_Register_Size(const timer0_t *timer0_confg)
+"175
+[; ;MCAL_layer/Timer0/Timer0.c: 175: static __attribute__((inline)) void Timer0_Register_Size(const timer0_t *timer0_confg)
 [v _Timer0_Register_Size `TF3145 ~T0 @X0 1 s ]
-"169
-[; ;MCAL_layer/Timer0/Timer0.c: 169: {
+"176
+[; ;MCAL_layer/Timer0/Timer0.c: 176: {
 {
 [e :U _Timer0_Register_Size ]
-"168
-[; ;MCAL_layer/Timer0/Timer0.c: 168: static __attribute__((inline)) void Timer0_Register_Size(const timer0_t *timer0_confg)
-[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
-"169
-[; ;MCAL_layer/Timer0/Timer0.c: 169: {
-[f ]
-"170
-[; ;MCAL_layer/Timer0/Timer0.c: 170:     switch (timer0_confg->register_size)
-[e $U 309  ]
-"171
-[; ;MCAL_layer/Timer0/Timer0.c: 171:     {
-{
-"172
-[; ;MCAL_layer/Timer0/Timer0.c: 172:         case Timer0_8Bit_Register:
-[e :U 310 ]
-"173
-[; ;MCAL_layer/Timer0/Timer0.c: 173:             (T0CONbits.T08BIT = 1);
-[e = . . _T0CONbits 0 4 -> -> 1 `i `uc ]
-"174
-[; ;MCAL_layer/Timer0/Timer0.c: 174:         case Timer0_16Bit_Register:
-[e :U 311 ]
 "175
-[; ;MCAL_layer/Timer0/Timer0.c: 175:             (T0CONbits.T08BIT = 0);
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 175: static __attribute__((inline)) void Timer0_Register_Size(const timer0_t *timer0_confg)
+[v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
 "176
-[; ;MCAL_layer/Timer0/Timer0.c: 176:         default:
-[e :U 312 ]
+[; ;MCAL_layer/Timer0/Timer0.c: 176: {
+[f ]
 "177
-[; ;MCAL_layer/Timer0/Timer0.c: 177:             (T0CONbits.T08BIT = 0);
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+[; ;MCAL_layer/Timer0/Timer0.c: 177:     switch (timer0_confg->register_size)
+[e $U 309  ]
 "178
-[; ;MCAL_layer/Timer0/Timer0.c: 178:     }
+[; ;MCAL_layer/Timer0/Timer0.c: 178:     {
+{
+"179
+[; ;MCAL_layer/Timer0/Timer0.c: 179:         case Timer0_8Bit_Register:
+[e :U 310 ]
+"180
+[; ;MCAL_layer/Timer0/Timer0.c: 180:             (T0CONbits.T08BIT = 1);
+[e = . . _T0CONbits 0 4 -> -> 1 `i `uc ]
+"181
+[; ;MCAL_layer/Timer0/Timer0.c: 181:             break;
+[e $U 308  ]
+"182
+[; ;MCAL_layer/Timer0/Timer0.c: 182:         case Timer0_16Bit_Register:
+[e :U 311 ]
+"183
+[; ;MCAL_layer/Timer0/Timer0.c: 183:             (T0CONbits.T08BIT = 0);
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+"184
+[; ;MCAL_layer/Timer0/Timer0.c: 184:             break;
+[e $U 308  ]
+"185
+[; ;MCAL_layer/Timer0/Timer0.c: 185:         default:
+[e :U 312 ]
+"186
+[; ;MCAL_layer/Timer0/Timer0.c: 186:             (T0CONbits.T08BIT = 0);
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+"187
+[; ;MCAL_layer/Timer0/Timer0.c: 187:     }
 }
 [e $U 308  ]
 [e :U 309 ]
@@ -989,64 +1020,64 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E3067 1 `ui 311
  312 ]
 [e :U 308 ]
-"179
-[; ;MCAL_layer/Timer0/Timer0.c: 179: }
+"188
+[; ;MCAL_layer/Timer0/Timer0.c: 188: }
 [e :UE 307 ]
 }
 [v F3148 `(v ~T0 @X0 1 tf1`*CS274 ]
-"181
-[; ;MCAL_layer/Timer0/Timer0.c: 181: static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0_confg)
+"190
+[; ;MCAL_layer/Timer0/Timer0.c: 190: static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0_confg)
 [v _Timer0_Interrupt_init `TF3148 ~T0 @X0 1 s ]
-"182
-[; ;MCAL_layer/Timer0/Timer0.c: 182: {
+"191
+[; ;MCAL_layer/Timer0/Timer0.c: 191: {
 {
 [e :U _Timer0_Interrupt_init ]
-"181
-[; ;MCAL_layer/Timer0/Timer0.c: 181: static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0_confg)
+"190
+[; ;MCAL_layer/Timer0/Timer0.c: 190: static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0_confg)
 [v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
-"182
-[; ;MCAL_layer/Timer0/Timer0.c: 182: {
+"191
+[; ;MCAL_layer/Timer0/Timer0.c: 191: {
 [f ]
-"184
-[; ;MCAL_layer/Timer0/Timer0.c: 184:     (INTCONbits.TMR0IE = 1);
+"193
+[; ;MCAL_layer/Timer0/Timer0.c: 193:     (INTCONbits.TMR0IE = 1);
 [e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"185
-[; ;MCAL_layer/Timer0/Timer0.c: 185:     (INTCONbits.TMR0IF = 0);
+"194
+[; ;MCAL_layer/Timer0/Timer0.c: 194:     (INTCONbits.TMR0IF = 0);
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"200
-[; ;MCAL_layer/Timer0/Timer0.c: 200:     (INTCONbits.PEIE = 1);
+"209
+[; ;MCAL_layer/Timer0/Timer0.c: 209:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"201
-[; ;MCAL_layer/Timer0/Timer0.c: 201:     (INTCONbits.GIE = 1);
+"210
+[; ;MCAL_layer/Timer0/Timer0.c: 210:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"204
-[; ;MCAL_layer/Timer0/Timer0.c: 204: }
+"213
+[; ;MCAL_layer/Timer0/Timer0.c: 213: }
 [e :UE 313 ]
 }
 [v F3151 `(v ~T0 @X0 1 tf1`*CS274 ]
-"206
-[; ;MCAL_layer/Timer0/Timer0.c: 206: static __attribute__((inline)) void Timer0_preloaded_value(const timer0_t *timer0_confg)
+"215
+[; ;MCAL_layer/Timer0/Timer0.c: 215: static __attribute__((inline)) void Timer0_preloaded_value(const timer0_t *timer0_confg)
 [v _Timer0_preloaded_value `TF3151 ~T0 @X0 1 s ]
-"207
-[; ;MCAL_layer/Timer0/Timer0.c: 207: {
+"216
+[; ;MCAL_layer/Timer0/Timer0.c: 216: {
 {
 [e :U _Timer0_preloaded_value ]
-"206
-[; ;MCAL_layer/Timer0/Timer0.c: 206: static __attribute__((inline)) void Timer0_preloaded_value(const timer0_t *timer0_confg)
+"215
+[; ;MCAL_layer/Timer0/Timer0.c: 215: static __attribute__((inline)) void Timer0_preloaded_value(const timer0_t *timer0_confg)
 [v _timer0_confg `*CS274 ~T0 @X0 1 r1 ]
-"207
-[; ;MCAL_layer/Timer0/Timer0.c: 207: {
+"216
+[; ;MCAL_layer/Timer0/Timer0.c: 216: {
 [f ]
-"208
-[; ;MCAL_layer/Timer0/Timer0.c: 208:     TMR0H = ((timer0_confg->preloaded_value) >> 8);
+"217
+[; ;MCAL_layer/Timer0/Timer0.c: 217:     TMR0H = ((timer0_confg->preloaded_value) >> 8);
 [e = _TMR0H -> >> -> . *U _timer0_confg 7 `ui -> 8 `i `uc ]
-"209
-[; ;MCAL_layer/Timer0/Timer0.c: 209:     TMR0L = (uint8)(timer0_confg->preloaded_value);
+"218
+[; ;MCAL_layer/Timer0/Timer0.c: 218:     TMR0L = (uint8)(timer0_confg->preloaded_value);
 [e = _TMR0L -> . *U _timer0_confg 7 `uc ]
-"210
-[; ;MCAL_layer/Timer0/Timer0.c: 210:     preloaded_value = timer0_confg->preloaded_value;
+"219
+[; ;MCAL_layer/Timer0/Timer0.c: 219:     preloaded_value = timer0_confg->preloaded_value;
 [e = _preloaded_value . *U _timer0_confg 7 ]
-"211
-[; ;MCAL_layer/Timer0/Timer0.c: 211: }
+"220
+[; ;MCAL_layer/Timer0/Timer0.c: 220: }
 [e :UE 314 ]
 }

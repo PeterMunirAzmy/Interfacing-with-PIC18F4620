@@ -5179,46 +5179,99 @@ STD_ReturnType Timer0_Deinit(const timer0_t *timer0_confg);
 STD_ReturnType Timer0_Write_Value(const timer0_t *timer0_confg , uint16 value);
 STD_ReturnType Timer0_Read_Value(const timer0_t *timer0_confg , uint16 *value);
 # 22 "./application.h" 2
-# 33 "./application.h"
+
+# 1 "./MCAL_layer/Timer1/Timer1.h" 1
+# 41 "./MCAL_layer/Timer1/Timer1.h"
+typedef enum
+{
+    Timer1_Prescaler_Dev_1,
+    Timer1_Prescaler_Dev_2,
+    Timer1_Prescaler_Dev_4,
+    Timer1_Prescaler_Dev_8
+}timer1_prescaler_t;
+
+typedef enum
+{
+    Timer1_Timer_Mode,
+    Timer1_Counter_Mode
+
+}timer1_mode_t;
+
+typedef enum
+{
+    Timer1_OSC_Enable,
+    Timer1_OSC_Disable
+
+}timer1_OSC_t;
+
+typedef enum
+{
+    Timer1_8Bit_Register,
+    Timer1_16Bit_Register
+}timer1_register_size_t;
+
+typedef enum
+{
+    Timer1_Clock_Synchronous,
+    Timer1_Clock_Asynchronous
+} timer1_clock_synchronization;
+
+typedef struct
+{
+    void(*Timer1_Interrupt_Handlar)(void);
+    interrupt_priority priority;
+    timer1_prescaler_t prescaler_value;
+    timer1_mode_t mode;
+    timer1_OSC_t timer1_OSC;
+    timer1_register_size_t register_size;
+    timer1_clock_synchronization clock_status;
+    uint16 preloaded_value;
+
+}timer1_t;
+
+
+STD_ReturnType Timer1_Init(const timer1_t *timer1_confg);
+STD_ReturnType Timer1_Deinit(const timer1_t *timer1_confg);
+STD_ReturnType Timer1_Write_Value(const timer1_t *timer1_confg , uint16 value);
+STD_ReturnType Timer1_Read_Value(const timer1_t *timer1_confg , uint16 *value);
+# 23 "./application.h" 2
+# 34 "./application.h"
 void application_initializ(void);
 # 1 "application.c" 2
 
 
-void ADC_Interrupt_function(void);
+
+void Timer1_Interrupt_function(void);
 void application_initializ(void);
 
-timer0_t timer0 =
+timer1_t counter1 =
 {
-    .Timer0_Interrupt_Handlar = ADC_Interrupt_function ,.mode = Timer0_Timer_Mode , .preloaded_value = 3036,
-    .prescaler_status = Timer0_Prescaler_Enable,.register_size = Timer0_16Bit_Register,
-    .prescaler_value = Timer0_Prescaler_Dev_8
+    .Timer1_Interrupt_Handlar = Timer1_Interrupt_function ,.mode = Timer1_Counter_Mode , .preloaded_value =15535,
+    .timer1_OSC = Timer1_OSC_Disable,.register_size = Timer1_16Bit_Register,.prescaler_value = Timer1_Prescaler_Dev_8,
+    .clock_status=Timer1_Clock_Asynchronous, .priority=INTERRUPT_LOW_PRIORITY
 };
 
-led_config led1 =
-{.port_name=PORTC_INDEX, .pin_number = GPIO_PIN0, .led_status = LED_OFF};
-
 STD_ReturnType ret = (STD_ReturnType)0x00;
-volatile uint16 flag =0;
+volatile uint16 counter_value , val;
+
 int main()
 {
     application_initializ();
 
     while (1)
     {
-
+        ret = Timer1_Read_Value(&counter1 , &counter_value);
     }
     return (0);
 }
 
 void application_initializ(void)
 {
-    ret = Timer0_Init(&timer0);
-    ret = ecu_led_initializ(&led1);
+    ret = Timer1_Init(&counter1);
 }
 
 
-void ADC_Interrupt_function(void)
+void Timer1_Interrupt_function(void)
 {
-    flag++;
-    ret = ecu_led_toggle(&led1);
+    val++;
 }

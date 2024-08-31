@@ -111,6 +111,11 @@ void __interrupt() Interrupt_Manager(void)
     {
         TMR0_ISR();
     }
+    /* ------------------------------ TIMER1 interrupt ------------------------------ */
+    if((INTERRUPT_ENABLE == PIE1bits.TMR1IE) && (INTERRUPT_OCCUR == PIR1bits.TMR1IF))
+    {
+        TMR1_ISR();
+    }
 }
 
 #endif

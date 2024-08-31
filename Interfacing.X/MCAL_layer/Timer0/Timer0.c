@@ -37,6 +37,7 @@ STD_ReturnType Timer0_Init(const timer0_t *timer0_confg)
         Timer0_Prescaler_config(timer0_confg);
         Timer0_Register_Size(timer0_confg);
         Timer0_Mode(timer0_confg);
+        Timer0_Select_Edge(timer0_confg);
         Timer0_Interrupt_init(timer0_confg);
         TMR_Interrupt_Handler = timer0_confg->Timer0_Interrupt_Handlar;
         Timer0_preloaded_value(timer0_confg);
@@ -130,8 +131,10 @@ static inline void Timer0_Prescaler_config(const timer0_t *timer0_confg)
     {
         case Timer0_Prescaler_Enable:
             TIMER0_PRESCALER_ENABLE();
+            break;
         case Timer0_Prescaler_Disable:
             TIMER0_PRESCALER_DISABLE();
+            break;
         default:
             TIMER0_PRESCALER_DISABLE();
     }
@@ -144,8 +147,10 @@ static inline void Timer0_Select_Edge(const timer0_t *timer0_confg)
     {
         case Timer0_FALLING_EDGE_SELECT:
             TIMER0_FALLING_EDGE_SELECT();
+            break;
         case Timer0_RISING_EDGE_SELECT:
             TIMER0_RISING_EDGE_SELECT();
+            break;
         default:
             TIMER0_RISING_EDGE_SELECT();            
     }
@@ -158,8 +163,10 @@ static inline void Timer0_Mode(const timer0_t *timer0_confg)
         case Timer0_Counter_Mode:
             TIMER0_COUNTER_MODE();
             Timer0_Select_Edge(timer0_confg);
+            break;
         case Timer0_Timer_Mode:
             TIMER0_TIMER_MODE();
+            break;
         default:
             TIMER0_TIMER_MODE();            
     }
@@ -171,8 +178,10 @@ static inline void Timer0_Register_Size(const timer0_t *timer0_confg)
     {
         case Timer0_8Bit_Register:
             TIMER0_REGISTER_8BIT();
+            break;
         case Timer0_16Bit_Register:
             TIMER0_REGISTER_16BIT();
+            break;
         default:
             TIMER0_REGISTER_16BIT();        
     }

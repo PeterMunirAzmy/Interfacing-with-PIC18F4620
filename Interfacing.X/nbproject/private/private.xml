@@ -4,11 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/peter/Desktop/Interfacing.X/application.c</file>
-            <file>file:/C:/Users/peter/Desktop/Interfacing.X/MCAL_layer/Timer0/Timer0.c</file>
-            <file>file:/C:/Users/peter/Desktop/Interfacing.X/ECU_layer/led/ecu_led.h</file>
-            <file>file:/C:/Users/peter/Desktop/Interfacing.X/MCAL_layer/Timer0/Timer0.h</file>
-            <file>file:/C:/Users/peter/Desktop/Interfacing.X/ECU_layer/led/ecu_led.c</file>
-            <file>file:/C:/Users/peter/Desktop/Interfacing.X/MCAL_layer/GPIO/gpio.h</file>
+            <file>file:/C:/Users/peter/Desktop/Interfacing.X/MCAL_layer/Timer1/Timer1.h</file>
+            <file>file:/C:/Users/peter/Desktop/Interfacing.X/MCAL_layer/Timer1/Timer1.c</file>
         </group>
     </open-files>
 </project-private>

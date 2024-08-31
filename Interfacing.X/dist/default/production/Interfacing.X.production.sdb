@@ -358,65 +358,66 @@ Timer0_Timer_Mode 1
 Timer0_8Bit_Register 0
 Timer0_16Bit_Register 1
 ]
-"6 C:\Users\peter\Desktop\Interfacing.X\application.c
+"7 C:\Users\peter\Desktop\Interfacing.X\application.c
 [e E3224 . `uc
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
-[e E3349 . `uc
-Timer0_Prescaler_Dev_2 0
-Timer0_Prescaler_Dev_4 1
-Timer0_Prescaler_Dev_8 2
-Timer0_Prescaler_Dev_16 3
-Timer0_Prescaler_Dev_32 4
-Timer0_Prescaler_Dev_64 5
-Timer0_Prescaler_Dev_128 6
-Timer0_Prescaler_Dev_256 7
+[e E3396 . `uc
+Timer1_Prescaler_Dev_1 0
+Timer1_Prescaler_Dev_2 1
+Timer1_Prescaler_Dev_4 2
+Timer1_Prescaler_Dev_8 3
 ]
-[e E3359 . `uc
-Timer0_Prescaler_Enable 0
-Timer0_Prescaler_Disable 1
+[e E3402 . `uc
+Timer1_Timer_Mode 0
+Timer1_Counter_Mode 1
 ]
-[e E3363 . `uc
-Timer0_FALLING_EDGE_SELECT 0
-Timer0_RISING_EDGE_SELECT 1
+[e E3406 . `uc
+Timer1_OSC_Enable 0
+Timer1_OSC_Disable 1
 ]
-[e E3367 . `uc
-Timer0_Counter_Mode 0
-Timer0_Timer_Mode 1
+[e E3410 . `uc
+Timer1_8Bit_Register 0
+Timer1_16Bit_Register 1
 ]
-[e E3371 . `uc
-Timer0_8Bit_Register 0
-Timer0_16Bit_Register 1
+[e E3414 . `uc
+Timer1_Clock_Synchronous 0
+Timer1_Clock_Asynchronous 1
 ]
-"13
-[e E2999 . `uc
-PORTA_INDEX 0
-PORTB_INDEX 1
-PORTC_INDEX 2
-PORTD_INDEX 3
-PORTE_INDEX 4
-]
-[e E2989 . `uc
-GPIO_PIN0 0
-GPIO_PIN1 1
-GPIO_PIN2 2
-GPIO_PIN3 3
-GPIO_PIN4 4
-GPIO_PIN5 5
-GPIO_PIN6 6
-GPIO_PIN7 7
-]
+"28 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer1/Timer1.c
 [e E3041 . `uc
-LED_OFF 0
-LED_ON 1
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
 ]
-"18
+[e E3045 . `uc
+Timer1_Prescaler_Dev_1 0
+Timer1_Prescaler_Dev_2 1
+Timer1_Prescaler_Dev_4 2
+Timer1_Prescaler_Dev_8 3
+]
+[e E3051 . `uc
+Timer1_Timer_Mode 0
+Timer1_Counter_Mode 1
+]
+[e E3055 . `uc
+Timer1_OSC_Enable 0
+Timer1_OSC_Disable 1
+]
+[e E3059 . `uc
+Timer1_8Bit_Register 0
+Timer1_16Bit_Register 1
+]
+[e E3063 . `uc
+Timer1_Clock_Synchronous 0
+Timer1_Clock_Asynchronous 1
+]
+"17 C:\Users\peter\Desktop\Interfacing.X\application.c
 [v _main main `(i  1 e 2 0 ]
-"29
+"28
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
-"36
-[v _ADC_Interrupt_function ADC_Interrupt_function `(v  1 e 1 0 ]
+"34
+[v _Timer1_Interrupt_function Timer1_Interrupt_function `(v  1 e 1 0 ]
 "57 C:\Users\peter\Desktop\Interfacing.X\ECU_layer/lcd/lcd.c
 [v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
 "82
@@ -439,10 +440,6 @@ LED_ON 1
 [v _lcd_send_8bit_enable_signal lcd_send_8bit_enable_signal `(uc  1 e 1 0 ]
 "536
 [v _lcd_8bit_set_cursor lcd_8bit_set_cursor `(uc  1 e 1 0 ]
-"14 C:\Users\peter\Desktop\Interfacing.X\ECU_layer/led/ecu_led.c
-[v _ecu_led_initializ ecu_led_initializ `(uc  1 e 1 0 ]
-"87
-[v _ecu_led_toggle ecu_led_toggle `(uc  1 e 1 0 ]
 "4 G:\C_Extention\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 G:\C_Extention\pic\sources\c99\common\float.c
@@ -543,32 +540,48 @@ LED_ON 1
 [v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]
 "52 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Interrupt/interrupt_manager.c
 [v _Interrupt_Manager Interrupt_Manager `IIH(v  1 e 1 0 ]
-"26 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer0/Timer0.c
-[v _Timer0_Init Timer0_Init `(uc  1 e 1 0 ]
-"114
+"115 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer0/Timer0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
-"127
+"128
 [v _Timer0_Prescaler_config Timer0_Prescaler_config `T(v  1 s 1 Timer0_Prescaler_config ]
-"141
+"144
 [v _Timer0_Select_Edge Timer0_Select_Edge `T(v  1 s 1 Timer0_Select_Edge ]
-"154
+"159
 [v _Timer0_Mode Timer0_Mode `T(v  1 s 1 Timer0_Mode ]
-"168
+"175
 [v _Timer0_Register_Size Timer0_Register_Size `T(v  1 s 1 Timer0_Register_Size ]
-"181
+"190
 [v _Timer0_Interrupt_init Timer0_Interrupt_init `T(v  1 s 1 Timer0_Interrupt_init ]
-"206
+"215
 [v _Timer0_preloaded_value Timer0_preloaded_value `T(v  1 s 1 Timer0_preloaded_value ]
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-"6 C:\Users\peter\Desktop\Interfacing.X\application.c
-[v _timer0 timer0 `S2126  1 e 10 0 ]
-[s S674 . 3 `E2999 1 port_name 1 0 `E2989 1 pin_number 1 1 `uc 1 led_status 1 2 ]
-"13
-[v _led1 led1 `S674  1 e 3 0 ]
-"16
+"28 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer1/Timer1.c
+[v _Timer1_Init Timer1_Init `(uc  1 e 1 0 ]
+"101
+[v _Timer1_Read_Value Timer1_Read_Value `(uc  1 e 1 0 ]
+"118
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+"131
+[v _Timer1_Prescaler_config Timer1_Prescaler_config `T(v  1 s 1 Timer1_Prescaler_config ]
+"136
+[v _Timer1_Mode Timer1_Mode `T(v  1 s 1 Timer1_Mode ]
+"153
+[v _Timer1_Register_Size Timer1_Register_Size `T(v  1 s 1 Timer1_Register_Size ]
+"169
+[v _Timer1_Interrupt_init Timer1_Interrupt_init `T(v  1 s 1 Timer1_Interrupt_init ]
+"194
+[v _Timer1_preloaded_value Timer1_preloaded_value `T(v  1 s 1 Timer1_preloaded_value ]
+"201
+[v _Timer1_OSC_Status Timer1_OSC_Status `T(v  1 s 1 Timer1_OSC_Status ]
+"217
+[v _Timer1_Clock_Synchronous_Status Timer1_Clock_Synchronous_Status `T(v  1 s 1 Timer1_Clock_Synchronous_Status ]
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+"7 C:\Users\peter\Desktop\Interfacing.X\application.c
+[v _counter1 counter1 `S2348  1 e 10 0 ]
+"14
 [v _ret ret `uc  1 e 1 0 ]
-"17
-[v _flag flag `VEus  1 e 2 0 ]
+"15
+[v _counter_value counter_value `VEus  1 e 2 0 ]
+[v _val val `VEus  1 e 2 0 ]
 "10 C:\Users\peter\Desktop\Interfacing.X\ECU_layer/Keypad/keypad.c
 [v _keypad_sampels keypad_sampels `C[4][4]uc  1 e 16 0 ]
 "52 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
@@ -758,7 +771,36 @@ LED_ON 1
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "4662
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S2135 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2427 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+"5257
+[s S2430 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 T1RUN 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S2438 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S2444 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S2449 . 1 `S2427 1 . 1 0 `S2430 1 . 1 0 `S2438 1 . 1 0 `S2444 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2449  1 e 1 @4045 ]
+"5334
+[v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
+"5341
+[v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
+[s S2139 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -766,14 +808,14 @@ LED_ON 1
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "5878
-[s S2142 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2146 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S2148 . 1 `S2135 1 . 1 0 `S2142 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2148  1 e 1 @4053 ]
+[u S2152 . 1 `S2139 1 . 1 0 `S2146 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2152  1 e 1 @4053 ]
 "5940
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5947
@@ -868,153 +910,112 @@ LED_ON 1
 [v _TMR_Interrupt_Handler TMR_Interrupt_Handler `*.37(v  1 s 2 TMR_Interrupt_Handler ]
 "19
 [v _preloaded_value preloaded_value `us  1 s 2 preloaded_value ]
-"18 C:\Users\peter\Desktop\Interfacing.X\application.c
+"19 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer1/Timer1.c
+[v _TMR1_Interrupt_Handler TMR1_Interrupt_Handler `*.37(v  1 s 2 TMR1_Interrupt_Handler ]
+"21
+[v _preloaded_value@Timer1$F2584 preloaded_value `us  1 s 2 preloaded_value ]
+"17 C:\Users\peter\Desktop\Interfacing.X\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"27
+"26
 } 0
-"29
+"28
 [v _application_initializ application_initializ `(v  1 e 1 0 ]
 {
-"33
+"31
 } 0
-"14 C:\Users\peter\Desktop\Interfacing.X\ECU_layer/led/ecu_led.c
-[v _ecu_led_initializ ecu_led_initializ `(uc  1 e 1 0 ]
+"28 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer1/Timer1.c
+[v _Timer1_Init Timer1_Init `(uc  1 e 1 0 ]
 {
-[s S45 . 4 `E2999 1 port 1 0 `E2989 1 pin 1 1 `E2985 1 direction 1 2 `E2981 1 logic 1 3 ]
-"21
-[v ecu_led_initializ@_pin_config _pin_config `S45  1 a 4 13 ]
-"16
-[v ecu_led_initializ@ret ret `uc  1 a 1 12 ]
-[s S674 . 3 `E2999 1 port_name 1 0 `E2989 1 pin_number 1 1 `uc 1 led_status 1 2 ]
-"14
-[v ecu_led_initializ@_led_config _led_config `*.30CS674  1 p 1 11 ]
-"20
-[v ecu_led_initializ@F3061 F3061 `S45  1 s 4 F3061 ]
-"32
-} 0
-"148 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
-[v _gpio_pin_Initialization gpio_pin_Initialization `(uc  1 e 1 0 ]
-{
-"150
-[v gpio_pin_Initialization@ret ret `uc  1 a 1 10 ]
-[s S45 . 4 `E2999 1 port 1 0 `E2989 1 pin 1 1 `E2985 1 direction 1 2 `E2981 1 logic 1 3 ]
-"148
-[v gpio_pin_Initialization@_pin_config _pin_config `*.30CS45  1 p 1 8 ]
-"162
-} 0
-"76
-[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-{
-"78
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 7 ]
-[s S45 . 4 `E2999 1 port 1 0 `E2989 1 pin 1 1 `E2985 1 direction 1 2 `E2981 1 logic 1 3 ]
-"76
-[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS45  1 p 1 0 ]
-[v gpio_pin_write_logic@logic logic `E2981  1 p 1 1 ]
-"99
-} 0
-"21
-[v _gpio_pin_direction_init gpio_pin_direction_init `(uc  1 e 1 0 ]
-{
-"23
-[v gpio_pin_direction_init@ret ret `uc  1 a 1 6 ]
-[s S45 . 4 `E2999 1 port 1 0 `E2989 1 pin 1 1 `E2985 1 direction 1 2 `E2981 1 logic 1 3 ]
-"21
-[v gpio_pin_direction_init@_pin_config _pin_config `*.30CS45  1 p 1 0 ]
-"43
-} 0
-"26 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer0/Timer0.c
-[v _Timer0_Init Timer0_Init `(uc  1 e 1 0 ]
-{
+"30
+[v Timer1_Init@ret ret `uc  1 a 1 6 ]
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
 "28
-[v Timer0_Init@ret ret `uc  1 a 1 7 ]
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-"26
-[v Timer0_Init@timer0_confg timer0_confg `*.30CS2126  1 p 1 6 ]
-"48
+[v Timer1_Init@timer1_confg timer1_confg `*.30CS2348  1 p 1 5 ]
+"52
 } 0
-"206
-[v _Timer0_preloaded_value Timer0_preloaded_value `T(v  1 s 1 Timer0_preloaded_value ]
+"194
+[v _Timer1_preloaded_value Timer1_preloaded_value `T(v  1 s 1 Timer1_preloaded_value ]
 {
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-[v Timer0_preloaded_value@timer0_confg timer0_confg `*.30CS2126  1 p 1 0 ]
-"211
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+[v Timer1_preloaded_value@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+"199
 } 0
-"168
-[v _Timer0_Register_Size Timer0_Register_Size `T(v  1 s 1 Timer0_Register_Size ]
+"153
+[v _Timer1_Register_Size Timer1_Register_Size `T(v  1 s 1 Timer1_Register_Size ]
 {
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-[v Timer0_Register_Size@timer0_confg timer0_confg `*.30CS2126  1 p 1 0 ]
-"179
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+[v Timer1_Register_Size@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+"167
 } 0
-"127
-[v _Timer0_Prescaler_config Timer0_Prescaler_config `T(v  1 s 1 Timer0_Prescaler_config ]
+"131
+[v _Timer1_Prescaler_config Timer1_Prescaler_config `T(v  1 s 1 Timer1_Prescaler_config ]
 {
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-[v Timer0_Prescaler_config@timer0_confg timer0_confg `*.30CS2126  1 p 1 0 ]
-"139
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+[v Timer1_Prescaler_config@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+"134
 } 0
-"154
-[v _Timer0_Mode Timer0_Mode `T(v  1 s 1 Timer0_Mode ]
+"201
+[v _Timer1_OSC_Status Timer1_OSC_Status `T(v  1 s 1 Timer1_OSC_Status ]
 {
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-[v Timer0_Mode@timer0_confg timer0_confg `*.30CS2126  1 p 1 3 ]
-"166
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+[v Timer1_OSC_Status@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+"215
 } 0
-"141
-[v _Timer0_Select_Edge Timer0_Select_Edge `T(v  1 s 1 Timer0_Select_Edge ]
+"136
+[v _Timer1_Mode Timer1_Mode `T(v  1 s 1 Timer1_Mode ]
 {
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-[v Timer0_Select_Edge@timer0_confg timer0_confg `*.30CS2126  1 p 1 0 ]
-"152
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+[v Timer1_Mode@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+"150
 } 0
-"181
-[v _Timer0_Interrupt_init Timer0_Interrupt_init `T(v  1 s 1 Timer0_Interrupt_init ]
+"169
+[v _Timer1_Interrupt_init Timer1_Interrupt_init `T(v  1 s 1 Timer1_Interrupt_init ]
 {
-[s S2126 . 10 `*.37(v 1 Timer0_Interrupt_Handlar 2 0 `E3041 1 priority 1 2 `E3045 1 prescaler_value 1 3 `E3055 1 prescaler_status 1 4 `E3059 1 edge_select 1 5 `E3063 1 mode 1 6 `E3067 1 register_size 1 7 `us 1 preloaded_value 2 8 ]
-[v Timer0_Interrupt_init@timer0_confg timer0_confg `*.30CS2126  1 p 1 0 ]
-"204
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+[v Timer1_Interrupt_init@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+"192
+} 0
+"217
+[v _Timer1_Clock_Synchronous_Status Timer1_Clock_Synchronous_Status `T(v  1 s 1 Timer1_Clock_Synchronous_Status ]
+{
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+[v Timer1_Clock_Synchronous_Status@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+"231
+} 0
+"101
+[v _Timer1_Read_Value Timer1_Read_Value `(uc  1 e 1 0 ]
+{
+"104
+[v Timer1_Read_Value@Tmr1_H Tmr1_H `uc  1 a 1 2 ]
+[v Timer1_Read_Value@Tmr1_L Tmr1_L `uc  1 a 1 1 ]
+"103
+[v Timer1_Read_Value@ret ret `uc  1 a 1 0 ]
+[s S2348 . 10 `*.37(v 1 Timer1_Interrupt_Handlar 2 0 `E3224 1 priority 1 2 `E3396 1 prescaler_value 1 3 `E3402 1 mode 1 4 `E3406 1 timer1_OSC 1 5 `E3410 1 register_size 1 6 `E3414 1 clock_status 1 7 `us 1 preloaded_value 2 8 ]
+"101
+[v Timer1_Read_Value@timer1_confg timer1_confg `*.30CS2348  1 p 1 2 ]
+[v Timer1_Read_Value@value value `*.30us  1 p 1 3 ]
+"116
 } 0
 "52 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Interrupt/interrupt_manager.c
 [v _Interrupt_Manager Interrupt_Manager `IIH(v  1 e 1 0 ]
 {
-"114
+"119
 } 0
-"114 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer0/Timer0.c
+"118 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer1/Timer1.c
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+{
+"127
+} 0
+"34 C:\Users\peter\Desktop\Interfacing.X\application.c
+[v _Timer1_Interrupt_function Timer1_Interrupt_function `(v  1 e 1 0 ]
+{
+"37
+} 0
+"115 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Timer0/Timer0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
 {
-"123
-} 0
-"36 C:\Users\peter\Desktop\Interfacing.X\application.c
-[v _ADC_Interrupt_function ADC_Interrupt_function `(v  1 e 1 0 ]
-{
-"40
-} 0
-"87 C:\Users\peter\Desktop\Interfacing.X\ECU_layer/led/ecu_led.c
-[v _ecu_led_toggle ecu_led_toggle `(uc  1 e 1 0 ]
-{
-[s S45 . 4 `E2999 1 port 1 0 `E2989 1 pin 1 1 `E2985 1 direction 1 2 `E2981 1 logic 1 3 ]
-"94
-[v ecu_led_toggle@_pin_config _pin_config `S45  1 a 4 8 ]
-"89
-[v ecu_led_toggle@ret ret `uc  1 a 1 7 ]
-[s S674 . 3 `E2999 1 port_name 1 0 `E2989 1 pin_number 1 1 `uc 1 led_status 1 2 ]
-"87
-[v ecu_led_toggle@_led_config _led_config `*.30CS674  1 p 1 6 ]
-"93
-[v ecu_led_toggle@F3076 F3076 `S45  1 s 4 F3076 ]
-"104
-} 0
-"131 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/GPIO/gpio.c
-[v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
-{
-"133
-[v gpio_pin_toggle_logic@ret ret `uc  1 a 1 5 ]
-[s S45 . 4 `E2999 1 port 1 0 `E2989 1 pin 1 1 `E2985 1 direction 1 2 `E2981 1 logic 1 3 ]
-"131
-[v gpio_pin_toggle_logic@_pin_config _pin_config `*.30CS45  1 p 1 0 ]
-"144
+"124
 } 0
 "764 C:\Users\peter\Desktop\Interfacing.X\MCAL_layer/Interrupt/external_interrupt.c
 [v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]

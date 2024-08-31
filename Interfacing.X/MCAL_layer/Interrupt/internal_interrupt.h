@@ -28,6 +28,12 @@
 #define TIMER0_HIGHT_BRIORITY_SET()           (INTCON2bits.TMR0IP = 1)
 #define TIMER0_LOW_BRIORITY_SET()             (INTCON2bits.TMR0IP = 0)
 
+#define TIMER1_INTERRUPT_ENABLE()             (PIE1bits.TMR1IE = 1)
+#define TIMER1_INTERRUPT_DISABLE()            (PIE1bits.TMR1IE = 0)
+#define TIMER1_INTERRUPT_FLAG_CLEAR()         (PIR1bits.TMR1IF = 0)
+#define TIMER1_HIGHT_BRIORITY_SET()           (IPR1bits.TMR1IP = 1)
+#define TIMER1_LOW_BRIORITY_SET()             (IPR1bits.TMR1IP = 0)
+
 /*Section : Data Type Declaration*/
 
 

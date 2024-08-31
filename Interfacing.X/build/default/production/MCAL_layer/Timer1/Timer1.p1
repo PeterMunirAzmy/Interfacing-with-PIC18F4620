@@ -1,6 +1,76 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T39 __interrupt ]
+[v F3110 `(v ~T0 @X0 0 tf ]
+[v F3111 `(v ~T0 @X0 0 tf ]
+[v F3069 `(v ~T0 @X0 0 tf ]
+"28 MCAL_layer/Timer1/Timer1.c
+[; ;MCAL_layer/Timer1/Timer1.c: 28: STD_ReturnType Timer1_Init(const timer1_t *timer1_confg)
+[c E3041 0 1 .. ]
+[n E3041 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
+[c E3045 0 1 2 3 .. ]
+[n E3045 . Timer1_Prescaler_Dev_1 Timer1_Prescaler_Dev_2 Timer1_Prescaler_Dev_4 Timer1_Prescaler_Dev_8  ]
+[c E3051 0 1 .. ]
+[n E3051 . Timer1_Timer_Mode Timer1_Counter_Mode  ]
+[c E3055 0 1 .. ]
+[n E3055 . Timer1_OSC_Enable Timer1_OSC_Disable  ]
+[c E3059 0 1 .. ]
+[n E3059 . Timer1_8Bit_Register Timer1_16Bit_Register  ]
+[c E3063 0 1 .. ]
+[n E3063 . Timer1_Clock_Synchronous Timer1_Clock_Asynchronous  ]
+"76 MCAL_layer/Timer1/Timer1.h
+[; ;MCAL_layer/Timer1/Timer1.h: 76: {
+[s S274 `*F3069 1 `E3041 1 `E3045 1 `E3051 1 `E3055 1 `E3059 1 `E3063 1 `us 1 ]
+[n S274 . Timer1_Interrupt_Handlar priority prescaler_value mode timer1_OSC register_size clock_status preloaded_value ]
+"5230 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5230:     struct {
+[s S221 :2 `uc 1 :1 `uc 1 ]
+[n S221 . . NOT_T1SYNC ]
+"5234
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5234:     struct {
+[s S222 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S222 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS T1RUN RD16 ]
+"5243
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5243:     struct {
+[s S223 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S223 . . T1SYNC . T1CKPS0 T1CKPS1 ]
+"5250
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5250:     struct {
+[s S224 :3 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S224 . . SOSCEN . T1RD16 ]
+"5229
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5229: typedef union {
+[u S220 `S221 1 `S222 1 `S223 1 `S224 1 ]
+[n S220 . . . . . ]
+"5257
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5257: extern volatile T1CONbits_t T1CONbits __attribute__((address(0xFCD)));
+[v _T1CONbits `VS220 ~T0 @X0 0 e@4045 ]
+[v F3089 `(v ~T0 @X0 1 tf1`*CS274 ]
+"10 MCAL_layer/Timer1/Timer1.c
+[; ;MCAL_layer/Timer1/Timer1.c: 10: static __attribute__((inline)) void Timer1_Prescaler_config(const timer1_t *timer1_confg);
+[v _Timer1_Prescaler_config `TF3089 ~T0 @X0 0 s ]
+[v F3092 `(v ~T0 @X0 1 tf1`*CS274 ]
+"11
+[; ;MCAL_layer/Timer1/Timer1.c: 11: static __attribute__((inline)) void Timer1_Mode(const timer1_t *timer1_confg);
+[v _Timer1_Mode `TF3092 ~T0 @X0 0 s ]
+[v F3095 `(v ~T0 @X0 1 tf1`*CS274 ]
+"12
+[; ;MCAL_layer/Timer1/Timer1.c: 12: static __attribute__((inline)) void Timer1_Register_Size(const timer1_t *timer1_confg);
+[v _Timer1_Register_Size `TF3095 ~T0 @X0 0 s ]
+[v F3104 `(v ~T0 @X0 1 tf1`*CS274 ]
+"15
+[; ;MCAL_layer/Timer1/Timer1.c: 15: static __attribute__((inline)) void Timer1_OSC_Status(const timer1_t *timer1_confg);
+[v _Timer1_OSC_Status `TF3104 ~T0 @X0 0 s ]
+[v F3107 `(v ~T0 @X0 1 tf1`*CS274 ]
+"16
+[; ;MCAL_layer/Timer1/Timer1.c: 16: static __attribute__((inline)) void Timer1_Clock_Synchronous_Status(const timer1_t *timer1_confg);
+[v _Timer1_Clock_Synchronous_Status `TF3107 ~T0 @X0 0 s ]
+[v F3101 `(v ~T0 @X0 1 tf1`*CS274 ]
+"14
+[; ;MCAL_layer/Timer1/Timer1.c: 14: static __attribute__((inline)) void Timer1_preloaded_value(const timer1_t *timer1_confg);
+[v _Timer1_preloaded_value `TF3101 ~T0 @X0 0 s ]
+[v F3098 `(v ~T0 @X0 1 tf1`*CS274 ]
+"13
+[; ;MCAL_layer/Timer1/Timer1.c: 13: static __attribute__((inline)) void Timer1_Interrupt_init(const timer1_t *timer1_confg);
+[v _Timer1_Interrupt_init `TF3098 ~T0 @X0 0 s ]
 "2503 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 2503:     struct {
 [s S91 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -16,6 +86,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2519
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 2519: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
 [v _PIE1bits `VS90 ~T0 @X0 0 e@3997 ]
+"5341
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5341: extern volatile unsigned char TMR1H __attribute__((address(0xFCF)));
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"5334
+[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5334: extern volatile unsigned char TMR1L __attribute__((address(0xFCE)));
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
 "2580
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 2580:     struct {
 [s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -31,10 +107,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2596
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 2596: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS93 ~T0 @X0 0 e@3998 ]
-"31 MCAL_layer/Interrupt/interrupt_manager.h
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 31: void ADC_ISR(void);
-[v _ADC_ISR `(v ~T0 @X0 0 ef ]
-"6380 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
+[v F3133 `(v ~T0 @X0 0 tf ]
+"6380
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6380:     struct {
 [s S263 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S263 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -53,75 +127,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6406
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6406: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS262 ~T0 @X0 0 e@4082 ]
-"195
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 195:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"205
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 205:     struct {
-[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S17 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
-"215
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 215:     struct {
-[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S18 . AN12 AN10 AN8 AN9 AN11 PGM PGC PGD ]
-"225
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 225:     struct {
-[s S19 :3 `uc 1 :1 `uc 1 ]
-[n S19 . . CCP2_PA2 ]
-"194
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 194: typedef union {
-[u S15 `S16 1 `S17 1 `S18 1 `S19 1 ]
-[n S15 . . . . . ]
-"230
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 230: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
-[v _PORTBbits `VS15 ~T0 @X0 0 e@3969 ]
-"63 MCAL_layer/Interrupt/interrupt_manager.c
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 63:         if(PORTBbits.RB5 == GPIO_HIGH)
-[c E2981 0 1 .. ]
-[n E2981 . GPIO_LOW GPIO_HIGH  ]
-"27 MCAL_layer/Interrupt/interrupt_manager.h
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 27: void RB5_ISR(void);
-[v _RB5_ISR `(v ~T0 @X0 0 ef ]
-"26
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 26: void RB4_ISR(void);
-[v _RB4_ISR `(v ~T0 @X0 0 ef ]
-"28
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 28: void RB6_ISR(void);
-[v _RB6_ISR `(v ~T0 @X0 0 ef ]
-"29
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 29: void RB7_ISR(void);
-[v _RB7_ISR `(v ~T0 @X0 0 ef ]
-"22
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 22: void INT0_ISR(void);
-[v _INT0_ISR `(v ~T0 @X0 0 ef ]
-"6218 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6218:     struct {
-[s S256 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S256 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
-"6228
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6228:     struct {
-[s S257 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S257 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
-"6217
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6217: typedef union {
-[u S255 `S256 1 `S257 1 ]
-[n S255 . . . ]
-"6239
-[; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6239: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
-[v _INTCON3bits `VS255 ~T0 @X0 0 e@4080 ]
-"23 MCAL_layer/Interrupt/interrupt_manager.h
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 23: void INT1_ISR(void);
-[v _INT1_ISR `(v ~T0 @X0 0 ef ]
-"24
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 24: void INT2_ISR(void);
-[v _INT2_ISR `(v ~T0 @X0 0 ef ]
-"33
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 33: void TMR0_ISR(void);
-[v _TMR0_ISR `(v ~T0 @X0 0 ef ]
-"34
-[; ;MCAL_layer/Interrupt/interrupt_manager.h: 34: void TMR1_ISR(void);
-[v _TMR1_ISR `(v ~T0 @X0 0 ef ]
 "54 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -533,190 +538,618 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v $root$_Interrupt_Manager `(v ~T0 @X0 0 e ]
-"52 MCAL_layer/Interrupt/interrupt_manager.c
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 52: void __attribute__((picinterrupt(("")))) Interrupt_Manager(void)
-[v _Interrupt_Manager `(v ~T39 @X0 1 ef ]
-"53
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 53: {
+"19 MCAL_layer/Timer1/Timer1.c
+[; ;MCAL_layer/Timer1/Timer1.c: 19: static void(*TMR1_Interrupt_Handler)(void) = ((void*)0);
+[v _TMR1_Interrupt_Handler `*F3110 ~T0 @X0 1 s ]
+[i _TMR1_Interrupt_Handler
+-> -> -> 0 `i `*v `*F3111
+]
+"21
+[; ;MCAL_layer/Timer1/Timer1.c: 21: static uint16 preloaded_value = 0;
+[v _preloaded_value `us ~T0 @X0 1 s ]
+[i _preloaded_value
+-> -> 0 `i `us
+]
+"28
+[; ;MCAL_layer/Timer1/Timer1.c: 28: STD_ReturnType Timer1_Init(const timer1_t *timer1_confg)
+[v _Timer1_Init `(uc ~T0 @X0 1 ef1`*CS274 ]
+"29
+[; ;MCAL_layer/Timer1/Timer1.c: 29: {
 {
-[e :U _Interrupt_Manager ]
+[e :U _Timer1_Init ]
+"28
+[; ;MCAL_layer/Timer1/Timer1.c: 28: STD_ReturnType Timer1_Init(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"29
+[; ;MCAL_layer/Timer1/Timer1.c: 29: {
 [f ]
-"55
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 55:     if((1 == PIE1bits.ADIE ) && (1 == PIR1bits.ADIF))
-[e $ ! && == -> 1 `i -> . . _PIE1bits 0 6 `i == -> 1 `i -> . . _PIR1bits 0 6 `i 275  ]
-"56
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 56:     {
+"30
+[; ;MCAL_layer/Timer1/Timer1.c: 30:     STD_ReturnType ret = (STD_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"31
+[; ;MCAL_layer/Timer1/Timer1.c: 31:     if(((void*)0) == timer1_confg)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _timer1_confg 276  ]
+"32
+[; ;MCAL_layer/Timer1/Timer1.c: 32:     {
 {
-"57
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 57:         ADC_ISR();
-[e ( _ADC_ISR ..  ]
-"58
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 58:     }
+"33
+[; ;MCAL_layer/Timer1/Timer1.c: 33:         ret = (STD_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"34
+[; ;MCAL_layer/Timer1/Timer1.c: 34:     }
 }
-[e :U 275 ]
-"61
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 61:     if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
-[e $ ! && == -> 1 `i -> . . _INTCONbits 0 3 `i == -> 1 `i -> . . _INTCONbits 0 0 `i 276  ]
-"62
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 62:     {
-{
-"63
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 63:         if(PORTBbits.RB5 == GPIO_HIGH)
-[e $ ! == -> . . _PORTBbits 0 5 `i -> . `E2981 1 `i 277  ]
-"64
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 64:         RB5_ISR();
-[e ( _RB5_ISR ..  ]
-[e :U 277 ]
-"65
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 65:         if(PORTBbits.RB5 == GPIO_LOW)
-[e $ ! == -> . . _PORTBbits 0 5 `i -> . `E2981 0 `i 278  ]
-"66
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 66:         RB5_ISR();
-[e ( _RB5_ISR ..  ]
-[e :U 278 ]
-"67
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 67:     }
-}
+[e $U 277  ]
+"35
+[; ;MCAL_layer/Timer1/Timer1.c: 35:     else
 [e :U 276 ]
-"69
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 69:     if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
-[e $ ! && == -> 1 `i -> . . _INTCONbits 0 3 `i == -> 1 `i -> . . _INTCONbits 0 0 `i 279  ]
-"70
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 70:     {
+"36
+[; ;MCAL_layer/Timer1/Timer1.c: 36:     {
 {
-"71
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 71:         if(PORTBbits.RB4 == GPIO_HIGH)
-[e $ ! == -> . . _PORTBbits 0 4 `i -> . `E2981 1 `i 280  ]
-"72
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 72:         RB4_ISR();
-[e ( _RB4_ISR ..  ]
-[e :U 280 ]
-"73
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 73:         if(PORTBbits.RB4 == GPIO_LOW)
-[e $ ! == -> . . _PORTBbits 0 4 `i -> . `E2981 0 `i 281  ]
-"74
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 74:         RB4_ISR();
-[e ( _RB4_ISR ..  ]
-[e :U 281 ]
-"75
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 75:     }
+"37
+[; ;MCAL_layer/Timer1/Timer1.c: 37:         (T1CONbits.TMR1ON = 0);
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+"39
+[; ;MCAL_layer/Timer1/Timer1.c: 39:         Timer1_Prescaler_config(timer1_confg);
+[e ( _Timer1_Prescaler_config (1 _timer1_confg ]
+"40
+[; ;MCAL_layer/Timer1/Timer1.c: 40:         Timer1_Mode(timer1_confg);
+[e ( _Timer1_Mode (1 _timer1_confg ]
+"41
+[; ;MCAL_layer/Timer1/Timer1.c: 41:         Timer1_Register_Size(timer1_confg);
+[e ( _Timer1_Register_Size (1 _timer1_confg ]
+"42
+[; ;MCAL_layer/Timer1/Timer1.c: 42:         Timer1_OSC_Status(timer1_confg);
+[e ( _Timer1_OSC_Status (1 _timer1_confg ]
+"43
+[; ;MCAL_layer/Timer1/Timer1.c: 43:         Timer1_Clock_Synchronous_Status(timer1_confg);
+[e ( _Timer1_Clock_Synchronous_Status (1 _timer1_confg ]
+"44
+[; ;MCAL_layer/Timer1/Timer1.c: 44:         Timer1_preloaded_value(timer1_confg);
+[e ( _Timer1_preloaded_value (1 _timer1_confg ]
+"45
+[; ;MCAL_layer/Timer1/Timer1.c: 45:         Timer1_Interrupt_init(timer1_confg);
+[e ( _Timer1_Interrupt_init (1 _timer1_confg ]
+"46
+[; ;MCAL_layer/Timer1/Timer1.c: 46:         TMR1_Interrupt_Handler = timer1_confg->Timer1_Interrupt_Handlar;
+[e = _TMR1_Interrupt_Handler . *U _timer1_confg 0 ]
+"48
+[; ;MCAL_layer/Timer1/Timer1.c: 48:         (T1CONbits.TMR1ON = 1);
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+"50
+[; ;MCAL_layer/Timer1/Timer1.c: 50:     }
 }
+[e :U 277 ]
+"51
+[; ;MCAL_layer/Timer1/Timer1.c: 51:     return ret;
+[e ) _ret ]
+[e $UE 275  ]
+"52
+[; ;MCAL_layer/Timer1/Timer1.c: 52: }
+[e :UE 275 ]
+}
+"59
+[; ;MCAL_layer/Timer1/Timer1.c: 59: STD_ReturnType Timer1_Deinit(const timer1_t *timer1_confg)
+[v _Timer1_Deinit `(uc ~T0 @X0 1 ef1`*CS274 ]
+"60
+[; ;MCAL_layer/Timer1/Timer1.c: 60: {
+{
+[e :U _Timer1_Deinit ]
+"59
+[; ;MCAL_layer/Timer1/Timer1.c: 59: STD_ReturnType Timer1_Deinit(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"60
+[; ;MCAL_layer/Timer1/Timer1.c: 60: {
+[f ]
+"61
+[; ;MCAL_layer/Timer1/Timer1.c: 61:     STD_ReturnType ret = (STD_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"62
+[; ;MCAL_layer/Timer1/Timer1.c: 62:     if(((void*)0) == timer1_confg)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _timer1_confg 279  ]
+"63
+[; ;MCAL_layer/Timer1/Timer1.c: 63:     {
+{
+"64
+[; ;MCAL_layer/Timer1/Timer1.c: 64:         ret = (STD_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"65
+[; ;MCAL_layer/Timer1/Timer1.c: 65:     }
+}
+[e $U 280  ]
+"66
+[; ;MCAL_layer/Timer1/Timer1.c: 66:     else
 [e :U 279 ]
-"78
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 78:     if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
-[e $ ! && == -> 1 `i -> . . _INTCONbits 0 3 `i == -> 1 `i -> . . _INTCONbits 0 0 `i 282  ]
-"79
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 79:     {
+"67
+[; ;MCAL_layer/Timer1/Timer1.c: 67:     {
 {
+"68
+[; ;MCAL_layer/Timer1/Timer1.c: 68:         (T1CONbits.TMR1ON = 0);
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+"69
+[; ;MCAL_layer/Timer1/Timer1.c: 69:         (PIE1bits.TMR1IE = 0);
+[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
+"70
+[; ;MCAL_layer/Timer1/Timer1.c: 70:     }
+}
+[e :U 280 ]
+"71
+[; ;MCAL_layer/Timer1/Timer1.c: 71:     return ret;
+[e ) _ret ]
+[e $UE 278  ]
+"72
+[; ;MCAL_layer/Timer1/Timer1.c: 72: }
+[e :UE 278 ]
+}
 "80
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 80:         if(PORTBbits.RB6 == GPIO_HIGH)
-[e $ ! == -> . . _PORTBbits 0 6 `i -> . `E2981 1 `i 283  ]
+[; ;MCAL_layer/Timer1/Timer1.c: 80: STD_ReturnType Timer1_Write_Value(const timer1_t *timer1_confg , uint16 value)
+[v _Timer1_Write_Value `(uc ~T0 @X0 1 ef2`*CS274`us ]
 "81
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 81:         RB6_ISR();
-[e ( _RB6_ISR ..  ]
-[e :U 283 ]
+[; ;MCAL_layer/Timer1/Timer1.c: 81: {
+{
+[e :U _Timer1_Write_Value ]
+"80
+[; ;MCAL_layer/Timer1/Timer1.c: 80: STD_ReturnType Timer1_Write_Value(const timer1_t *timer1_confg , uint16 value)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+[v _value `us ~T0 @X0 1 r2 ]
+"81
+[; ;MCAL_layer/Timer1/Timer1.c: 81: {
+[f ]
 "82
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 82:         if(PORTBbits.RB6== GPIO_LOW)
-[e $ ! == -> . . _PORTBbits 0 6 `i -> . `E2981 0 `i 284  ]
+[; ;MCAL_layer/Timer1/Timer1.c: 82:     STD_ReturnType ret = (STD_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
 "83
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 83:         RB6_ISR();
-[e ( _RB6_ISR ..  ]
-[e :U 284 ]
+[; ;MCAL_layer/Timer1/Timer1.c: 83:     if(((void*)0) == timer1_confg)
+[e $ ! == -> -> -> 0 `i `*v `*CS274 _timer1_confg 282  ]
 "84
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 84:     }
-}
-[e :U 282 ]
+[; ;MCAL_layer/Timer1/Timer1.c: 84:     {
+{
+"85
+[; ;MCAL_layer/Timer1/Timer1.c: 85:         ret = (STD_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
 "86
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 86:     if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
-[e $ ! && == -> 1 `i -> . . _INTCONbits 0 3 `i == -> 1 `i -> . . _INTCONbits 0 0 `i 285  ]
-"87
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 87:     {
-{
-"88
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 88:         if(PORTBbits.RB7 == GPIO_HIGH)
-[e $ ! == -> . . _PORTBbits 0 7 `i -> . `E2981 1 `i 286  ]
-"89
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 89:         RB7_ISR();
-[e ( _RB7_ISR ..  ]
-[e :U 286 ]
-"90
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 90:         if(PORTBbits.RB7 == GPIO_LOW)
-[e $ ! == -> . . _PORTBbits 0 7 `i -> . `E2981 0 `i 287  ]
-"91
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 91:         RB7_ISR();
-[e ( _RB7_ISR ..  ]
-[e :U 287 ]
-"92
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 92:     }
+[; ;MCAL_layer/Timer1/Timer1.c: 86:     }
 }
-[e :U 285 ]
-"94
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 94:     if((1 == INTCONbits.INT0IE) && (1 == INTCONbits.INT0IF ))
-[e $ ! && == -> 1 `i -> . . _INTCONbits 0 4 `i == -> 1 `i -> . . _INTCONbits 0 1 `i 288  ]
-"95
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 95:     {
+[e $U 283  ]
+"87
+[; ;MCAL_layer/Timer1/Timer1.c: 87:     else
+[e :U 282 ]
+"88
+[; ;MCAL_layer/Timer1/Timer1.c: 88:     {
 {
-"96
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 96:         INT0_ISR();
-[e ( _INT0_ISR ..  ]
-"97
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 97:     }
+"89
+[; ;MCAL_layer/Timer1/Timer1.c: 89:         TMR1H = (value >> 8);
+[e = _TMR1H -> >> -> _value `ui -> 8 `i `uc ]
+"90
+[; ;MCAL_layer/Timer1/Timer1.c: 90:         TMR1L = (uint8)(value);
+[e = _TMR1L -> _value `uc ]
+"91
+[; ;MCAL_layer/Timer1/Timer1.c: 91:     }
+}
+[e :U 283 ]
+"92
+[; ;MCAL_layer/Timer1/Timer1.c: 92:     return ret;
+[e ) _ret ]
+[e $UE 281  ]
+"93
+[; ;MCAL_layer/Timer1/Timer1.c: 93: }
+[e :UE 281 ]
+}
+"101
+[; ;MCAL_layer/Timer1/Timer1.c: 101: STD_ReturnType Timer1_Read_Value(const timer1_t *timer1_confg , uint16 *value)
+[v _Timer1_Read_Value `(uc ~T0 @X0 1 ef2`*CS274`*us ]
+"102
+[; ;MCAL_layer/Timer1/Timer1.c: 102: {
+{
+[e :U _Timer1_Read_Value ]
+"101
+[; ;MCAL_layer/Timer1/Timer1.c: 101: STD_ReturnType Timer1_Read_Value(const timer1_t *timer1_confg , uint16 *value)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+[v _value `*us ~T0 @X0 1 r2 ]
+"102
+[; ;MCAL_layer/Timer1/Timer1.c: 102: {
+[f ]
+"103
+[; ;MCAL_layer/Timer1/Timer1.c: 103:     STD_ReturnType ret = (STD_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"104
+[; ;MCAL_layer/Timer1/Timer1.c: 104:     uint8 Tmr1_L = 0 , Tmr1_H = 0;
+[v _Tmr1_L `uc ~T0 @X0 1 a ]
+[e = _Tmr1_L -> -> 0 `i `uc ]
+[v _Tmr1_H `uc ~T0 @X0 1 a ]
+[e = _Tmr1_H -> -> 0 `i `uc ]
+"105
+[; ;MCAL_layer/Timer1/Timer1.c: 105:     if((((void*)0) == timer1_confg) || (((void*)0) == value))
+[e $ ! || == -> -> -> 0 `i `*v `*CS274 _timer1_confg == -> -> -> 0 `i `*v `*us _value 285  ]
+"106
+[; ;MCAL_layer/Timer1/Timer1.c: 106:     {
+{
+"107
+[; ;MCAL_layer/Timer1/Timer1.c: 107:         ret = (STD_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"108
+[; ;MCAL_layer/Timer1/Timer1.c: 108:     }
+}
+[e $U 286  ]
+"109
+[; ;MCAL_layer/Timer1/Timer1.c: 109:     else
+[e :U 285 ]
+"110
+[; ;MCAL_layer/Timer1/Timer1.c: 110:     {
+{
+"111
+[; ;MCAL_layer/Timer1/Timer1.c: 111:         Tmr1_L = TMR1L;
+[e = _Tmr1_L _TMR1L ]
+"112
+[; ;MCAL_layer/Timer1/Timer1.c: 112:         Tmr1_H = TMR1H;
+[e = _Tmr1_H _TMR1H ]
+"113
+[; ;MCAL_layer/Timer1/Timer1.c: 113:         *value = (uint16)((Tmr1_H << 8) + Tmr1_L);
+[e = *U _value -> + << -> _Tmr1_H `i -> 8 `i -> _Tmr1_L `i `us ]
+"114
+[; ;MCAL_layer/Timer1/Timer1.c: 114:     }
+}
+[e :U 286 ]
+"115
+[; ;MCAL_layer/Timer1/Timer1.c: 115:     return ret;
+[e ) _ret ]
+[e $UE 284  ]
+"116
+[; ;MCAL_layer/Timer1/Timer1.c: 116: }
+[e :UE 284 ]
+}
+"118
+[; ;MCAL_layer/Timer1/Timer1.c: 118: void TMR1_ISR(void)
+[v _TMR1_ISR `(v ~T0 @X0 1 ef ]
+"119
+[; ;MCAL_layer/Timer1/Timer1.c: 119: {
+{
+[e :U _TMR1_ISR ]
+[f ]
+"120
+[; ;MCAL_layer/Timer1/Timer1.c: 120:     (PIR1bits.TMR1IF = 0);
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"121
+[; ;MCAL_layer/Timer1/Timer1.c: 121:     TMR1H = (preloaded_value >> 8);
+[e = _TMR1H -> >> -> _preloaded_value `ui -> 8 `i `uc ]
+"122
+[; ;MCAL_layer/Timer1/Timer1.c: 122:     TMR1L = (uint8)(preloaded_value);
+[e = _TMR1L -> _preloaded_value `uc ]
+"123
+[; ;MCAL_layer/Timer1/Timer1.c: 123:     if(TMR1_Interrupt_Handler)
+[e $ ! != _TMR1_Interrupt_Handler -> -> 0 `i `*F3133 288  ]
+"124
+[; ;MCAL_layer/Timer1/Timer1.c: 124:     {
+{
+"125
+[; ;MCAL_layer/Timer1/Timer1.c: 125:         TMR1_Interrupt_Handler();
+[e ( *U _TMR1_Interrupt_Handler ..  ]
+"126
+[; ;MCAL_layer/Timer1/Timer1.c: 126:     }
 }
 [e :U 288 ]
-"99
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 99:     if((1 == INTCON3bits.INT1IE) && (1 == INTCON3bits.INT1IF ))
-[e $ ! && == -> 1 `i -> . . _INTCON3bits 0 3 `i == -> 1 `i -> . . _INTCON3bits 0 0 `i 289  ]
-"100
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 100:     {
-{
-"101
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 101:         INT1_ISR();
-[e ( _INT1_ISR ..  ]
-"102
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 102:     }
+"127
+[; ;MCAL_layer/Timer1/Timer1.c: 127: }
+[e :UE 287 ]
 }
-[e :U 289 ]
-"104
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 104:     if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF ))
-[e $ ! && == -> 1 `i -> . . _INTCON3bits 0 4 `i == -> 1 `i -> . . _INTCON3bits 0 1 `i 290  ]
-"105
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 105:     {
+[v F3135 `(v ~T0 @X0 1 tf1`*CS274 ]
+"131
+[; ;MCAL_layer/Timer1/Timer1.c: 131: static __attribute__((inline)) void Timer1_Prescaler_config(const timer1_t *timer1_confg)
+[v _Timer1_Prescaler_config `TF3135 ~T0 @X0 1 s ]
+"132
+[; ;MCAL_layer/Timer1/Timer1.c: 132: {
 {
-"106
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 106:         INT2_ISR();
-[e ( _INT2_ISR ..  ]
-"107
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 107:     }
+[e :U _Timer1_Prescaler_config ]
+"131
+[; ;MCAL_layer/Timer1/Timer1.c: 131: static __attribute__((inline)) void Timer1_Prescaler_config(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"132
+[; ;MCAL_layer/Timer1/Timer1.c: 132: {
+[f ]
+"133
+[; ;MCAL_layer/Timer1/Timer1.c: 133:     T1CONbits.T1CKPS = timer1_confg->prescaler_value;
+[e = . . _T1CONbits 1 4 -> . *U _timer1_confg 2 `uc ]
+"134
+[; ;MCAL_layer/Timer1/Timer1.c: 134: }
+[e :UE 289 ]
 }
-[e :U 290 ]
-"110
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 110:     if((1 == INTCONbits.TMR0IE) && (1 == INTCONbits.TMR0IF))
-[e $ ! && == -> 1 `i -> . . _INTCONbits 0 5 `i == -> 1 `i -> . . _INTCONbits 0 2 `i 291  ]
-"111
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 111:     {
+[v F3138 `(v ~T0 @X0 1 tf1`*CS274 ]
+"136
+[; ;MCAL_layer/Timer1/Timer1.c: 136: static __attribute__((inline)) void Timer1_Mode(const timer1_t *timer1_confg)
+[v _Timer1_Mode `TF3138 ~T0 @X0 1 s ]
+"137
+[; ;MCAL_layer/Timer1/Timer1.c: 137: {
 {
-"112
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 112:         TMR0_ISR();
-[e ( _TMR0_ISR ..  ]
-"113
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 113:     }
-}
-[e :U 291 ]
-"115
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 115:     if((1 == PIE1bits.TMR1IE) && (1 == PIR1bits.TMR1IF))
-[e $ ! && == -> 1 `i -> . . _PIE1bits 0 0 `i == -> 1 `i -> . . _PIR1bits 0 0 `i 292  ]
-"116
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 116:     {
+[e :U _Timer1_Mode ]
+"136
+[; ;MCAL_layer/Timer1/Timer1.c: 136: static __attribute__((inline)) void Timer1_Mode(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"137
+[; ;MCAL_layer/Timer1/Timer1.c: 137: {
+[f ]
+"138
+[; ;MCAL_layer/Timer1/Timer1.c: 138:     switch (timer1_confg->mode)
+[e $U 292  ]
+"139
+[; ;MCAL_layer/Timer1/Timer1.c: 139:     {
 {
-"117
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 117:         TMR1_ISR();
-[e ( _TMR1_ISR ..  ]
-"118
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 118:     }
+"140
+[; ;MCAL_layer/Timer1/Timer1.c: 140:         case Timer1_Counter_Mode:
+[e :U 293 ]
+"141
+[; ;MCAL_layer/Timer1/Timer1.c: 141:             (T1CONbits.TMR1CS = 1);
+[e = . . _T1CONbits 1 1 -> -> 1 `i `uc ]
+"142
+[; ;MCAL_layer/Timer1/Timer1.c: 142:             break;
+[e $U 291  ]
+"143
+[; ;MCAL_layer/Timer1/Timer1.c: 143:         case Timer1_Timer_Mode:
+[e :U 294 ]
+"144
+[; ;MCAL_layer/Timer1/Timer1.c: 144:             (T1CONbits.TMR1CS = 0);
+[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
+"145
+[; ;MCAL_layer/Timer1/Timer1.c: 145:             break;
+[e $U 291  ]
+"146
+[; ;MCAL_layer/Timer1/Timer1.c: 146:         default:
+[e :U 295 ]
+"147
+[; ;MCAL_layer/Timer1/Timer1.c: 147:             (T1CONbits.TMR1CS = 0);
+[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
+"148
+[; ;MCAL_layer/Timer1/Timer1.c: 148:             break;
+[e $U 291  ]
+"149
+[; ;MCAL_layer/Timer1/Timer1.c: 149:     }
 }
+[e $U 291  ]
 [e :U 292 ]
-"119
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 119: }
-[e :UE 274 ]
+[e [\ -> . *U _timer1_confg 3 `ui , $ -> . `E3051 1 `ui 293
+ , $ -> . `E3051 0 `ui 294
+ 295 ]
+[e :U 291 ]
+"150
+[; ;MCAL_layer/Timer1/Timer1.c: 150: }
+[e :UE 290 ]
+}
+[v F3141 `(v ~T0 @X0 1 tf1`*CS274 ]
+"153
+[; ;MCAL_layer/Timer1/Timer1.c: 153: static __attribute__((inline)) void Timer1_Register_Size(const timer1_t *timer1_confg)
+[v _Timer1_Register_Size `TF3141 ~T0 @X0 1 s ]
+"154
+[; ;MCAL_layer/Timer1/Timer1.c: 154: {
+{
+[e :U _Timer1_Register_Size ]
+"153
+[; ;MCAL_layer/Timer1/Timer1.c: 153: static __attribute__((inline)) void Timer1_Register_Size(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"154
+[; ;MCAL_layer/Timer1/Timer1.c: 154: {
+[f ]
+"155
+[; ;MCAL_layer/Timer1/Timer1.c: 155:     switch (timer1_confg->register_size)
+[e $U 298  ]
+"156
+[; ;MCAL_layer/Timer1/Timer1.c: 156:     {
+{
+"157
+[; ;MCAL_layer/Timer1/Timer1.c: 157:         case Timer1_8Bit_Register:
+[e :U 299 ]
+"158
+[; ;MCAL_layer/Timer1/Timer1.c: 158:             (T1CONbits.RD16 = 0);
+[e = . . _T1CONbits 1 6 -> -> 0 `i `uc ]
+"159
+[; ;MCAL_layer/Timer1/Timer1.c: 159:             break;
+[e $U 297  ]
+"160
+[; ;MCAL_layer/Timer1/Timer1.c: 160:         case Timer1_16Bit_Register:
+[e :U 300 ]
+"161
+[; ;MCAL_layer/Timer1/Timer1.c: 161:             (T1CONbits.RD16 = 1);
+[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
+"162
+[; ;MCAL_layer/Timer1/Timer1.c: 162:             break;
+[e $U 297  ]
+"163
+[; ;MCAL_layer/Timer1/Timer1.c: 163:         default:
+[e :U 301 ]
+"164
+[; ;MCAL_layer/Timer1/Timer1.c: 164:             (T1CONbits.RD16 = 1);
+[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
+"165
+[; ;MCAL_layer/Timer1/Timer1.c: 165:             break;
+[e $U 297  ]
+"166
+[; ;MCAL_layer/Timer1/Timer1.c: 166:     }
+}
+[e $U 297  ]
+[e :U 298 ]
+[e [\ -> . *U _timer1_confg 5 `ui , $ -> . `E3059 0 `ui 299
+ , $ -> . `E3059 1 `ui 300
+ 301 ]
+[e :U 297 ]
+"167
+[; ;MCAL_layer/Timer1/Timer1.c: 167: }
+[e :UE 296 ]
+}
+[v F3144 `(v ~T0 @X0 1 tf1`*CS274 ]
+"169
+[; ;MCAL_layer/Timer1/Timer1.c: 169: static __attribute__((inline)) void Timer1_Interrupt_init(const timer1_t *timer1_confg)
+[v _Timer1_Interrupt_init `TF3144 ~T0 @X0 1 s ]
+"170
+[; ;MCAL_layer/Timer1/Timer1.c: 170: {
+{
+[e :U _Timer1_Interrupt_init ]
+"169
+[; ;MCAL_layer/Timer1/Timer1.c: 169: static __attribute__((inline)) void Timer1_Interrupt_init(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"170
+[; ;MCAL_layer/Timer1/Timer1.c: 170: {
+[f ]
+"172
+[; ;MCAL_layer/Timer1/Timer1.c: 172:     (PIE1bits.TMR1IE = 1);
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+"173
+[; ;MCAL_layer/Timer1/Timer1.c: 173:     (PIR1bits.TMR1IF = 0);
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"188
+[; ;MCAL_layer/Timer1/Timer1.c: 188:     (INTCONbits.PEIE = 1);
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"189
+[; ;MCAL_layer/Timer1/Timer1.c: 189:     (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"192
+[; ;MCAL_layer/Timer1/Timer1.c: 192: }
+[e :UE 302 ]
+}
+[v F3147 `(v ~T0 @X0 1 tf1`*CS274 ]
+"194
+[; ;MCAL_layer/Timer1/Timer1.c: 194: static __attribute__((inline)) void Timer1_preloaded_value(const timer1_t *timer1_confg)
+[v _Timer1_preloaded_value `TF3147 ~T0 @X0 1 s ]
+"195
+[; ;MCAL_layer/Timer1/Timer1.c: 195: {
+{
+[e :U _Timer1_preloaded_value ]
+"194
+[; ;MCAL_layer/Timer1/Timer1.c: 194: static __attribute__((inline)) void Timer1_preloaded_value(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"195
+[; ;MCAL_layer/Timer1/Timer1.c: 195: {
+[f ]
+"196
+[; ;MCAL_layer/Timer1/Timer1.c: 196:     TMR1H = ((timer1_confg->preloaded_value) >> 8);
+[e = _TMR1H -> >> -> . *U _timer1_confg 7 `ui -> 8 `i `uc ]
+"197
+[; ;MCAL_layer/Timer1/Timer1.c: 197:     TMR1L = (uint8)(timer1_confg->preloaded_value);
+[e = _TMR1L -> . *U _timer1_confg 7 `uc ]
+"198
+[; ;MCAL_layer/Timer1/Timer1.c: 198:     preloaded_value = timer1_confg->preloaded_value;
+[e = _preloaded_value . *U _timer1_confg 7 ]
+"199
+[; ;MCAL_layer/Timer1/Timer1.c: 199: }
+[e :UE 303 ]
+}
+[v F3150 `(v ~T0 @X0 1 tf1`*CS274 ]
+"201
+[; ;MCAL_layer/Timer1/Timer1.c: 201: static __attribute__((inline)) void Timer1_OSC_Status(const timer1_t *timer1_confg)
+[v _Timer1_OSC_Status `TF3150 ~T0 @X0 1 s ]
+"202
+[; ;MCAL_layer/Timer1/Timer1.c: 202: {
+{
+[e :U _Timer1_OSC_Status ]
+"201
+[; ;MCAL_layer/Timer1/Timer1.c: 201: static __attribute__((inline)) void Timer1_OSC_Status(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"202
+[; ;MCAL_layer/Timer1/Timer1.c: 202: {
+[f ]
+"203
+[; ;MCAL_layer/Timer1/Timer1.c: 203:     switch (timer1_confg->timer1_OSC)
+[e $U 306  ]
+"204
+[; ;MCAL_layer/Timer1/Timer1.c: 204:     {
+{
+"205
+[; ;MCAL_layer/Timer1/Timer1.c: 205:         case Timer1_OSC_Enable:
+[e :U 307 ]
+"206
+[; ;MCAL_layer/Timer1/Timer1.c: 206:             (T1CONbits.T1OSCEN = 1);
+[e = . . _T1CONbits 1 3 -> -> 1 `i `uc ]
+"207
+[; ;MCAL_layer/Timer1/Timer1.c: 207:             break;
+[e $U 305  ]
+"208
+[; ;MCAL_layer/Timer1/Timer1.c: 208:         case Timer1_OSC_Disable:
+[e :U 308 ]
+"209
+[; ;MCAL_layer/Timer1/Timer1.c: 209:             (T1CONbits.T1OSCEN = 0);
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+"210
+[; ;MCAL_layer/Timer1/Timer1.c: 210:             break;
+[e $U 305  ]
+"211
+[; ;MCAL_layer/Timer1/Timer1.c: 211:         default:
+[e :U 309 ]
+"212
+[; ;MCAL_layer/Timer1/Timer1.c: 212:             (T1CONbits.T1OSCEN = 0);
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+"213
+[; ;MCAL_layer/Timer1/Timer1.c: 213:             break;
+[e $U 305  ]
+"214
+[; ;MCAL_layer/Timer1/Timer1.c: 214:     }
+}
+[e $U 305  ]
+[e :U 306 ]
+[e [\ -> . *U _timer1_confg 4 `ui , $ -> . `E3055 0 `ui 307
+ , $ -> . `E3055 1 `ui 308
+ 309 ]
+[e :U 305 ]
+"215
+[; ;MCAL_layer/Timer1/Timer1.c: 215: }
+[e :UE 304 ]
+}
+[v F3153 `(v ~T0 @X0 1 tf1`*CS274 ]
+"217
+[; ;MCAL_layer/Timer1/Timer1.c: 217: static __attribute__((inline)) void Timer1_Clock_Synchronous_Status(const timer1_t *timer1_confg)
+[v _Timer1_Clock_Synchronous_Status `TF3153 ~T0 @X0 1 s ]
+"218
+[; ;MCAL_layer/Timer1/Timer1.c: 218: {
+{
+[e :U _Timer1_Clock_Synchronous_Status ]
+"217
+[; ;MCAL_layer/Timer1/Timer1.c: 217: static __attribute__((inline)) void Timer1_Clock_Synchronous_Status(const timer1_t *timer1_confg)
+[v _timer1_confg `*CS274 ~T0 @X0 1 r1 ]
+"218
+[; ;MCAL_layer/Timer1/Timer1.c: 218: {
+[f ]
+"219
+[; ;MCAL_layer/Timer1/Timer1.c: 219:     switch (timer1_confg->clock_status)
+[e $U 312  ]
+"220
+[; ;MCAL_layer/Timer1/Timer1.c: 220:     {
+{
+"221
+[; ;MCAL_layer/Timer1/Timer1.c: 221:         case Timer1_Clock_Synchronous:
+[e :U 313 ]
+"222
+[; ;MCAL_layer/Timer1/Timer1.c: 222:             (T1CONbits.T1SYNC = 0);
+[e = . . _T1CONbits 2 1 -> -> 0 `i `uc ]
+"223
+[; ;MCAL_layer/Timer1/Timer1.c: 223:             break;
+[e $U 311  ]
+"224
+[; ;MCAL_layer/Timer1/Timer1.c: 224:         case Timer1_Clock_Asynchronous:
+[e :U 314 ]
+"225
+[; ;MCAL_layer/Timer1/Timer1.c: 225:             (T1CONbits.T1SYNC = 1);
+[e = . . _T1CONbits 2 1 -> -> 1 `i `uc ]
+"226
+[; ;MCAL_layer/Timer1/Timer1.c: 226:             break;
+[e $U 311  ]
+"227
+[; ;MCAL_layer/Timer1/Timer1.c: 227:         default:
+[e :U 315 ]
+"228
+[; ;MCAL_layer/Timer1/Timer1.c: 228:             (T1CONbits.T1SYNC = 1);
+[e = . . _T1CONbits 2 1 -> -> 1 `i `uc ]
+"229
+[; ;MCAL_layer/Timer1/Timer1.c: 229:             break;
+[e $U 311  ]
+"230
+[; ;MCAL_layer/Timer1/Timer1.c: 230:     }
+}
+[e $U 311  ]
+[e :U 312 ]
+[e [\ -> . *U _timer1_confg 6 `ui , $ -> . `E3063 0 `ui 313
+ , $ -> . `E3063 1 `ui 314
+ 315 ]
+[e :U 311 ]
+"231
+[; ;MCAL_layer/Timer1/Timer1.c: 231: }
+[e :UE 310 ]
 }

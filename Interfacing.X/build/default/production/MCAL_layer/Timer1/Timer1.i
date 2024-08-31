@@ -1,4 +1,4 @@
-# 1 "MCAL_layer/Interrupt/interrupt_manager.c"
+# 1 "MCAL_layer/Timer1/Timer1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "G:\\C_Extention\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_layer/Interrupt/interrupt_manager.c" 2
+# 1 "MCAL_layer/Timer1/Timer1.c" 2
 
 
 
@@ -14,10 +14,8 @@
 
 
 
-# 1 "MCAL_layer/Interrupt/interrupt_manager.h" 1
-# 12 "MCAL_layer/Interrupt/interrupt_manager.h"
-# 1 "MCAL_layer/Interrupt/interrupt_config.h" 1
-# 12 "MCAL_layer/Interrupt/interrupt_config.h"
+# 1 "MCAL_layer/Timer1/Timer1.h" 1
+# 12 "MCAL_layer/Timer1/Timer1.h"
 # 1 "G:\\C_Extention\\pic\\include\\xc.h" 1 3
 # 18 "G:\\C_Extention\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4500,12 +4498,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
-# 12 "MCAL_layer/Interrupt/interrupt_config.h" 2
+# 12 "MCAL_layer/Timer1/Timer1.h" 2
 
-# 1 "MCAL_layer/Interrupt/../mcal_std_types.h" 1
-# 12 "MCAL_layer/Interrupt/../mcal_std_types.h"
-# 1 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 1
-# 12 "MCAL_layer/Interrupt/../mcal_std_libraries.h"
+# 1 "MCAL_layer/Timer1/../mcal_std_types.h" 1
+# 12 "MCAL_layer/Timer1/../mcal_std_types.h"
+# 1 "MCAL_layer/Timer1/../mcal_std_libraries.h" 1
+# 12 "MCAL_layer/Timer1/../mcal_std_libraries.h"
 # 1 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 3
 # 1 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4658,7 +4656,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 2
+# 12 "MCAL_layer/Timer1/../mcal_std_libraries.h" 2
 
 
 # 1 "G:\\C_Extention\\pic\\include\\c99\\string.h" 1 3
@@ -4718,12 +4716,12 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 2
-# 12 "MCAL_layer/Interrupt/../mcal_std_types.h" 2
+# 14 "MCAL_layer/Timer1/../mcal_std_libraries.h" 2
+# 12 "MCAL_layer/Timer1/../mcal_std_types.h" 2
 
-# 1 "MCAL_layer/Interrupt/../compiler.h" 1
-# 13 "MCAL_layer/Interrupt/../mcal_std_types.h" 2
-# 34 "MCAL_layer/Interrupt/../mcal_std_types.h"
+# 1 "MCAL_layer/Timer1/../compiler.h" 1
+# 13 "MCAL_layer/Timer1/../mcal_std_types.h" 2
+# 34 "MCAL_layer/Timer1/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4733,14 +4731,14 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 STD_ReturnType;
-# 13 "MCAL_layer/Interrupt/interrupt_config.h" 2
+# 13 "MCAL_layer/Timer1/Timer1.h" 2
 
-# 1 "MCAL_layer/Interrupt/../device_config.h" 1
-# 14 "MCAL_layer/Interrupt/interrupt_config.h" 2
+# 1 "MCAL_layer/Timer1/../device_config.h" 1
+# 14 "MCAL_layer/Timer1/Timer1.h" 2
 
 
-# 1 "MCAL_layer/Interrupt/../GPIO/gpio.h" 1
-# 46 "MCAL_layer/Interrupt/../GPIO/gpio.h"
+# 1 "MCAL_layer/Timer1/../GPIO/gpio.h" 1
+# 46 "MCAL_layer/Timer1/../GPIO/gpio.h"
 typedef enum
 {
     GPIO_LOW = 0,
@@ -4797,95 +4795,281 @@ STD_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 16 "MCAL_layer/Interrupt/interrupt_config.h" 2
-# 55 "MCAL_layer/Interrupt/interrupt_config.h"
+# 16 "MCAL_layer/Timer1/Timer1.h" 2
+
+# 1 "MCAL_layer/Timer1/../Interrupt/internal_interrupt.h" 1
+# 12 "MCAL_layer/Timer1/../Interrupt/internal_interrupt.h"
+# 1 "MCAL_layer/Timer1/../Interrupt/interrupt_config.h" 1
+# 55 "MCAL_layer/Timer1/../Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority;
-# 12 "MCAL_layer/Interrupt/interrupt_manager.h" 2
-# 22 "MCAL_layer/Interrupt/interrupt_manager.h"
-void INT0_ISR(void);
-void INT1_ISR(void);
-void INT2_ISR(void);
+# 12 "MCAL_layer/Timer1/../Interrupt/internal_interrupt.h" 2
+# 17 "MCAL_layer/Timer1/Timer1.h" 2
+# 41 "MCAL_layer/Timer1/Timer1.h"
+typedef enum
+{
+    Timer1_Prescaler_Dev_1,
+    Timer1_Prescaler_Dev_2,
+    Timer1_Prescaler_Dev_4,
+    Timer1_Prescaler_Dev_8
+}timer1_prescaler_t;
 
-void RB4_ISR(void);
-void RB5_ISR(void);
-void RB6_ISR(void);
-void RB7_ISR(void);
+typedef enum
+{
+    Timer1_Timer_Mode,
+    Timer1_Counter_Mode
 
-void ADC_ISR(void);
+}timer1_mode_t;
 
-void TMR0_ISR(void);
-void TMR1_ISR(void);
-# 8 "MCAL_layer/Interrupt/interrupt_manager.c" 2
-# 52 "MCAL_layer/Interrupt/interrupt_manager.c"
-void __attribute__((picinterrupt(("")))) Interrupt_Manager(void)
+typedef enum
+{
+    Timer1_OSC_Enable,
+    Timer1_OSC_Disable
+
+}timer1_OSC_t;
+
+typedef enum
+{
+    Timer1_8Bit_Register,
+    Timer1_16Bit_Register
+}timer1_register_size_t;
+
+typedef enum
+{
+    Timer1_Clock_Synchronous,
+    Timer1_Clock_Asynchronous
+} timer1_clock_synchronization;
+
+typedef struct
+{
+    void(*Timer1_Interrupt_Handlar)(void);
+    interrupt_priority priority;
+    timer1_prescaler_t prescaler_value;
+    timer1_mode_t mode;
+    timer1_OSC_t timer1_OSC;
+    timer1_register_size_t register_size;
+    timer1_clock_synchronization clock_status;
+    uint16 preloaded_value;
+
+}timer1_t;
+
+
+STD_ReturnType Timer1_Init(const timer1_t *timer1_confg);
+STD_ReturnType Timer1_Deinit(const timer1_t *timer1_confg);
+STD_ReturnType Timer1_Write_Value(const timer1_t *timer1_confg , uint16 value);
+STD_ReturnType Timer1_Read_Value(const timer1_t *timer1_confg , uint16 *value);
+# 8 "MCAL_layer/Timer1/Timer1.c" 2
+
+
+static __attribute__((inline)) void Timer1_Prescaler_config(const timer1_t *timer1_confg);
+static __attribute__((inline)) void Timer1_Mode(const timer1_t *timer1_confg);
+static __attribute__((inline)) void Timer1_Register_Size(const timer1_t *timer1_confg);
+static __attribute__((inline)) void Timer1_Interrupt_init(const timer1_t *timer1_confg);
+static __attribute__((inline)) void Timer1_preloaded_value(const timer1_t *timer1_confg);
+static __attribute__((inline)) void Timer1_OSC_Status(const timer1_t *timer1_confg);
+static __attribute__((inline)) void Timer1_Clock_Synchronous_Status(const timer1_t *timer1_confg);
+
+
+static void(*TMR1_Interrupt_Handler)(void) = ((void*)0);
+
+static uint16 preloaded_value = 0;
+
+
+
+
+
+
+STD_ReturnType Timer1_Init(const timer1_t *timer1_confg)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer1_confg)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        (T1CONbits.TMR1ON = 0);
+
+        Timer1_Prescaler_config(timer1_confg);
+        Timer1_Mode(timer1_confg);
+        Timer1_Register_Size(timer1_confg);
+        Timer1_OSC_Status(timer1_confg);
+        Timer1_Clock_Synchronous_Status(timer1_confg);
+        Timer1_preloaded_value(timer1_confg);
+        Timer1_Interrupt_init(timer1_confg);
+        TMR1_Interrupt_Handler = timer1_confg->Timer1_Interrupt_Handlar;
+
+        (T1CONbits.TMR1ON = 1);
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+STD_ReturnType Timer1_Deinit(const timer1_t *timer1_confg)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer1_confg)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        (T1CONbits.TMR1ON = 0);
+        (PIE1bits.TMR1IE = 0);
+    }
+    return ret;
+}
+
+
+
+
+
+
+
+STD_ReturnType Timer1_Write_Value(const timer1_t *timer1_confg , uint16 value)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer1_confg)
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        TMR1H = (value >> 8);
+        TMR1L = (uint8)(value);
+    }
+    return ret;
+}
+
+
+
+
+
+
+
+STD_ReturnType Timer1_Read_Value(const timer1_t *timer1_confg , uint16 *value)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    uint8 Tmr1_L = 0 , Tmr1_H = 0;
+    if((((void*)0) == timer1_confg) || (((void*)0) == value))
+    {
+        ret = (STD_ReturnType)0x00;
+    }
+    else
+    {
+        Tmr1_L = TMR1L;
+        Tmr1_H = TMR1H;
+        *value = (uint16)((Tmr1_H << 8) + Tmr1_L);
+    }
+    return ret;
+}
+
+void TMR1_ISR(void)
+{
+    (PIR1bits.TMR1IF = 0);
+    TMR1H = (preloaded_value >> 8);
+    TMR1L = (uint8)(preloaded_value);
+    if(TMR1_Interrupt_Handler)
+    {
+        TMR1_Interrupt_Handler();
+    }
+}
+
+
+
+static __attribute__((inline)) void Timer1_Prescaler_config(const timer1_t *timer1_confg)
+{
+    T1CONbits.T1CKPS = timer1_confg->prescaler_value;
+}
+
+static __attribute__((inline)) void Timer1_Mode(const timer1_t *timer1_confg)
+{
+    switch (timer1_confg->mode)
+    {
+        case Timer1_Counter_Mode:
+            (T1CONbits.TMR1CS = 1);
+            break;
+        case Timer1_Timer_Mode:
+            (T1CONbits.TMR1CS = 0);
+            break;
+        default:
+            (T1CONbits.TMR1CS = 0);
+            break;
+    }
+}
+
+
+static __attribute__((inline)) void Timer1_Register_Size(const timer1_t *timer1_confg)
+{
+    switch (timer1_confg->register_size)
+    {
+        case Timer1_8Bit_Register:
+            (T1CONbits.RD16 = 0);
+            break;
+        case Timer1_16Bit_Register:
+            (T1CONbits.RD16 = 1);
+            break;
+        default:
+            (T1CONbits.RD16 = 1);
+            break;
+    }
+}
+
+static __attribute__((inline)) void Timer1_Interrupt_init(const timer1_t *timer1_confg)
 {
 
-    if((1 == PIE1bits.ADIE ) && (1 == PIR1bits.ADIF))
+    (PIE1bits.TMR1IE = 1);
+    (PIR1bits.TMR1IF = 0);
+# 188 "MCAL_layer/Timer1/Timer1.c"
+    (INTCONbits.PEIE = 1);
+    (INTCONbits.GIE = 1);
+
+
+}
+
+static __attribute__((inline)) void Timer1_preloaded_value(const timer1_t *timer1_confg)
+{
+    TMR1H = ((timer1_confg->preloaded_value) >> 8);
+    TMR1L = (uint8)(timer1_confg->preloaded_value);
+    preloaded_value = timer1_confg->preloaded_value;
+}
+
+static __attribute__((inline)) void Timer1_OSC_Status(const timer1_t *timer1_confg)
+{
+    switch (timer1_confg->timer1_OSC)
     {
-        ADC_ISR();
+        case Timer1_OSC_Enable:
+            (T1CONbits.T1OSCEN = 1);
+            break;
+        case Timer1_OSC_Disable:
+            (T1CONbits.T1OSCEN = 0);
+            break;
+        default:
+            (T1CONbits.T1OSCEN = 0);
+            break;
     }
+}
 
-
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
+static __attribute__((inline)) void Timer1_Clock_Synchronous_Status(const timer1_t *timer1_confg)
+{
+    switch (timer1_confg->clock_status)
     {
-        if(PORTBbits.RB5 == GPIO_HIGH)
-        RB5_ISR();
-        if(PORTBbits.RB5 == GPIO_LOW)
-        RB5_ISR();
-    }
-
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
-    {
-        if(PORTBbits.RB4 == GPIO_HIGH)
-        RB4_ISR();
-        if(PORTBbits.RB4 == GPIO_LOW)
-        RB4_ISR();
-    }
-
-
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
-    {
-        if(PORTBbits.RB6 == GPIO_HIGH)
-        RB6_ISR();
-        if(PORTBbits.RB6== GPIO_LOW)
-        RB6_ISR();
-    }
-
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
-    {
-        if(PORTBbits.RB7 == GPIO_HIGH)
-        RB7_ISR();
-        if(PORTBbits.RB7 == GPIO_LOW)
-        RB7_ISR();
-    }
-
-    if((1 == INTCONbits.INT0IE) && (1 == INTCONbits.INT0IF ))
-    {
-        INT0_ISR();
-    }
-
-    if((1 == INTCON3bits.INT1IE) && (1 == INTCON3bits.INT1IF ))
-    {
-        INT1_ISR();
-    }
-
-    if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF ))
-    {
-        INT2_ISR();
-    }
-
-
-    if((1 == INTCONbits.TMR0IE) && (1 == INTCONbits.TMR0IF))
-    {
-        TMR0_ISR();
-    }
-
-    if((1 == PIE1bits.TMR1IE) && (1 == PIR1bits.TMR1IF))
-    {
-        TMR1_ISR();
+        case Timer1_Clock_Synchronous:
+            (T1CONbits.T1SYNC = 0);
+            break;
+        case Timer1_Clock_Asynchronous:
+            (T1CONbits.T1SYNC = 1);
+            break;
+        default:
+            (T1CONbits.T1SYNC = 1);
+            break;
     }
 }

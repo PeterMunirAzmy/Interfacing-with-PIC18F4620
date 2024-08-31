@@ -4896,6 +4896,7 @@ STD_ReturnType Timer0_Init(const timer0_t *timer0_confg)
         Timer0_Prescaler_config(timer0_confg);
         Timer0_Register_Size(timer0_confg);
         Timer0_Mode(timer0_confg);
+        Timer0_Select_Edge(timer0_confg);
         Timer0_Interrupt_init(timer0_confg);
         TMR_Interrupt_Handler = timer0_confg->Timer0_Interrupt_Handlar;
         Timer0_preloaded_value(timer0_confg);
@@ -4989,8 +4990,10 @@ static __attribute__((inline)) void Timer0_Prescaler_config(const timer0_t *time
     {
         case Timer0_Prescaler_Enable:
             (T0CONbits.PSA = 0);
+            break;
         case Timer0_Prescaler_Disable:
             (T0CONbits.PSA = 1);
+            break;
         default:
             (T0CONbits.PSA = 1);
     }
@@ -5003,8 +5006,10 @@ static __attribute__((inline)) void Timer0_Select_Edge(const timer0_t *timer0_co
     {
         case Timer0_FALLING_EDGE_SELECT:
             (T0CONbits.T0SE = 1);
+            break;
         case Timer0_RISING_EDGE_SELECT:
             (T0CONbits.T0SE = 0);
+            break;
         default:
             (T0CONbits.T0SE = 0);
     }
@@ -5017,8 +5022,10 @@ static __attribute__((inline)) void Timer0_Mode(const timer0_t *timer0_confg)
         case Timer0_Counter_Mode:
             (T0CONbits.T0CS = 1);
             Timer0_Select_Edge(timer0_confg);
+            break;
         case Timer0_Timer_Mode:
             (T0CONbits.T0CS = 0);
+            break;
         default:
             (T0CONbits.T0CS = 0);
     }
@@ -5030,8 +5037,10 @@ static __attribute__((inline)) void Timer0_Register_Size(const timer0_t *timer0_
     {
         case Timer0_8Bit_Register:
             (T0CONbits.T08BIT = 1);
+            break;
         case Timer0_16Bit_Register:
             (T0CONbits.T08BIT = 0);
+            break;
         default:
             (T0CONbits.T08BIT = 0);
     }
@@ -5042,7 +5051,7 @@ static __attribute__((inline)) void Timer0_Interrupt_init(const timer0_t *timer0
 
     (INTCONbits.TMR0IE = 1);
     (INTCONbits.TMR0IF = 0);
-# 200 "MCAL_layer/Timer0/Timer0.c"
+# 209 "MCAL_layer/Timer0/Timer0.c"
     (INTCONbits.PEIE = 1);
     (INTCONbits.GIE = 1);
 
