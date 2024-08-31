@@ -1,36 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3420 `(v ~T0 @X0 0 tf ]
-"7 application.c
-[; ;application.c: 7: timer1_t counter1 =
+[v F3459 `(v ~T0 @X0 0 tf ]
+"6 application.c
+[; ;application.c: 6: timer3_t timer3=
 [c E3224 0 1 .. ]
 [n E3224 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
-[c E3396 0 1 2 3 .. ]
-[n E3396 . Timer1_Prescaler_Dev_1 Timer1_Prescaler_Dev_2 Timer1_Prescaler_Dev_4 Timer1_Prescaler_Dev_8  ]
-[c E3402 0 1 .. ]
-[n E3402 . Timer1_Timer_Mode Timer1_Counter_Mode  ]
-[c E3406 0 1 .. ]
-[n E3406 . Timer1_OSC_Enable Timer1_OSC_Disable  ]
-[c E3410 0 1 .. ]
-[n E3410 . Timer1_8Bit_Register Timer1_16Bit_Register  ]
-[c E3414 0 1 .. ]
-[n E3414 . Timer1_Clock_Synchronous Timer1_Clock_Asynchronous  ]
-"76 ./MCAL_layer/Timer1/Timer1.h
-[; ;./MCAL_layer/Timer1/Timer1.h: 76: {
-[s S287 `*F3420 1 `E3224 1 `E3396 1 `E3402 1 `E3406 1 `E3410 1 `E3414 1 `us 1 ]
-[n S287 . Timer1_Interrupt_Handlar priority prescaler_value mode timer1_OSC register_size clock_status preloaded_value ]
+[c E3439 0 1 2 3 .. ]
+[n E3439 . Timer3_Prescaler_Dev_1 Timer3_Prescaler_Dev_2 Timer3_Prescaler_Dev_4 Timer3_Prescaler_Dev_8  ]
+[c E3445 0 1 .. ]
+[n E3445 . Timer3_Timer_Mode Timer3_Counter_Mode  ]
+[c E3449 0 1 .. ]
+[n E3449 . Timer3_8Bit_Register Timer3_16Bit_Register  ]
+[c E3453 0 1 .. ]
+[n E3453 . Timer3_Clock_Synchronous Timer3_Clock_Asynchronous  ]
+"64 ./MCAL_layer/Timer3/Timer3.h
+[; ;./MCAL_layer/Timer3/Timer3.h: 64: {
+[s S288 `*F3459 1 `E3224 1 `E3439 1 `E3445 1 `E3449 1 `E3453 1 `us 1 ]
+[n S288 . Timer3_Interrupt_Handlar priority prescaler_value mode register_size clock_status preloaded_value ]
 "4 application.c
-[; ;application.c: 4: void Timer1_Interrupt_function(void);
-[v _Timer1_Interrupt_function `(v ~T0 @X0 0 ef ]
+[; ;application.c: 4: void Timer3_Interrupt_function(void);
+[v _Timer3_Interrupt_function `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"5
-[; ;application.c: 5: void application_initializ(void);
+"36 ./application.h
+[; ;./application.h: 36: void application_initializ(void);
 [v _application_initializ `(v ~T0 @X0 0 ef ]
-"92 ./MCAL_layer/Timer1/Timer1.h
-[; ;./MCAL_layer/Timer1/Timer1.h: 92: STD_ReturnType Timer1_Read_Value(const timer1_t *timer1_confg , uint16 *value);
-[v _Timer1_Read_Value `(uc ~T0 @X0 0 ef2`*CS287`*us ]
-"89
-[; ;./MCAL_layer/Timer1/Timer1.h: 89: STD_ReturnType Timer1_Init(const timer1_t *timer1_confg);
-[v _Timer1_Init `(uc ~T0 @X0 0 ef1`*CS287 ]
+"75 ./MCAL_layer/Timer3/Timer3.h
+[; ;./MCAL_layer/Timer3/Timer3.h: 75: STD_ReturnType Timer3_Init(const timer3_t *timer3_confg);
+[v _Timer3_Init `(uc ~T0 @X0 0 ef1`*CS288 ]
 "54 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -442,95 +437,90 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"7 application.c
-[; ;application.c: 7: timer1_t counter1 =
-[v _counter1 `S287 ~T0 @X0 1 e ]
-[i _counter1
+"6 application.c
+[; ;application.c: 6: timer3_t timer3=
+[v _timer3 `S288 ~T0 @X0 1 e ]
+[i _timer3
 :U ..
 :U ..
-&U _Timer1_Interrupt_function
+&U _Timer3_Interrupt_function
 . `E3224 0
-. `E3396 3
-. `E3402 1
-. `E3406 1
-. `E3410 1
-. `E3414 1
--> -> 15535 `i `us
+. `E3439 3
+. `E3445 1
+. `E3449 1
+. `E3453 1
+-> -> 15536 `i `us
 ..
 ..
 ]
-"14
-[; ;application.c: 14: STD_ReturnType ret = (STD_ReturnType)0x00;
+"13
+[; ;application.c: 13: STD_ReturnType ret = (STD_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
 [i _ret
 -> -> 0 `i `uc
 ]
-"15
-[; ;application.c: 15: volatile uint16 counter_value , val;
+"14
+[; ;application.c: 14: volatile uint16 counter_value;
 [v _counter_value `Vus ~T0 @X0 1 e ]
-[v _val `Vus ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"17
-[; ;application.c: 17: int main()
+"16
+[; ;application.c: 16: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"18
-[; ;application.c: 18: {
+"17
+[; ;application.c: 17: {
 {
 [e :U _main ]
 [f ]
-"19
-[; ;application.c: 19:     application_initializ();
+"18
+[; ;application.c: 18:     application_initializ();
 [e ( _application_initializ ..  ]
+"20
+[; ;application.c: 20:     while (1)
+[e :U 291 ]
 "21
-[; ;application.c: 21:     while (1)
-[e :U 290 ]
-"22
-[; ;application.c: 22:     {
+[; ;application.c: 21:     {
 {
 "23
-[; ;application.c: 23:         ret = Timer1_Read_Value(&counter1 , &counter_value);
-[e = _ret ( _Timer1_Read_Value (2 , -> &U _counter1 `*CS287 -> &U _counter_value `*us ]
+[; ;application.c: 23:     }
+}
+[e :U 290 ]
+[e $U 291  ]
+[e :U 292 ]
 "24
-[; ;application.c: 24:     }
-}
-[e :U 289 ]
-[e $U 290  ]
-[e :U 291 ]
-"25
-[; ;application.c: 25:     return (0);
+[; ;application.c: 24:     return (0);
 [e ) -> 0 `i ]
-[e $UE 288  ]
-"26
-[; ;application.c: 26: }
-[e :UE 288 ]
+[e $UE 289  ]
+"25
+[; ;application.c: 25: }
+[e :UE 289 ]
 }
-"28
-[; ;application.c: 28: void application_initializ(void)
+"27
+[; ;application.c: 27: void application_initializ(void)
 [v _application_initializ `(v ~T0 @X0 1 ef ]
-"29
-[; ;application.c: 29: {
+"28
+[; ;application.c: 28: {
 {
 [e :U _application_initializ ]
 [f ]
+"29
+[; ;application.c: 29:     ret = Timer3_Init(&timer3);
+[e = _ret ( _Timer3_Init (1 -> &U _timer3 `*CS288 ]
 "30
-[; ;application.c: 30:     ret = Timer1_Init(&counter1);
-[e = _ret ( _Timer1_Init (1 -> &U _counter1 `*CS287 ]
-"31
-[; ;application.c: 31: }
-[e :UE 292 ]
-}
-"34
-[; ;application.c: 34: void Timer1_Interrupt_function(void)
-[v _Timer1_Interrupt_function `(v ~T0 @X0 1 ef ]
-"35
-[; ;application.c: 35: {
-{
-[e :U _Timer1_Interrupt_function ]
-[f ]
-"36
-[; ;application.c: 36:     val++;
-[e ++ _val -> -> 1 `i `Vus ]
-"37
-[; ;application.c: 37: }
+[; ;application.c: 30: }
 [e :UE 293 ]
+}
+"33
+[; ;application.c: 33: void Timer3_Interrupt_function(void)
+[v _Timer3_Interrupt_function `(v ~T0 @X0 1 ef ]
+"34
+[; ;application.c: 34: {
+{
+[e :U _Timer3_Interrupt_function ]
+[f ]
+"35
+[; ;application.c: 35:     counter_value++;
+[e ++ _counter_value -> -> 1 `i `Vus ]
+"36
+[; ;application.c: 36: }
+[e :UE 294 ]
 }

@@ -18,7 +18,7 @@ static inline void Timer1_Clock_Synchronous_Status(const timer1_t *timer1_confg)
 
 static void(*TMR1_Interrupt_Handler)(void) = NULL;
 
-static uint16 preloaded_value = 0;
+volatile static uint16 preloaded_value = 0;
 
 /**
  * 

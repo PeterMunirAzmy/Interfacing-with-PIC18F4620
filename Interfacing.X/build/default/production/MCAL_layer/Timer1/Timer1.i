@@ -4875,7 +4875,7 @@ static __attribute__((inline)) void Timer1_Clock_Synchronous_Status(const timer1
 
 static void(*TMR1_Interrupt_Handler)(void) = ((void*)0);
 
-static uint16 preloaded_value = 0;
+volatile static uint16 preloaded_value = 0;
 
 
 

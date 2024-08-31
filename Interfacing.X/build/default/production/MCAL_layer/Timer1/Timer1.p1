@@ -545,8 +545,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `*v `*F3111
 ]
 "21
-[; ;MCAL_layer/Timer1/Timer1.c: 21: static uint16 preloaded_value = 0;
-[v _preloaded_value `us ~T0 @X0 1 s ]
+[; ;MCAL_layer/Timer1/Timer1.c: 21: volatile static uint16 preloaded_value = 0;
+[v _preloaded_value `Vus ~T0 @X0 1 s ]
 [i _preloaded_value
 -> -> 0 `i `us
 ]

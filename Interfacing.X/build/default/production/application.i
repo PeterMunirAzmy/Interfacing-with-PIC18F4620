@@ -5235,24 +5235,70 @@ STD_ReturnType Timer1_Deinit(const timer1_t *timer1_confg);
 STD_ReturnType Timer1_Write_Value(const timer1_t *timer1_confg , uint16 value);
 STD_ReturnType Timer1_Read_Value(const timer1_t *timer1_confg , uint16 *value);
 # 23 "./application.h" 2
-# 34 "./application.h"
+
+# 1 "./MCAL_layer/Timer3/Timer3.h" 1
+# 36 "./MCAL_layer/Timer3/Timer3.h"
+typedef enum
+{
+    Timer3_Prescaler_Dev_1,
+    Timer3_Prescaler_Dev_2,
+    Timer3_Prescaler_Dev_4,
+    Timer3_Prescaler_Dev_8
+}timer3_prescaler_t;
+
+typedef enum
+{
+    Timer3_Timer_Mode,
+    Timer3_Counter_Mode
+
+}timer3_mode_t;
+
+typedef enum
+{
+    Timer3_8Bit_Register,
+    Timer3_16Bit_Register
+}timer3_register_size_t;
+
+typedef enum
+{
+    Timer3_Clock_Synchronous,
+    Timer3_Clock_Asynchronous
+} timer3_clock_synchronization;
+
+typedef struct
+{
+    void(*Timer3_Interrupt_Handlar)(void);
+    interrupt_priority priority;
+    timer3_prescaler_t prescaler_value;
+    timer3_mode_t mode;
+    timer3_register_size_t register_size;
+    timer3_clock_synchronization clock_status;
+    uint16 preloaded_value;
+}timer3_t;
+
+
+STD_ReturnType Timer3_Init(const timer3_t *timer3_confg);
+STD_ReturnType Timer3_Deinit(const timer3_t *timer3_confg);
+STD_ReturnType Timer3_Write_Value(const timer3_t *timer3_confg , uint16 value);
+STD_ReturnType Timer3_Read_Value(const timer3_t *timer3_confg , uint16 *value);
+# 24 "./application.h" 2
+# 36 "./application.h"
 void application_initializ(void);
 # 1 "application.c" 2
 
 
 
-void Timer1_Interrupt_function(void);
-void application_initializ(void);
+void Timer3_Interrupt_function(void);
 
-timer1_t counter1 =
+timer3_t timer3=
 {
-    .Timer1_Interrupt_Handlar = Timer1_Interrupt_function ,.mode = Timer1_Counter_Mode , .preloaded_value =15535,
-    .timer1_OSC = Timer1_OSC_Disable,.register_size = Timer1_16Bit_Register,.prescaler_value = Timer1_Prescaler_Dev_8,
-    .clock_status=Timer1_Clock_Asynchronous, .priority=INTERRUPT_LOW_PRIORITY
+    .Timer3_Interrupt_Handlar = Timer3_Interrupt_function ,.mode = Timer3_Counter_Mode, .preloaded_value =15536,
+    .register_size = Timer3_16Bit_Register,.prescaler_value = Timer3_Prescaler_Dev_8,
+    .clock_status=Timer3_Clock_Asynchronous, .priority=INTERRUPT_LOW_PRIORITY
 };
 
 STD_ReturnType ret = (STD_ReturnType)0x00;
-volatile uint16 counter_value , val;
+volatile uint16 counter_value;
 
 int main()
 {
@@ -5260,18 +5306,18 @@ int main()
 
     while (1)
     {
-        ret = Timer1_Read_Value(&counter1 , &counter_value);
+
     }
     return (0);
 }
 
 void application_initializ(void)
 {
-    ret = Timer1_Init(&counter1);
+    ret = Timer3_Init(&timer3);
 }
 
 
-void Timer1_Interrupt_function(void)
+void Timer3_Interrupt_function(void)
 {
-    val++;
+    counter_value++;
 }

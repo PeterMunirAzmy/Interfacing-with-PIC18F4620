@@ -34,6 +34,17 @@
 #define TIMER1_HIGHT_BRIORITY_SET()           (IPR1bits.TMR1IP = 1)
 #define TIMER1_LOW_BRIORITY_SET()             (IPR1bits.TMR1IP = 0)
 
+#define TIMER2_INTERRUPT_ENABLE()             (PIE1bits.TMR2IE = 1)
+#define TIMER2_INTERRUPT_DISABLE()            (PIE1bits.TMR2IE = 0)
+#define TIMER2_INTERRUPT_FLAG_CLEAR()         (PIR1bits.TMR2IF = 0)
+#define TIMER2_HIGHT_BRIORITY_SET()           (IPR1bits.TMR2IP = 1)
+#define TIMER2_LOW_BRIORITY_SET()             (IPR1bits.TMR2IP = 0)
+
+#define TIMER3_INTERRUPT_ENABLE()             (PIE2bits.TMR3IE = 1)
+#define TIMER3_INTERRUPT_DISABLE()            (PIE2bits.TMR3IE = 0)
+#define TIMER3_INTERRUPT_FLAG_CLEAR()         (PIR2bits.TMR3IF = 0)
+#define TIMER3_HIGHT_BRIORITY_SET()           (IPR2bits.TMR3IP = 1)
+#define TIMER3_LOW_BRIORITY_SET()             (IPR2bits.TMR3IP = 0)
 /*Section : Data Type Declaration*/
 
 

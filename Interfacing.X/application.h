@@ -21,6 +21,8 @@
 #include "MCAL_layer/ADC/adc.h"
 #include "MCAL_layer/Timer0/Timer0.h"
 #include "MCAL_layer/Timer1/Timer1.h"
+#include "MCAL_layer/Timer3/Timer3.h"
+
 
 
 

@@ -1,4 +1,4 @@
-# 1 "MCAL_layer/Interrupt/interrupt_manager.c"
+# 1 "MCAL_layer/Timer2/Timer2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "G:\\C_Extention\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_layer/Interrupt/interrupt_manager.c" 2
+# 1 "MCAL_layer/Timer2/Timer2.c" 2
 
 
 
@@ -14,10 +14,8 @@
 
 
 
-# 1 "MCAL_layer/Interrupt/interrupt_manager.h" 1
-# 12 "MCAL_layer/Interrupt/interrupt_manager.h"
-# 1 "MCAL_layer/Interrupt/interrupt_config.h" 1
-# 12 "MCAL_layer/Interrupt/interrupt_config.h"
+# 1 "MCAL_layer/Timer2/Timer2.h" 1
+# 12 "MCAL_layer/Timer2/Timer2.h"
 # 1 "G:\\C_Extention\\pic\\include\\xc.h" 1 3
 # 18 "G:\\C_Extention\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4500,12 +4498,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "G:\\C_Extention\\pic\\include\\xc.h" 2 3
-# 12 "MCAL_layer/Interrupt/interrupt_config.h" 2
+# 12 "MCAL_layer/Timer2/Timer2.h" 2
 
-# 1 "MCAL_layer/Interrupt/../mcal_std_types.h" 1
-# 12 "MCAL_layer/Interrupt/../mcal_std_types.h"
-# 1 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 1
-# 12 "MCAL_layer/Interrupt/../mcal_std_libraries.h"
+# 1 "MCAL_layer/Timer2/../mcal_std_types.h" 1
+# 12 "MCAL_layer/Timer2/../mcal_std_types.h"
+# 1 "MCAL_layer/Timer2/../mcal_std_libraries.h" 1
+# 12 "MCAL_layer/Timer2/../mcal_std_libraries.h"
 # 1 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "G:\\C_Extention\\pic\\include\\c99\\stdio.h" 3
 # 1 "G:\\C_Extention\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4658,7 +4656,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 2
+# 12 "MCAL_layer/Timer2/../mcal_std_libraries.h" 2
 
 
 # 1 "G:\\C_Extention\\pic\\include\\c99\\string.h" 1 3
@@ -4718,12 +4716,12 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "MCAL_layer/Interrupt/../mcal_std_libraries.h" 2
-# 12 "MCAL_layer/Interrupt/../mcal_std_types.h" 2
+# 14 "MCAL_layer/Timer2/../mcal_std_libraries.h" 2
+# 12 "MCAL_layer/Timer2/../mcal_std_types.h" 2
 
-# 1 "MCAL_layer/Interrupt/../compiler.h" 1
-# 13 "MCAL_layer/Interrupt/../mcal_std_types.h" 2
-# 34 "MCAL_layer/Interrupt/../mcal_std_types.h"
+# 1 "MCAL_layer/Timer2/../compiler.h" 1
+# 13 "MCAL_layer/Timer2/../mcal_std_types.h" 2
+# 34 "MCAL_layer/Timer2/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4733,14 +4731,14 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 STD_ReturnType;
-# 13 "MCAL_layer/Interrupt/interrupt_config.h" 2
+# 13 "MCAL_layer/Timer2/Timer2.h" 2
 
-# 1 "MCAL_layer/Interrupt/../device_config.h" 1
-# 14 "MCAL_layer/Interrupt/interrupt_config.h" 2
+# 1 "MCAL_layer/Timer2/../device_config.h" 1
+# 14 "MCAL_layer/Timer2/Timer2.h" 2
 
 
-# 1 "MCAL_layer/Interrupt/../GPIO/gpio.h" 1
-# 46 "MCAL_layer/Interrupt/../GPIO/gpio.h"
+# 1 "MCAL_layer/Timer2/../GPIO/gpio.h" 1
+# 46 "MCAL_layer/Timer2/../GPIO/gpio.h"
 typedef enum
 {
     GPIO_LOW = 0,
@@ -4797,107 +4795,205 @@ STD_ReturnType gpio_port_get_direction_status(port_index_t port, uint8 *directio
 STD_ReturnType gpio_port_wrirte_logic(port_index_t port, uint8 logic);
 STD_ReturnType gpio_port_read_logic(port_index_t port, uint8 *logic);
 STD_ReturnType gpio_port_toggle_logic(port_index_t port);
-# 16 "MCAL_layer/Interrupt/interrupt_config.h" 2
-# 55 "MCAL_layer/Interrupt/interrupt_config.h"
+# 16 "MCAL_layer/Timer2/Timer2.h" 2
+
+# 1 "MCAL_layer/Timer2/../Interrupt/internal_interrupt.h" 1
+# 12 "MCAL_layer/Timer2/../Interrupt/internal_interrupt.h"
+# 1 "MCAL_layer/Timer2/../Interrupt/interrupt_config.h" 1
+# 55 "MCAL_layer/Timer2/../Interrupt/interrupt_config.h"
 typedef enum
 {
     INTERRUPT_LOW_PRIORITY,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority;
-# 12 "MCAL_layer/Interrupt/interrupt_manager.h" 2
-# 22 "MCAL_layer/Interrupt/interrupt_manager.h"
-void INT0_ISR(void);
-void INT1_ISR(void);
-void INT2_ISR(void);
-
-void RB4_ISR(void);
-void RB5_ISR(void);
-void RB6_ISR(void);
-void RB7_ISR(void);
-
-void ADC_ISR(void);
-
-void TMR0_ISR(void);
-void TMR1_ISR(void);
-void TMR2_ISR(void);
-void TMR3_ISR(void);
-# 8 "MCAL_layer/Interrupt/interrupt_manager.c" 2
-# 52 "MCAL_layer/Interrupt/interrupt_manager.c"
-void __attribute__((picinterrupt(("")))) Interrupt_Manager(void)
+# 12 "MCAL_layer/Timer2/../Interrupt/internal_interrupt.h" 2
+# 17 "MCAL_layer/Timer2/Timer2.h" 2
+# 26 "MCAL_layer/Timer2/Timer2.h"
+typedef enum
 {
+    Timer2_Prescaler_Dev_1,
+    Timer2_Prescaler_Dev_4,
+    Timer2_Prescaler_Dev_16
+}timer2_prescaler_t;
 
-    if((1 == PIE1bits.ADIE ) && (1 == PIR1bits.ADIF))
+typedef enum
+{
+    Timer2_Disable,
+    Timer2_Enable
+}timer2_Status_t;
+
+typedef enum
+{
+    Timer2_Postscaler_Dev_1,
+    Timer2_Postscaler_Dev_2,
+    Timer2_Postscaler_Dev_3,
+    Timer2_Postscaler_Dev_4,
+    Timer2_Postscaler_Dev_5,
+    Timer2_Postscaler_Dev_6,
+    Timer2_Postscaler_Dev_7,
+    Timer2_Postscaler_Dev_8,
+    Timer2_Postscaler_Dev_9,
+    Timer2_Postscaler_Dev_10,
+    Timer2_Postscaler_Dev_11,
+    Timer2_Postscaler_Dev_12,
+    Timer2_Postscaler_Dev_13,
+    Timer2_Postscaler_Dev_14,
+    Timer2_Postscaler_Dev_15,
+    Timer2_Postscaler_Dev_16
+
+}timer2_postscaler_t;
+
+typedef struct
+{
+    void(*Timer2_Interrupt_Handlar)(void);
+    interrupt_priority priority;
+    timer2_prescaler_t prescaler_value;
+    timer2_postscaler_t postscaler_value;
+    uint8 preloaded_value;
+
+}timer2_t;
+
+
+STD_ReturnType Timer2_Init(const timer2_t *timer2_confg);
+STD_ReturnType Timer2_Deinit(const timer2_t *timer2_confg);
+STD_ReturnType Timer2_Write_Value(const timer2_t *timer2_confg , uint8 value);
+STD_ReturnType Timer2_Read_Value(const timer2_t *timer2_confg , uint8 *value);
+# 8 "MCAL_layer/Timer2/Timer2.c" 2
+
+
+static __attribute__((inline)) void Timer2_Prescaler_config(const timer2_t *timer2_confg);
+static __attribute__((inline)) void Timer2_Postscaler_config(const timer2_t *timer2_confg);
+static __attribute__((inline)) void Timer2_Interrupt_init(const timer2_t *timer2_confg);
+static __attribute__((inline)) void Timer2_preloaded_value(const timer2_t *timer2_confg);
+
+
+
+static void(*TMR2_Interrupt_Handler)(void) = ((void*)0);
+
+volatile static uint8 preloaded_value = 0;
+
+
+
+
+
+
+STD_ReturnType Timer2_Init(const timer2_t *timer2_confg)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer2_confg)
     {
-        ADC_ISR();
+        ret = (STD_ReturnType)0x00;
     }
-
-
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
+    else
     {
-        if(PORTBbits.RB5 == GPIO_HIGH)
-        RB5_ISR();
-        if(PORTBbits.RB5 == GPIO_LOW)
-        RB5_ISR();
-    }
+        (T2CONbits.TMR2ON = 0);
 
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
+        Timer2_Prescaler_config(timer2_confg);
+        Timer2_preloaded_value(timer2_confg);
+        Timer2_Interrupt_init(timer2_confg);
+        TMR2_Interrupt_Handler = timer2_confg->Timer2_Interrupt_Handlar;
+
+        (T2CONbits.TMR2ON = 1);
+
+    }
+    return ret;
+}
+
+
+
+
+
+
+STD_ReturnType Timer2_Deinit(const timer2_t *timer2_confg)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer2_confg)
     {
-        if(PORTBbits.RB4 == GPIO_HIGH)
-        RB4_ISR();
-        if(PORTBbits.RB4 == GPIO_LOW)
-        RB4_ISR();
+        ret = (STD_ReturnType)0x00;
     }
-
-
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
+    else
     {
-        if(PORTBbits.RB6 == GPIO_HIGH)
-        RB6_ISR();
-        if(PORTBbits.RB6== GPIO_LOW)
-        RB6_ISR();
+        (T2CONbits.TMR2ON = 0);
+        (PIE1bits.TMR2IE = 0);
     }
+    return ret;
+}
 
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF ))
+
+
+
+
+
+
+STD_ReturnType Timer2_Write_Value(const timer2_t *timer2_confg , uint8 value)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+    if(((void*)0) == timer2_confg)
     {
-        if(PORTBbits.RB7 == GPIO_HIGH)
-        RB7_ISR();
-        if(PORTBbits.RB7 == GPIO_LOW)
-        RB7_ISR();
+        ret = (STD_ReturnType)0x00;
     }
-
-    if((1 == INTCONbits.INT0IE) && (1 == INTCONbits.INT0IF ))
+    else
     {
-        INT0_ISR();
+        TMR2 = value;
     }
+    return ret;
+}
 
-    if((1 == INTCON3bits.INT1IE) && (1 == INTCON3bits.INT1IF ))
+
+
+
+
+
+
+STD_ReturnType Timer2_Read_Value(const timer2_t *timer2_confg , uint8 *value)
+{
+    STD_ReturnType ret = (STD_ReturnType)0x01;
+
+    if((((void*)0) == timer2_confg) || (((void*)0) == value))
     {
-        INT1_ISR();
+        ret = (STD_ReturnType)0x00;
     }
-
-    if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF ))
+    else
     {
-        INT2_ISR();
+        *value = TMR2;
     }
+    return ret;
+}
 
-
-    if((1 == INTCONbits.TMR0IE) && (1 == INTCONbits.TMR0IF))
+void TMR2_ISR(void)
+{
+    (PIR1bits.TMR1IF = 0);
+    TMR2 = preloaded_value;
+    if(TMR2_Interrupt_Handler)
     {
-        TMR0_ISR();
+        TMR2_Interrupt_Handler();
     }
+}
 
-    if((1 == PIE1bits.TMR1IE) && (1 == PIR1bits.TMR1IF))
-    {
-        TMR1_ISR();
-    }
 
-    if((1 == PIE1bits.TMR2IE) && (1 == PIR1bits.TMR2IF))
-    {
-        TMR2_ISR();
-    }
 
-    if((1 == PIE2bits.TMR3IE) && (1 == PIR2bits.TMR3IF))
-    {
-        TMR3_ISR();
-    }
+static __attribute__((inline)) void Timer2_Prescaler_config(const timer2_t *timer2_confg)
+{
+    T2CONbits.T2CKPS = timer2_confg->prescaler_value;
+}
+
+static __attribute__((inline)) void Timer2_Postscaler_config(const timer2_t *timer2_confg)
+{
+    T2CONbits.TOUTPS = timer2_confg->postscaler_value;
+}
+
+static __attribute__((inline)) void Timer2_Interrupt_init(const timer2_t *timer2_confg)
+{
+    (PIE1bits.TMR2IE = 1);
+    (PIR1bits.TMR2IF = 0);
+# 149 "MCAL_layer/Timer2/Timer2.c"
+    (INTCONbits.PEIE = 1);
+    (INTCONbits.GIE = 1);
+
+
+}
+
+static __attribute__((inline)) void Timer2_preloaded_value(const timer2_t *timer2_confg)
+{
+    preloaded_value = timer2_confg->preloaded_value;
 }
