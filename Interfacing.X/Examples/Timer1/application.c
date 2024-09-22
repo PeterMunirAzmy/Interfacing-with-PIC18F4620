@@ -2,7 +2,7 @@
 
 
 void Timer1_Interrupt_function(void);
-void application_initializ(void);
+void application_initialize(void);
 
 timer1_t timer1 =
 {
@@ -19,7 +19,7 @@ STD_ReturnType ret = E_NOT_OK;
 volatile uint16 flag =0;
 int main() 
 {
-    application_initializ();
+    application_initialize();
     
     while (1) 
     {
@@ -28,10 +28,10 @@ int main()
     return (EXIT_SUCCESS);
 }
 
-void application_initializ(void)
+void application_initialize(void)
 {
     ret = Timer1_Init(&timer1);
-    ret = ecu_led_initializ(&led1);
+    ret = ecu_led_initialize(&led1);
 }
 
 

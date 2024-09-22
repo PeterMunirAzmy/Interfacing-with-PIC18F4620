@@ -11,7 +11,7 @@
  * @param _led_config
  * @return 
  */
-STD_ReturnType ecu_led_initializ(const led_config *_led_config)
+STD_ReturnType ecu_led_initialize(const led_config *_led_config)
 {
     STD_ReturnType ret = E_OK;
 

@@ -45,6 +45,18 @@
 #define TIMER3_INTERRUPT_FLAG_CLEAR()         (PIR2bits.TMR3IF = 0)
 #define TIMER3_HIGHT_BRIORITY_SET()           (IPR2bits.TMR3IP = 1)
 #define TIMER3_LOW_BRIORITY_SET()             (IPR2bits.TMR3IP = 0)
+
+#define USART_TX_INTERRUPT_ENABLE()             (PIE1bits.TXIE = 1)
+#define USART_TX_INTERRUPT_DISABLE()            (PIE1bits.TXIE = 0)
+#define USART_TX_HIGHT_BRIORITY_SET()           (IPR1bits.TXIP = 1)
+#define USART_TX_LOW_BRIORITY_SET()             (IPR1bits.TXIP = 0)
+
+#define USART_RX_INTERRUPT_ENABLE()             (PIE1bits.RCIE = 1)
+#define USART_RX_INTERRUPT_DISABLE()            (PIE1bits.RCIE = 0)
+#define USART_RX_INTERRUPT_FLAG_CLEAR()         (PIR1bits.RCIF = 0)
+#define USART_RX_HIGHT_BRIORITY_SET()           (IPR1bits.RCIP = 1)
+#define USART_RX_LOW_BRIORITY_SET()             (IPR1bits.RCIP = 0)
+
 /*Section : Data Type Declaration*/
 
 

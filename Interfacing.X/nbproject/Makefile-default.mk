@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ECU_layer/7-seg/7-seg.c ECU_layer/button/button.c ECU_layer/dc_motor/dc_motor.c ECU_layer/Keypad/keypad.c ECU_layer/lcd/lcd.c ECU_layer/led/ecu_led.c ECU_layer/relay/relay.c MCAL_layer/ADC/adc.c MCAL_layer/EEPROM/eeprom.c MCAL_layer/GPIO/gpio.c MCAL_layer/Interrupt/internal_interrupt.c MCAL_layer/Interrupt/external_interrupt.c MCAL_layer/Interrupt/interrupt_manager.c MCAL_layer/Timer0/Timer0.c MCAL_layer/Timer1/Timer1.c MCAL_layer/Timer2/Timer2.c MCAL_layer/device_config.c application.c MCAL_layer/Timer3/Timer3.c
+SOURCEFILES_QUOTED_IF_SPACED=ECU_layer/7-seg/7-seg.c ECU_layer/button/button.c ECU_layer/dc_motor/dc_motor.c ECU_layer/Keypad/keypad.c ECU_layer/lcd/lcd.c ECU_layer/led/ecu_led.c ECU_layer/relay/relay.c MCAL_layer/ADC/adc.c MCAL_layer/EEPROM/eeprom.c MCAL_layer/GPIO/gpio.c MCAL_layer/Interrupt/internal_interrupt.c MCAL_layer/Interrupt/external_interrupt.c MCAL_layer/Interrupt/interrupt_manager.c MCAL_layer/Timer0/Timer0.c MCAL_layer/Timer1/Timer1.c MCAL_layer/Timer2/Timer2.c MCAL_layer/Timer3/Timer3.c MCAL_layer/device_config.c application.c MCAL_layer/USART/USART.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU_layer/7-seg/7-seg.p1 ${OBJECTDIR}/ECU_layer/button/button.p1 ${OBJECTDIR}/ECU_layer/dc_motor/dc_motor.p1 ${OBJECTDIR}/ECU_layer/Keypad/keypad.p1 ${OBJECTDIR}/ECU_layer/lcd/lcd.p1 ${OBJECTDIR}/ECU_layer/led/ecu_led.p1 ${OBJECTDIR}/ECU_layer/relay/relay.p1 ${OBJECTDIR}/MCAL_layer/ADC/adc.p1 ${OBJECTDIR}/MCAL_layer/EEPROM/eeprom.p1 ${OBJECTDIR}/MCAL_layer/GPIO/gpio.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/internal_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/external_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/interrupt_manager.p1 ${OBJECTDIR}/MCAL_layer/Timer0/Timer0.p1 ${OBJECTDIR}/MCAL_layer/Timer1/Timer1.p1 ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1 ${OBJECTDIR}/MCAL_layer/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/ECU_layer/7-seg/7-seg.p1.d ${OBJECTDIR}/ECU_layer/button/button.p1.d ${OBJECTDIR}/ECU_layer/dc_motor/dc_motor.p1.d ${OBJECTDIR}/ECU_layer/Keypad/keypad.p1.d ${OBJECTDIR}/ECU_layer/lcd/lcd.p1.d ${OBJECTDIR}/ECU_layer/led/ecu_led.p1.d ${OBJECTDIR}/ECU_layer/relay/relay.p1.d ${OBJECTDIR}/MCAL_layer/ADC/adc.p1.d ${OBJECTDIR}/MCAL_layer/EEPROM/eeprom.p1.d ${OBJECTDIR}/MCAL_layer/GPIO/gpio.p1.d ${OBJECTDIR}/MCAL_layer/Interrupt/internal_interrupt.p1.d ${OBJECTDIR}/MCAL_layer/Interrupt/external_interrupt.p1.d ${OBJECTDIR}/MCAL_layer/Interrupt/interrupt_manager.p1.d ${OBJECTDIR}/MCAL_layer/Timer0/Timer0.p1.d ${OBJECTDIR}/MCAL_layer/Timer1/Timer1.p1.d ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1.d ${OBJECTDIR}/MCAL_layer/device_config.p1.d ${OBJECTDIR}/application.p1.d ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU_layer/7-seg/7-seg.p1 ${OBJECTDIR}/ECU_layer/button/button.p1 ${OBJECTDIR}/ECU_layer/dc_motor/dc_motor.p1 ${OBJECTDIR}/ECU_layer/Keypad/keypad.p1 ${OBJECTDIR}/ECU_layer/lcd/lcd.p1 ${OBJECTDIR}/ECU_layer/led/ecu_led.p1 ${OBJECTDIR}/ECU_layer/relay/relay.p1 ${OBJECTDIR}/MCAL_layer/ADC/adc.p1 ${OBJECTDIR}/MCAL_layer/EEPROM/eeprom.p1 ${OBJECTDIR}/MCAL_layer/GPIO/gpio.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/internal_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/external_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/interrupt_manager.p1 ${OBJECTDIR}/MCAL_layer/Timer0/Timer0.p1 ${OBJECTDIR}/MCAL_layer/Timer1/Timer1.p1 ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1 ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 ${OBJECTDIR}/MCAL_layer/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL_layer/USART/USART.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/ECU_layer/7-seg/7-seg.p1.d ${OBJECTDIR}/ECU_layer/button/button.p1.d ${OBJECTDIR}/ECU_layer/dc_motor/dc_motor.p1.d ${OBJECTDIR}/ECU_layer/Keypad/keypad.p1.d ${OBJECTDIR}/ECU_layer/lcd/lcd.p1.d ${OBJECTDIR}/ECU_layer/led/ecu_led.p1.d ${OBJECTDIR}/ECU_layer/relay/relay.p1.d ${OBJECTDIR}/MCAL_layer/ADC/adc.p1.d ${OBJECTDIR}/MCAL_layer/EEPROM/eeprom.p1.d ${OBJECTDIR}/MCAL_layer/GPIO/gpio.p1.d ${OBJECTDIR}/MCAL_layer/Interrupt/internal_interrupt.p1.d ${OBJECTDIR}/MCAL_layer/Interrupt/external_interrupt.p1.d ${OBJECTDIR}/MCAL_layer/Interrupt/interrupt_manager.p1.d ${OBJECTDIR}/MCAL_layer/Timer0/Timer0.p1.d ${OBJECTDIR}/MCAL_layer/Timer1/Timer1.p1.d ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1.d ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d ${OBJECTDIR}/MCAL_layer/device_config.p1.d ${OBJECTDIR}/application.p1.d ${OBJECTDIR}/MCAL_layer/USART/USART.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ECU_layer/7-seg/7-seg.p1 ${OBJECTDIR}/ECU_layer/button/button.p1 ${OBJECTDIR}/ECU_layer/dc_motor/dc_motor.p1 ${OBJECTDIR}/ECU_layer/Keypad/keypad.p1 ${OBJECTDIR}/ECU_layer/lcd/lcd.p1 ${OBJECTDIR}/ECU_layer/led/ecu_led.p1 ${OBJECTDIR}/ECU_layer/relay/relay.p1 ${OBJECTDIR}/MCAL_layer/ADC/adc.p1 ${OBJECTDIR}/MCAL_layer/EEPROM/eeprom.p1 ${OBJECTDIR}/MCAL_layer/GPIO/gpio.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/internal_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/external_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/interrupt_manager.p1 ${OBJECTDIR}/MCAL_layer/Timer0/Timer0.p1 ${OBJECTDIR}/MCAL_layer/Timer1/Timer1.p1 ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1 ${OBJECTDIR}/MCAL_layer/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1
+OBJECTFILES=${OBJECTDIR}/ECU_layer/7-seg/7-seg.p1 ${OBJECTDIR}/ECU_layer/button/button.p1 ${OBJECTDIR}/ECU_layer/dc_motor/dc_motor.p1 ${OBJECTDIR}/ECU_layer/Keypad/keypad.p1 ${OBJECTDIR}/ECU_layer/lcd/lcd.p1 ${OBJECTDIR}/ECU_layer/led/ecu_led.p1 ${OBJECTDIR}/ECU_layer/relay/relay.p1 ${OBJECTDIR}/MCAL_layer/ADC/adc.p1 ${OBJECTDIR}/MCAL_layer/EEPROM/eeprom.p1 ${OBJECTDIR}/MCAL_layer/GPIO/gpio.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/internal_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/external_interrupt.p1 ${OBJECTDIR}/MCAL_layer/Interrupt/interrupt_manager.p1 ${OBJECTDIR}/MCAL_layer/Timer0/Timer0.p1 ${OBJECTDIR}/MCAL_layer/Timer1/Timer1.p1 ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1 ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 ${OBJECTDIR}/MCAL_layer/device_config.p1 ${OBJECTDIR}/application.p1 ${OBJECTDIR}/MCAL_layer/USART/USART.p1
 
 # Source Files
-SOURCEFILES=ECU_layer/7-seg/7-seg.c ECU_layer/button/button.c ECU_layer/dc_motor/dc_motor.c ECU_layer/Keypad/keypad.c ECU_layer/lcd/lcd.c ECU_layer/led/ecu_led.c ECU_layer/relay/relay.c MCAL_layer/ADC/adc.c MCAL_layer/EEPROM/eeprom.c MCAL_layer/GPIO/gpio.c MCAL_layer/Interrupt/internal_interrupt.c MCAL_layer/Interrupt/external_interrupt.c MCAL_layer/Interrupt/interrupt_manager.c MCAL_layer/Timer0/Timer0.c MCAL_layer/Timer1/Timer1.c MCAL_layer/Timer2/Timer2.c MCAL_layer/device_config.c application.c MCAL_layer/Timer3/Timer3.c
+SOURCEFILES=ECU_layer/7-seg/7-seg.c ECU_layer/button/button.c ECU_layer/dc_motor/dc_motor.c ECU_layer/Keypad/keypad.c ECU_layer/lcd/lcd.c ECU_layer/led/ecu_led.c ECU_layer/relay/relay.c MCAL_layer/ADC/adc.c MCAL_layer/EEPROM/eeprom.c MCAL_layer/GPIO/gpio.c MCAL_layer/Interrupt/internal_interrupt.c MCAL_layer/Interrupt/external_interrupt.c MCAL_layer/Interrupt/interrupt_manager.c MCAL_layer/Timer0/Timer0.c MCAL_layer/Timer1/Timer1.c MCAL_layer/Timer2/Timer2.c MCAL_layer/Timer3/Timer3.c MCAL_layer/device_config.c application.c MCAL_layer/USART/USART.c
 
 
 
@@ -216,6 +216,14 @@ ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1: MCAL_layer/Timer2/Timer2.c  nbproject/
 	@-${MV} ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.d ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1: MCAL_layer/Timer3/Timer3.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_layer/Timer3" 
+	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 MCAL_layer/Timer3/Timer3.c 
+	@-${MV} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.d ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/MCAL_layer/device_config.p1: MCAL_layer/device_config.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/MCAL_layer" 
 	@${RM} ${OBJECTDIR}/MCAL_layer/device_config.p1.d 
@@ -232,13 +240,13 @@ ${OBJECTDIR}/application.p1: application.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/application.d ${OBJECTDIR}/application.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/application.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1: MCAL_layer/Timer3/Timer3.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/MCAL_layer/Timer3" 
-	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
-	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 MCAL_layer/Timer3/Timer3.c 
-	@-${MV} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.d ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/MCAL_layer/USART/USART.p1: MCAL_layer/USART/USART.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_layer/USART" 
+	@${RM} ${OBJECTDIR}/MCAL_layer/USART/USART.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_layer/USART/USART.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL_layer/USART/USART.p1 MCAL_layer/USART/USART.c 
+	@-${MV} ${OBJECTDIR}/MCAL_layer/USART/USART.d ${OBJECTDIR}/MCAL_layer/USART/USART.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/USART/USART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/ECU_layer/7-seg/7-seg.p1: ECU_layer/7-seg/7-seg.c  nbproject/Makefile-${CND_CONF}.mk 
@@ -369,6 +377,14 @@ ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1: MCAL_layer/Timer2/Timer2.c  nbproject/
 	@-${MV} ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.d ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/Timer2/Timer2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1: MCAL_layer/Timer3/Timer3.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_layer/Timer3" 
+	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 MCAL_layer/Timer3/Timer3.c 
+	@-${MV} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.d ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/MCAL_layer/device_config.p1: MCAL_layer/device_config.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/MCAL_layer" 
 	@${RM} ${OBJECTDIR}/MCAL_layer/device_config.p1.d 
@@ -385,13 +401,13 @@ ${OBJECTDIR}/application.p1: application.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/application.d ${OBJECTDIR}/application.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/application.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1: MCAL_layer/Timer3/Timer3.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/MCAL_layer/Timer3" 
-	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
-	@${RM} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1 MCAL_layer/Timer3/Timer3.c 
-	@-${MV} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.d ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/Timer3/Timer3.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/MCAL_layer/USART/USART.p1: MCAL_layer/USART/USART.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_layer/USART" 
+	@${RM} ${OBJECTDIR}/MCAL_layer/USART/USART.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_layer/USART/USART.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MCAL_layer/USART/USART.p1 MCAL_layer/USART/USART.c 
+	@-${MV} ${OBJECTDIR}/MCAL_layer/USART/USART.d ${OBJECTDIR}/MCAL_layer/USART/USART.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_layer/USART/USART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -32,7 +32,7 @@ typedef struct
 }led_config;
 
 /*Section : Function Declaration*/
-STD_ReturnType ecu_led_initializ(const led_config *_led_config);
+STD_ReturnType ecu_led_initialize(const led_config *_led_config);
 STD_ReturnType ecu_led_turn_on(const led_config *_led_config);
 STD_ReturnType ecu_led_turn_off(const led_config *_led_config);
 STD_ReturnType ecu_led_toggle(const led_config *_led_config);

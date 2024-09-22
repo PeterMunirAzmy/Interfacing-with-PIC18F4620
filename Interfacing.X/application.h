@@ -22,8 +22,7 @@
 #include "MCAL_layer/Timer0/Timer0.h"
 #include "MCAL_layer/Timer1/Timer1.h"
 #include "MCAL_layer/Timer3/Timer3.h"
-
-
+#include "MCAL_layer/USART/USART.h"
 
 
 /*Section : Macro Declaration*/
@@ -33,7 +32,7 @@
 /*Section : Data Type Declaration*/
 
 /*Section : Function Declaration*/
-void application_initializ(void);
+void application_initialize(void);
 
 
 #endif	/* APPLICATION_H */

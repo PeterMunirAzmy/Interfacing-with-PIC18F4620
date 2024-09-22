@@ -35,5 +35,8 @@ void TMR1_ISR(void);
 void TMR2_ISR(void);
 void TMR3_ISR(void);
 
+void USART_TX_ISR(void);
+void USART_RX_ISR(void);
+
 #endif	/* INTERRUPT_MANAGER_H */
 

@@ -21,4 +21,5 @@ MCAL_layer/EEPROM/../Interrupt/internal_interrupt.h  \
 MCAL_layer/ADC/adc.h  \
 MCAL_layer/Timer0/Timer0.h  \
 MCAL_layer/Timer1/Timer1.h  \
-MCAL_layer/Timer3/Timer3.h 
+MCAL_layer/Timer3/Timer3.h  \
+MCAL_layer/USART/USART.h 

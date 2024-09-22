@@ -158,6 +158,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36 MCAL_layer/Interrupt/interrupt_manager.h
 [; ;MCAL_layer/Interrupt/interrupt_manager.h: 36: void TMR3_ISR(void);
 [v _TMR3_ISR `(v ~T0 @X0 0 ef ]
+"38
+[; ;MCAL_layer/Interrupt/interrupt_manager.h: 38: void USART_TX_ISR(void);
+[v _USART_TX_ISR `(v ~T0 @X0 0 ef ]
+"39
+[; ;MCAL_layer/Interrupt/interrupt_manager.h: 39: void USART_RX_ISR(void);
+[v _USART_RX_ISR `(v ~T0 @X0 0 ef ]
 "54 G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -778,7 +784,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL_layer/Interrupt/interrupt_manager.c: 128:     }
 }
 [e :U 294 ]
-"129
-[; ;MCAL_layer/Interrupt/interrupt_manager.c: 129: }
+"130
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 130:     if((1 == PIE1bits.TXIE) && (1 == PIR1bits.TXIF))
+[e $ ! && == -> 1 `i -> . . _PIE1bits 0 4 `i == -> 1 `i -> . . _PIR1bits 0 4 `i 295  ]
+"131
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 131:     {
+{
+"132
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 132:         USART_TX_ISR();
+[e ( _USART_TX_ISR ..  ]
+"133
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 133:     }
+}
+[e :U 295 ]
+"135
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 135:     if((1 == PIE1bits.RCIE) && (1 == PIR1bits.RCIF))
+[e $ ! && == -> 1 `i -> . . _PIE1bits 0 5 `i == -> 1 `i -> . . _PIR1bits 0 5 `i 296  ]
+"136
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 136:     {
+{
+"137
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 137:         USART_RX_ISR();
+[e ( _USART_RX_ISR ..  ]
+"138
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 138:     }
+}
+[e :U 296 ]
+"139
+[; ;MCAL_layer/Interrupt/interrupt_manager.c: 139: }
 [e :UE 274 ]
 }

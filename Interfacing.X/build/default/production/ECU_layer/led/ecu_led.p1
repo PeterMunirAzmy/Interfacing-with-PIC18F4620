@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "14 ECU_layer/led/ecu_led.c
-[; ;ECU_layer/led/ecu_led.c: 14: STD_ReturnType ecu_led_initializ(const led_config *_led_config)
+[; ;ECU_layer/led/ecu_led.c: 14: STD_ReturnType ecu_led_initialize(const led_config *_led_config)
 [c E2999 0 1 2 3 4 .. ]
 [n E2999 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E2989 0 1 2 3 4 5 6 7 .. ]
@@ -440,14 +440,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;G:/C_Extention/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "14 ECU_layer/led/ecu_led.c
-[; ;ECU_layer/led/ecu_led.c: 14: STD_ReturnType ecu_led_initializ(const led_config *_led_config)
-[v _ecu_led_initializ `(uc ~T0 @X0 1 ef1`*CS274 ]
+[; ;ECU_layer/led/ecu_led.c: 14: STD_ReturnType ecu_led_initialize(const led_config *_led_config)
+[v _ecu_led_initialize `(uc ~T0 @X0 1 ef1`*CS274 ]
 "15
 [; ;ECU_layer/led/ecu_led.c: 15: {
 {
-[e :U _ecu_led_initializ ]
+[e :U _ecu_led_initialize ]
 "14
-[; ;ECU_layer/led/ecu_led.c: 14: STD_ReturnType ecu_led_initializ(const led_config *_led_config)
+[; ;ECU_layer/led/ecu_led.c: 14: STD_ReturnType ecu_led_initialize(const led_config *_led_config)
 [v __led_config `*CS274 ~T0 @X0 1 r1 ]
 "15
 [; ;ECU_layer/led/ecu_led.c: 15: {

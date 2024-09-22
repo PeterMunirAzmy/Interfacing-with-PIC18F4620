@@ -126,6 +126,16 @@ void __interrupt() Interrupt_Manager(void)
     {
         TMR3_ISR();
     }
+    /* ------------------------------ USART TX interrupt ------------------------------ */
+    if((INTERRUPT_ENABLE == PIE1bits.TXIE) && (INTERRUPT_OCCUR == PIR1bits.TXIF))
+    {
+        USART_TX_ISR();
+    }
+    /* ------------------------------ USART RX interrupt ------------------------------ */
+    if((INTERRUPT_ENABLE == PIE1bits.RCIE) && (INTERRUPT_OCCUR == PIR1bits.RCIF))
+    {
+        USART_RX_ISR();
+    }
 }
 
 #endif

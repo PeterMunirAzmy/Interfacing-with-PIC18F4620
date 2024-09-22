@@ -4821,6 +4821,9 @@ void TMR0_ISR(void);
 void TMR1_ISR(void);
 void TMR2_ISR(void);
 void TMR3_ISR(void);
+
+void USART_TX_ISR(void);
+void USART_RX_ISR(void);
 # 8 "MCAL_layer/Interrupt/interrupt_manager.c" 2
 # 52 "MCAL_layer/Interrupt/interrupt_manager.c"
 void __attribute__((picinterrupt(("")))) Interrupt_Manager(void)
@@ -4899,5 +4902,15 @@ void __attribute__((picinterrupt(("")))) Interrupt_Manager(void)
     if((1 == PIE2bits.TMR3IE) && (1 == PIR2bits.TMR3IF))
     {
         TMR3_ISR();
+    }
+
+    if((1 == PIE1bits.TXIE) && (1 == PIR1bits.TXIF))
+    {
+        USART_TX_ISR();
+    }
+
+    if((1 == PIE1bits.RCIE) && (1 == PIR1bits.RCIF))
+    {
+        USART_RX_ISR();
     }
 }
